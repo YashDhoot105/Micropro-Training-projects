@@ -1,0 +1,95 @@
+* {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 5% 10% 5% 10%;
+  padding: 20px 20px 20px 20px;
+  box-shadow: rgb(255, 229, 229) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  border-radius: 10px;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.registration-form-heading {
+  color: red;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  padding: 5% 5% 5% 5%;
+}
+
+.form-group {
+  margin: 10px 5% 10px 5%;
+  padding: 10px 10px 10px 10px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 20px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea,
+.form-group button {
+  width: 100%;
+  padding: 10px 10px 10px 10px;
+  font-size: 16px;
+  margin: 5px 0 0 0;
+  border: none;
+  border-bottom: 1px solid gray;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+.form-group button:focus {
+  outline: none;
+  border-bottom: 2px solid red;
+}
+.form-group input[type=checkbox],
+.form-group input[type=radio] {
+  margin: 0px 10px 0px 0px;
+  width: auto;
+}
+
+#file {
+  border: none;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0px 0px 0px;
+}
+.buttons button {
+  margin: 10px 10px 10px 10px;
+  padding: 5px 5px 5px 5px;
+  background-color: red;
+  color: white;
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+}
+.buttons button:hover {
+  color: red;
+  background-color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    margin: 5% 5% 5% 5%;
+    /* background-color: blue; */
+  }
+  .form-group {
+    margin: 10px 2% 10px 2%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .container {
+    margin: 5% 2% 5% 2%;
+    /* background-color: black; */
+  }
+  .form-group {
+    margin: 10px 1% 10px 1%;
+  }
+}/*# sourceMappingURL=form.css.map */

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Micropro</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <div class="header-photo">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWYxvjEZex_7ej551c5BrCZgkSfiQybVHZoQ&s"
+                    alt="Company logo">
+                <div class="logo">Micropro</div>
+            </div>
+            <nav class="navbar">
+                <ul class="laptop-navbar">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about-us">About Us</a></li>
+                    <li><a href="#contact-us">Contact Us</a></li>
+                    <li><a href="#login">Services</a></li>
+                    <li><a href="#logout">Job portal</a></li>
+                </ul>
+
+                <ul class="sidebar">
+                    <li><a href="#"><button class="close-hamburger-btn" onclick=hidesidebar()>*</button></a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about-us">About Us</a></li>
+                    <li><a href="#contact-us">Contact Us</a></li>
+                    <li><a href="#login">Services</a></li>
+                    <li><a href="#logout">Job portal</a></li>
+                    <li><a href="#logout">Register</a></li>
+                    <li><a href="#login">Login</a></li>
+                </ul> 
+            </nav>
+            <div class="register-login-btn-container">
+                <button class="register-btn" autofocus>Register</button>
+                <button class="login-btn">Login</button>
+                <button class="hamburger-btn" onclick=showsidebar()>=</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <main>
+            <div class="main-content">
+                <div class="text-content">
+                    <h1>Welcome to <span class="micropro-heading">Micropro</span></h1>
+                    <p>Micropro is a leading provider of innovation solutions across various domains including
+                        healthcare, pharmaceuticals, and agriculture. Our dedicated team of professionals works
+                        tirelessly to bring best products and services to our clients, ensuring quality and reliability
+                    </p>
+                    <button class="explore-btn">Explore our Products <img
+                            src="https://cdn-icons-png.flaticon.com/128/664/664866.png" loading="lazy"
+                            alt="Right arrow " width="20" height="16"></button>
+                </div>
+                <div class="image-content">
+                    <img decoding="async" src="//www.microproindia.com/wp-content/uploads/2023/06/slider-h3-3a.png"
+                        alt="" class="tp-rs-img rs-lazyload" width="1260" height="767"
+                        data-lazyload="//www.microproindia.com/wp-content/uploads/2023/06/slider-h3-3a.png"
+                        data-no-retina=""
+                        style="touch-action: manipulation; position: relative; height: 100%; width: 100%;"
+                        data-src-rs-ref="//www.microproindia.com/wp-content/uploads/2023/06/slider-h3-3a.png">
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- <div class="container">
+    <nav class="sidebar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about-us">About Us</a></li>
+            <li><a href="#contact-us">Contact Us</a></li>
+            <li><a href="#login">Login</a></li>
+            <li><a href="#logout">Logout</a></li>
+        </ul>
+    </nav>
+</div> -->
+
+
+<script>
+    function showsidebar() {
+        const sidebar = document.querySelector(".sidebar")
+        sidebar.style.display = 'flex'
+        if(document.querySelector(".laptop-navbar").style.display == 'flex'){
+            const sidebar = document.querySelector(".sidebar")
+            sidebar.style.display = 'none'
+        }
+    }
+
+    function hidesidebar() {
+        const sidebar = document.querySelector(".sidebar")
+        sidebar.style.display = 'none'
+    }
+
+
+</script>
+
+</body>
+
+</html>

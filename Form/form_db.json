@@ -1,0 +1,212 @@
+{
+  "user_details": [
+    {
+      "id": "c05c",
+      "name": "Yash Dhoot",
+      "email": "yashdhoot105@gmail.com",
+      "phone_number": "7083056084",
+      "age": "22",
+      "password": "AVsf",
+      "gender": "male",
+      "date_of_birth": "2002-05-01",
+      "salary": "248954",
+      "website": "https://stackoverflow.com/questions/42011100/how-can-i-pass-post-parameters-in-fetch-request-react-native",
+      "vehical": "bike",
+      "status": "employed",
+      "messsge": "hii"
+    },
+    {
+      "id": "c717",
+      "name": "jhw",
+      "email": "bds",
+      "phone_number": "243333",
+      "age": "53",
+      "password": "shdv",
+      "gender": "male",
+      "date_of_birth": "0004-03-02",
+      "salary": "500000",
+      "website": "https://www.google.com/search?channel=fs&client=ubuntu-sn&q=what+should+be+the+parameters+of+fetch+for+post+method",
+      "vehical": "bike",
+      "status": "employed",
+      "messsge": "SNV"
+    },
+    {
+      "id": "eb00",
+      "name": "jhw",
+      "email": "bds",
+      "phone_number": "243333",
+      "age": "53",
+      "password": "",
+      "gender": "male",
+      "date_of_birth": "0004-03-02",
+      "salary": "500000",
+      "website": "https://www.google.com/search?channel=fs&client=ubuntu-sn&q=what+should+be+the+parameters+of+fetch+for+post+method",
+      "vehical": "bike",
+      "status": "employed",
+      "messsge": "SNV"
+    },
+    {
+      "id": "9782",
+      "name": "jhw",
+      "email": "bds",
+      "phone_number": "243333",
+      "age": "53",
+      "password": "",
+      "gender": "male",
+      "date_of_birth": "0004-03-02",
+      "salary": "500000",
+      "website": "https://www.google.com/search?channel=fs&client=ubuntu-sn&q=what+should+be+the+parameters+of+fetch+for+post+method",
+      "vehical": "bike",
+      "status": "employed",
+      "messsge": "SNV"
+    },
+    {
+      "id": "4157",
+      "name": "qqqq1",
+      "email": "agqecqfuw@gmail.com",
+      "phone_number": "7086734221",
+      "age": "27",
+      "password": "",
+      "gender": "female",
+      "date_of_birth": "2000-05-01",
+      "salary": "417690",
+      "website": "https://stackoverflow.com/questions/42011100/how-can-i-pass-post-parameters-in-fetch-request-react-native",
+      "vehical": "bike",
+      "status": "employed",
+      "messsge": "hii jvd wE"
+    },
+    {
+      "id": "90c3",
+      "name": "qqqq1",
+      "email": "agqecqfuw@gmail.com",
+      "phone_number": "7086734221",
+      "age": "27",
+      "password": "",
+      "gender": "female",
+      "date_of_birth": "2000-05-01",
+      "salary": "417690",
+      "website": "https://stackoverflow.com/questions/42011100/how-can-i-pass-post-parameters-in-fetch-request-react-native",
+      "vehical": "bike",
+      "status": "employed",
+      "messsge": "hii jvd wE"
+    },
+    {
+      "id": "3f3d",
+      "name": "qqqq1",
+      "email": "agqecqfuw@gmail.com",
+      "phone_number": "7086734221",
+      "age": "27",
+      "password": "",
+      "gender": "female",
+      "date_of_birth": "2000-05-01",
+      "salary": "417690",
+      "website": "https://stackoverflow.com/questions/42011100/how-can-i-pass-post-parameters-in-fetch-request-react-native",
+      "vehical": "bike",
+      "status": "employed",
+      "messsge": "hii jvd wE"
+    },
+    {
+      "id": "0052",
+      "name": "random",
+      "email": "mnevgwe",
+      "phone_number": "123456789",
+      "age": "31",
+      "password": "",
+      "gender": "female",
+      "date_of_birth": "9494-09-04",
+      "salary": "355957",
+      "website": "https://stackoverflow.com/questions/42011100/how-can-i-pass-post-parameters-in-fetch-request-react-native",
+      "vehical": [
+        "car",
+        "boat"
+      ],
+      "status": "unemployed",
+      "message": "weven"
+    },
+    {
+      "id": "6bc6",
+      "name": "dzg",
+      "email": "sssdv",
+      "phone_number": "",
+      "age": "",
+      "password": "",
+      "gender": "female",
+      "date_of_birth": "3333-03-09",
+      "salary": "500000",
+      "website": "",
+      "vehical": [
+        "boat"
+      ],
+      "status": "unemployed",
+      "message": "y"
+    },
+    {
+      "id": "4de9",
+      "name": "ab",
+      "email": "SWV",
+      "phone_number": "12345678",
+      "age": "32",
+      "password": "AREGBAERG",
+      "gender": "female",
+      "date_of_birth": "2222-12-22",
+      "salary": "58814",
+      "website": "http://localhost:3000/user_details",
+      "vehical": [
+        "car"
+      ],
+      "status": "employed",
+      "message": "UR"
+    },
+    {
+      "id": "b288",
+      "name": "ab",
+      "email": "SWV",
+      "phone_number": "12345678",
+      "age": "32",
+      "password": "",
+      "gender": "female",
+      "date_of_birth": "2222-12-22",
+      "salary": "58814",
+      "website": "http://localhost:3000/user_details",
+      "vehical": [
+        "car"
+      ],
+      "status": "employed",
+      "message": "UR"
+    },
+    {
+      "id": "b309",
+      "name": "aebr",
+      "email": "areb",
+      "phone_number": "aerb",
+      "age": "123",
+      "password": "arg",
+      "gender": "male",
+      "date_of_birth": "0032-02-03",
+      "salary": "500000",
+      "website": "qef",
+      "vehical": [
+        "car"
+      ],
+      "status": "employed",
+      "message": "sv"
+    },
+    {
+      "id": "ba4b",
+      "name": "aebr",
+      "email": "areb",
+      "phone_number": "aerb",
+      "age": "123",
+      "password": "",
+      "gender": "male",
+      "date_of_birth": "0032-02-03",
+      "salary": "500000",
+      "website": "qef",
+      "vehical": [
+        "car"
+      ],
+      "status": "employed",
+      "message": "sv"
+    }
+  ]
+}

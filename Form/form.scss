@@ -1,0 +1,126 @@
+$primary-color : red;
+$secondary-color : gray;
+$white-color : white;
+$font-montserrat : "Montserrat", sans-serif;
+$font-space-grotesk : "Space Grotesk" , sans-serif;
+$box-shadow : rgb(255, 229, 229) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+$border-radius : 10px;
+$size : 1;
+$border-bottom-before-hover :1px solid gray;
+$border-bottom-after-hover : 2px solid red;
+$center : center;
+$none : none;
+
+@mixin margin ($margin-top , $margin-right , $margin-bottom , $margin-left) {
+    margin: $margin-top $margin-right $margin-bottom $margin-left;
+}
+
+@mixin padding ($padding-top , $padding-right , $padding-bottom , $padding-left) {
+    padding: $padding-top $padding-right $padding-bottom  $padding-left;
+}
+
+* {
+    @include margin ( 0, 0 , 0, 0);
+    @include padding ( 0, 0 , 0, 0);
+    box-sizing: border-box;
+}
+
+.container {
+    @include margin(5%, 10%, 5%, 10%);
+    @include padding(20px, 20px, 20px, 20px);
+    box-shadow: $box-shadow;
+    border-radius: $border-radius;
+    overflow: hidden;
+    max-width: $size*100%;
+}
+
+.registration-form-heading {
+    color: $primary-color;
+    font-family: $font-montserrat;
+    text-align: $center;
+    @include padding(5%, 5%, 5%, 5%)
+}
+
+.form-group {
+    @include margin(10px, 5%, 10px, 5%);
+    @include padding(10px, 10px, 10px, 10px);
+    font-family: $font-space-grotesk;
+    font-size: $size*20px;
+
+     input,
+     select,
+     textarea,
+     button {
+        width: $size*100%;
+        @include padding(10px, 10px, 10px, 10px);
+        font-size: $size*16px;
+        @include margin (5px, 0, 0, 0);
+        border: $none;
+        border-bottom: $border-bottom-before-hover;
+    }
+    
+     input:focus,
+     select:focus,
+     textarea:focus,
+     button:focus {
+        outline: $none;
+        border-bottom: $border-bottom-after-hover;
+    }
+
+     input[type="checkbox"],
+     input[type="radio"] {
+        @include margin(0px, 10px, 0px, 0px);
+        width: auto;
+    }
+}
+
+#file {
+    border: $none;
+}
+
+.buttons {
+    display: flex;
+    justify-content: $center;
+    @include margin(20px, 0px, 0px, 0px);
+
+     button {
+        @include margin(10px, 10px, 10px, 10px);
+        @include padding(5px, 5px, 5px, 5px);
+        background-color: $primary-color;
+        color: $white-color;
+        width: $size*100px;
+        height: $size*50px;
+        border-radius: $border-radius;
+        cursor: pointer;
+        font-size: $size*15px;
+
+        &:hover {
+            color: $primary-color;
+            background-color: $white-color;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        @include margin(5%, 5%, 5%, 5%);
+    }
+
+    .form-group {
+        @include margin(10px, 2%, 10px, 2%);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        @include margin(5%, 2%, 5%, 2%);
+    }
+
+    .form-group {
+        @include margin(10px, 1%, 10px, 1%);
+    }
+}
+
+
+
+

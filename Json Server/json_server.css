@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10%; 
+    margin-bottom: 10%; 
+}
+
+.header input {
+    font-size: 20px;
+    border: none;
+    border-bottom: 1px solid gray;
+    padding: 10px 20px;
+    width: 40%; 
+    margin: 10px;
+    outline: none;
+}
+
+.header input:focus {
+    border-bottom: 2px solid red;
+}
+
+button.filter-button {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+button.filter-button:hover {
+    color: red;
+    background-color: rgb(255, 243, 243);
+}
+
+.data-table {
+    width: 100%;
+    margin-top: 40px; 
+    border-collapse: collapse;
+    border-radius: 20px;
+    font-family: "Space Grotesk";
+    box-shadow: rgb(255, 229, 229) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    border-radius: 15px; 
+    overflow: hidden;
+}
+
+.data-table thead {
+    background-color: red;
+    color: white;
+}
+
+.data-table th, .data-table td {
+    padding: 12px;
+    text-align: left;
+    /* border: 1px solid #ddd; */
+}
+
+/* .data-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+} */
+
+.data-table tbody tr:hover {
+    background-color: #ffefef;
+    color: red;
+    cursor: pointer;
+}
+
+
+
+
+
+

@@ -1,0 +1,313 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+/* html{
+    background-color: #f1f1f1;
+} */
+
+header {
+    padding: 10px 40px;
+    background-color: #ffffff;
+    color: #000000;
+    box-shadow: rgb(255, 229, 229) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    margin-bottom: 80px;
+    /* backdrop-filter: blur(30px); */
+    /* width: auto; */
+
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-inline: 40px;
+    /* backdrop-filter: blur(20px); */
+}
+
+.header-photo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-right: 20px;
+}
+
+.header-photo img {
+    height: 50px;
+    border-radius: 10px;
+}
+
+.header-photo .logo {
+    margin-top: 10px;
+    font-size: 18px;
+    text-align: center;
+}
+
+nav {
+    margin-left: -20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000000;
+    padding: 10px 15px;
+    width: 100%;
+    /* flex: 1; */
+    font-weight: 500;
+}
+
+nav ul li a:hover {
+    color: red;
+
+}
+
+.container {
+    margin: 20px;
+    max-width: min(1300px, (100% - 20px));
+    margin-inline: auto;
+}
+
+main {
+    padding: 20px;
+}
+
+.main-content {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    gap: 100px;
+}
+
+.text-content {
+    text-align: center;
+}
+
+span {
+    /* color: red; */
+    background: linear-gradient(to right, #ff0000, #f54949, #ff8e31);
+    /* background: linear-gradient(to right, #f32170, #ff6b08,#cf23cf, #eedd44); */
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.text-content h1 {
+    font-size: 40px;
+    font-family: "Space Grotesk";
+    padding: 20px;
+}
+
+.text-content p {
+    font-weight: 200;
+    padding: 20px;
+    padding-inline: 40px;
+}
+
+.image-content {
+    box-shadow: rgba(236, 35, 35, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px;
+    border-radius: 20px;
+}
+
+.image-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.explore-btn {
+    margin-top: 30px;
+    margin-inline: auto;
+    color: rgb(255, 255, 255);
+    background-color: red;
+    padding: 20px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.explore-btn:hover {
+    color: red;
+    background-color: white;
+    cursor: pointer;
+}
+
+button img {
+    padding-top: 5px;
+}
+
+.register-login-btn-container {
+    background-color: #ffffff;
+    border-radius: 20px;
+}
+
+.register-btn,
+.login-btn {
+    font-size: 15px;
+    font-weight: 500;
+    padding: 20px;
+    border-radius: 0px 20px 20px 0px;
+    background-color: transparent;
+    border: none;
+}
+
+.register-btn {
+    border-radius: 20px 0px 0px 20px;
+}
+
+.register-btn:hover {
+    cursor: pointer;
+}
+
+.login-btn :hover {
+    cursor: pointer;
+}
+
+.register-btn:focus,
+.login-btn:focus {
+    background-color: #ff0000;
+    color: white;
+    transition: .8s ease;
+    cursor: pointer;
+}
+
+.laptop-navbar li {
+    position: relative;
+}
+
+.laptop-navbar li a:hover::before,
+.laptop-navbar li a:hover::after {
+    width: 100%;
+    /* color: #3236fd; */
+}
+
+.laptop-navbar a::before,
+.laptop-navbar a::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    background-color: red;
+    /* Change the color as desired */
+    transition: width .8s ease-in-out;
+    /* Adjust the duration and easing as needed */
+}
+
+.laptop-navbar a::before {
+    transform-origin: left;
+}
+
+.laptop-navbar a::after {
+    transform-origin: right;
+}
+
+.hamburger-btn {
+    display: none;
+}
+
+/* .sidebar li{
+    display: none;
+    background-color: #732e2e;
+} */
+
+.close-hamburger-btn {
+    padding: 10px 20px;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    z-index: 999;
+    background-color: rgb(226, 43, 43), 0.2;
+    backdrop-filter: blur(20px);
+    width: 70%;
+    height: 100%;
+    align-items: flex-start;
+    /* margin-top: 50px; */
+    padding: 80px 20px;
+}
+
+.sidebar li {
+    padding: 20px;
+    width: 100%;
+}
+
+.sidebar li:hover {
+    color: red;
+    /* background-color: white; */
+    border-radius: 20px 0px 0px 20px;
+}
+
+@media screen and (max-width: 1040px) {
+    .header-content {
+        margin-inline: 10px;
+    }
+
+    .laptop-navbar,
+    .register-btn,
+    .login-btn {
+        display: none;
+    }
+
+    .hamburger-btn {
+        display: grid;
+        padding: 15px 20px;
+    }
+
+    .main-content {
+
+        gap: 30px;
+    }
+
+
+    /* 
+    .sidebar li {
+        position: fixed;
+        top: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        z-index: 999;
+        background-color: blueviolet;
+        width: 250px;
+        height: 100vh;
+    } */
+}
+
+
+@media screen and (max-width: 830px) {
+    .navbar ul {
+        flex-direction: column;
+        /* inset: 0 0 0 10%; */
+    }
+
+    .navbar ul li {
+        padding: 20px;
+    }
+
+    .main-content {
+        grid-auto-flow: row;
+        grid-auto-rows: 1fr;
+        gap: 30px;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .sidebar {
+        width: 100%;
+    }
+}

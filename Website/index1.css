@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header-content{
+    display: grid;
+    grid-template-areas: 'one one home about contact login logout'
+    'two two home about contact login logout';
+}
+
+img {
+    grid-area: one;
+}
+
+.logo {
+    grid-area: two;
+}
+
+li:nth-child(1){
+    grid-area: home;
+}
+
+li:nth-child(2){
+    grid-area: about;
+}
+
+li:nth-child(3){
+    grid-area: contact;
+}
+
+li:nth-child(4){
+    grid-area: login;
+}
+
+li:nth-child(5){
+    grid-area: logout;
+}

@@ -1,0 +1,226 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    margin: 5% 10%; 
+    padding: 20px;
+    box-shadow: rgb(255, 229, 229) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 100%; 
+}
+
+.registration-form-heading {
+    color: red;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    padding: 5%;
+}
+
+.form-group {
+    margin: 10px 5%;
+    padding: 10px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 20px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea,
+.form-group button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 5px;
+    border: none;
+    border-bottom: 1px solid gray;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+.form-group button:focus {
+    outline: none;
+    border-bottom: 2px solid red;
+}
+
+.form-group input[type="checkbox"],
+.form-group input[type="radio"] {
+    margin-right: 10px; 
+    width: auto;
+}
+
+#file {
+    border: none;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.buttons button {
+    margin: 10px;
+    background-color: red;
+    color: white;
+    padding: 5px;
+    width: 100px;
+    height: 50px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.buttons button:hover {
+    color: red;
+    background-color: white;
+}
+
+.data-table {
+    margin: 5%;
+    /* margin-right: 5%; */
+    border-collapse: collapse;
+    font-family: "Space Grotesk";
+    box-shadow: rgb(255, 229, 229) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    border-radius: 15px; 
+    /* overflow-x: auto; */
+}
+
+.data-table thead {
+    background-color: red;
+    color: white;
+}
+
+.data-table th, .data-table td {
+    padding: 12px;
+    text-align: left;
+    /* border: 1px solid #ddd; */
+}
+
+/* .data-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+} */
+
+.data-table tbody tr:hover {
+    background-color: #ffefef;
+    color: red;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        margin: 5% 5%;
+    }
+
+    .form-group {
+        margin: 10px 2%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        margin: 5% 2%;
+    }
+
+    .form-group {
+        margin: 10px 1%;
+    }
+}
+
+
+
+
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    margin: 5% 20%;
+    max-width: 800px;
+    padding: 20px;
+    box-shadow: rgb(255, 229, 229) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.registration-form-heading {
+    color: red;
+    font-family: "Montserrat";
+    text-align: center;
+    padding: 5%;
+}
+
+.form-group {
+    margin: 5px 50px 5px 50px;
+    padding: 10px;
+    font-family: "Space Grotesk";
+    font-size: 20px;
+}
+
+.form-group input {
+    font-size: 20px;
+    border: none;
+    border-bottom: 1px solid gray;
+    padding-left: 20px;
+    margin-left: 20px;
+    width: 60%;
+}
+
+.form-group input:focus {
+    border-bottom: 2px solid red;
+    outline: none;
+}
+
+#file{
+    border: none;
+}
+
+button {
+    background-color: red;
+    color: white;
+    padding: 5px;
+    width: 100px;
+    height: 50px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 15px;
+    margin-left: 25%;
+    margin-top: 20px;
+}
+
+button:hover{
+    color: red;
+    background-color: white;
+}
+
+.form-group select {
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+#vehical-1 {
+    width: 20px;
+}
+
+#vehical-2 {
+    width: 20px;
+}
+
+#vehical-3 {
+    width: 20px;
+}
+
+#employed{
+    width: 20px;
+}
+
+#unemployed{
+    width: 20px;
+} */

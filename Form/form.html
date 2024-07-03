@@ -1,0 +1,264 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="formcss.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="registration-form-heading">Registration form</h1>
+        <form>
+            <div class="form-group">
+                <label for="name">Name : </label>
+                <input type="text" id="name" name="name" placeholder="Enter your name here...">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email : </label>
+                <input type="email" id="email" name="email" placeholder="Enter your email here...">
+            </div>
+
+            <div class="form-group">
+                <label for="phone-number">Phone Number : </label>
+                <input type="tel" id="phone-number" class="phone-number" placeholder="Enter your Phone Number here...">
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age : </label>
+                <input type="number" id="age" class="age" placeholder="Enter your Age here...">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password : </label>
+                <input type="password" id="password" name="password" placeholder="Enter your password here...">
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender : </label>
+                <select name="gender" id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="date-of-birth"> Date of Birth : </label>
+                <input type="date" id="date-of-birth" class="date-of-birth">
+            </div>
+
+            <div class="form-group">
+                <label for="salary">Salary : </label>
+                <input type="range" name="salary" id="salary" min="0" max="1000000" oninput="this.nextElementSibling.value = this.value">
+                <output>500000</output>
+            </div>
+
+            <div class="form-group">
+                <label for="website">Website : </label>
+                <input type="url" name="website" id="website" placeholder="Enter your website url here...">
+            </div>
+
+            <div class="form-group">
+                <div>Select the vehical you have : </div>
+                <input type="checkbox" name="vehical-1" id="vehical-1" class="vehical" value="bike">
+                <label for="vehical-1">Bike</label>
+                <input type="checkbox" name="vehical-2" id="vehical-2" class="vehical" value="car">
+                <label for="vehical-2">Car</label>
+                <input type="checkbox" name="vehical-3" id="vehical-3" class="vehical" value="boat">
+                <label for="vehical-3">Boat</label>
+            </div>
+
+            <div class="form-group">
+                <div>Status : </div>
+                <input type="radio" class="status" id="employed" name="status" value="employed">
+                <label for="employed">Employed</label><br>
+                <input type="radio" class="status" id="unemployed" name="status" value="unemployed">
+                <label for="unemployed">Unemployed</label><br>
+            </div>
+
+            <div class="form-group">
+                <label for="file">File : </label>
+                <input type="file" id="file" name="file">
+            </div>
+
+            <div class="form-group">
+                <label for="textarea">Type your Message : </label>
+                <textarea id="textarea" name="textarea" rows="1"></textarea>
+            </div>
+
+        <div class="buttons">
+            <button type="button" class="submit" id="submit" onclick="submit_form(event)">Submit</button>
+            <button type="reset" class="reset" id="reset">Reset</button>
+            <button type="view" class="view" id="view" onclick="view_details()">View</button>
+        </div>
+
+        </form>
+    </div>
+
+    <div id="form-details-container">
+        <table class="table1"></table>
+    </div>
+
+    <script src="form.js"></script>
+</body>
+
+</html> -->
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="formcss.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="registration-form-heading">Registration form</h1>
+        <!-- <h1>User Details Form</h1> -->
+
+        <form>
+            <div class="form-group">
+                <label for="name">Name : </label>
+                <input type="text" id="name" name="name" placeholder="Enter your name here...">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email : </label>
+                <input type="email" id="email" name="email" placeholder="Enter your email here...">
+            </div>
+
+            <div class="form-group">
+                <label for="phone-number">Phone Number : </label>
+                <input type="tel" id="phone-number" class="phone-number" placeholder="Enter your Phone Number here...">
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age : </label>
+                <input type="number" id="age" class="age" placeholder="Enter your Age here...">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password : </label>
+                <input type="password" id="password" name="password" placeholder="Enter your password here...">
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender : </label>
+                <select name="gender" id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="date-of-birth"> Date of Birth : </label>
+                <input type="date" id="date-of-birth" class="date-of-birth">
+            </div>
+
+            <div class="form-group">
+                <label for="salary">Salary : </label>
+                <input type="range" name="salary" id="salary" min="0" max="1000000"
+                    oninput="this.nextElementSibling.value = this.value">
+                <output>500000</output>
+            </div>
+
+            <div class="form-group">
+                <label for="website">Website : </label>
+                <input type="url" name="website" id="website" placeholder="Enter your website url here...">
+            </div>
+
+            <div class="form-group">
+                <div>Select the vehical you have : </div>
+                <input type="checkbox" name="vehical-1" id="vehical-1" class="vehical" value="bike">
+                <label for="vehical-1">Bike</label>
+                <input type="checkbox" name="vehical-2" id="vehical-2" class="vehical" value="car">
+                <label for="vehical-2">Car</label>
+                <input type="checkbox" name="vehical-3" id="vehical-3" class="vehical" value="boat">
+                <label for="vehical-3">Boat</label>
+            </div>
+
+            <div class="form-group">
+                <div>Status : </div>
+                <input type="radio" class="status" id="employed" name="status" value="employed">
+                <label for="employed">Employed</label><br>
+                <input type="radio" class="status" id="unemployed" name="status" value="unemployed">
+                <label for="unemployed">Unemployed</label><br>
+            </div>
+
+            <!-- <div class="form-group">
+            <label for="file">File : </label>
+            <input type="file" id="file" name="file">
+        </div> -->
+
+            <div class="form-group">
+                <label for="textarea">Type your Message : </label>
+                <textarea id="textarea" name="textarea" rows="1"></textarea>
+            </div>
+
+            <div class="buttons">
+                <button type="button" class="submit" id="user-details-form" onclick="submit_form(event)">Submit</button>
+                <button type="reset" class="reset" id="reset">Reset</button>
+                <button id="fetch-details-btn" onclick="view_details()">View</button>
+            </div>
+        </form>
+    </div>
+
+    <hr>
+
+    <h2 class="registration-form-heading">User Details</h2>
+
+    <!-- <button id="fetch-details-btn">Fetch Details</button> -->
+    <div style="overflow-x: auto;">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Age</th>
+                    <th>Password</th>
+                    <th>Gender</th>
+                    <th>Date of Birth</th>
+                    <th>Salary</th>
+                    <th>Website</th>
+                    <th>Vehicles</th>
+                    <th>Employment Status</th>
+                    <th>Message</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+    <script src="form.js"></script>
+</body>
+
+</html>
