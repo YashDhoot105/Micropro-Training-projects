@@ -164,12 +164,19 @@ button img {
     border-radius: 20px 0px 0px 20px;
 }
 
+
 .register-btn:hover {
     cursor: pointer;
+    background-color: rgb(249, 216, 216);
+    border-radius: 20px 0px 0px 20px;
 }
 
-.login-btn :hover {
+.login-btn:hover {
     cursor: pointer;
+    background-color: rgb(249, 216, 216);
+    border-radius: 0px 20px 20px 0px;
+    color: red;
+    text-decoration: none;
 }
 
 .register-btn:focus,
@@ -180,6 +187,9 @@ button img {
     cursor: pointer;
 }
 
+a {
+    text-decoration: none;
+}
 .laptop-navbar li {
     position: relative;
 }
@@ -225,6 +235,17 @@ button img {
     padding: 10px 20px;
 }
 
+@keyframes slideleft {
+    from {
+        opacity: 0;
+        transform: translateX(70%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 .sidebar {
     position: fixed;
     top: 0;
@@ -239,6 +260,7 @@ button img {
     align-items: flex-start;
     /* margin-top: 50px; */
     padding: 80px 20px;
+    animation: slideleft .8s ease-in-out;
 }
 
 .sidebar li {
