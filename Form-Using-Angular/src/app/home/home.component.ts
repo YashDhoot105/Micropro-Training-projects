@@ -9,4 +9,16 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  sidebarVisible: boolean = false;
+
+  toggleSidebar() {
+    this.sidebarVisible = !this.sidebarVisible;
+    const laptopNavbar = document.querySelector(".laptop-navbar") as HTMLElement;
+    laptopNavbar.style.display = this.sidebarVisible ? 'none' : 'flex';
+  }
+
+  hideSidebar() {
+    this.sidebarVisible = false;
+  }
+
 }

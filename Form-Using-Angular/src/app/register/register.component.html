@@ -5,13 +5,13 @@
     <div class="register-heading-container">
         <h1 class="register-heading">   Register</h1>
     </div>
-    <form>
-        <input type="text" class="user-name" id="user-name" placeholder="Name">
-        <input type="password" class="password" id="password" placeholder=" Password">
-        <input type="password" class="password" id="password" placeholder=" Confirm Password">
+    <form [formGroup]="registrationform"> 
+        <input type="text" class="user-name" id="user-name" placeholder="Name" formControlName="username">
+        <input type="password" class="password" id="password" placeholder=" Password" formControlName="password">
+        <input type="password" class="password" id="password" placeholder=" Confirm Password" formControlName="confirmedpassword">
 
         <div class="register-clear-button-container">
-            <button class="register-button" [routerLink] = "['/login']">Register</button>
+            <button class="register-button" [routerLink] = "['/login']" (click)="saveregistereddetails()">Register</button>
             <button type="reset" class="clear-button">Clear</button>
         </div>
         <p class="register-link">Already have an account ? <a [routerLink] = "['/login']">Login</a></p>
