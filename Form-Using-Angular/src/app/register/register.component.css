@@ -1,4 +1,4 @@
-.login-container {
+.register-container {
     max-width: 500px;
     margin-inline: auto;
     margin-top: 10%;
@@ -7,11 +7,11 @@
     /* border-radius: 10px; */
 }
 
-.login-container-body {
+.register-container-body {
     padding: 20px;
 }
 
-.login-heading {
+.register-heading {
     text-align: center;
     font-family: 'Space Grotesk', sans-serif;
     color: transparent;
@@ -44,14 +44,14 @@ input:focus {
     border-bottom: 2px solid #ff8e31;
 }
 
-.login-clear-button-container {
+.register-clear-button-container {
     display: flex;
     gap: 50px;
     justify-content: center;
     font-family: 'Montserrat';
 }
 
-.login-button {
+.register-button {
     color: #ff8e31;
     background-color: white;
     border: none;
@@ -79,7 +79,7 @@ input:focus {
     transition: .4s ease-in-out;
 }
 
-.login-button:hover {
+.register-button:hover {
     background-color: #ff8e31;
     color: white;
     transition: .4s ease-in-out;
