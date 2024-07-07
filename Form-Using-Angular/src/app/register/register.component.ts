@@ -11,10 +11,12 @@ import { RouterModule } from '@angular/router';
 })
 export class RegisterComponent {
 registrationform: FormGroup = new FormGroup({
+  email: new FormControl(''),
   username: new FormControl(''),
   password: new FormControl(''),
   confirmedpassword: new FormControl('')
 })
+
 registeredformvalue:any;
 
 saveregistereddetails() {

@@ -25,12 +25,13 @@
 input {
     font-size: 18px;
     display: block;
-    margin: 20px;
+    margin: 10px;
     margin-inline: auto;
     border: none;
     border-bottom: 1.5px solid #9b9b9b;
     width: 80%;
-    padding: 10px;
+    padding-top: 25px;
+    padding-bottom: 10px;
     font-family: 'Montserrat';
 }
 
@@ -44,14 +45,26 @@ input:focus {
     border-bottom: 2px solid #ff8e31;
 }
 
+input::placeholder {
+    color: #9b9b9b;
+    margin: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+input:focus::placeholder {
+    transform: translateY(-20px);
+    font-size: 14px;
+    color: #ff8e31;
+}
+
 .login-clear-button-container {
     display: flex;
     gap: 50px;
     justify-content: center;
-    font-family: 'Montserrat';
 }
 
 .login-button {
+    font-family: 'Space Grotesk';
     color: #ff8e31;
     background-color: white;
     border: none;
@@ -63,6 +76,7 @@ input:focus {
 }
 
 .clear-button {
+    font-family: 'Space Grotesk';
     color: #ff8e31;
     background-color: white;
     border: none;

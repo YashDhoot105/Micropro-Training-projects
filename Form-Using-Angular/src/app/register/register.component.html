@@ -6,9 +6,10 @@
         <h1 class="register-heading">   Register</h1>
     </div>
     <form [formGroup]="registrationform"> 
-        <input type="text" class="user-name" id="user-name" placeholder="Name" formControlName="username">
+        <input type="email" class="email" id="email" placeholder="Email" formControlName="email">
+        <input type="text" class="user-name" id="user-name" placeholder="Username" formControlName="username">
         <input type="password" class="password" id="password" placeholder=" Password" formControlName="password">
-        <input type="password" class="password" id="password" placeholder=" Confirm Password" formControlName="confirmedpassword">
+        <input type="password" class="password" id="confirm-password" placeholder=" Confirm Password" formControlName="confirmedpassword">
 
         <div class="register-clear-button-container">
             <button class="register-button" [routerLink] = "['/login']" (click)="saveregistereddetails()">Register</button>

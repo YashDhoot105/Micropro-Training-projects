@@ -1,8 +1,13 @@
+* {
+
+    font-family: "Montserrat", sans-serif;
+}
+
 header {
     padding: 10px 40px;
     background-color: #ffffff;
     color: #000000;
-    box-shadow: rgb(255, 229, 229) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    box-shadow: rgb(244, 219, 182) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
     margin-bottom: 80px;
     /* backdrop-filter: blur(30px); */
     /* width: auto; */
@@ -39,7 +44,7 @@ nav {
     margin-left: -20px;
 }
 
-nav ul {
+nav ul:not(.sidebar) {
     list-style: none;
     display: flex;
 }
@@ -58,8 +63,10 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: red;
-
+    background: linear-gradient(to right, #ff8a00, #f8045d);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .container {
@@ -104,7 +111,7 @@ span {
 }
 
 .image-content {
-    box-shadow: rgba(236, 35, 35, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px;
+    box-shadow: rgba(225, 219, 212, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px;
     border-radius: 20px;
 }
 
