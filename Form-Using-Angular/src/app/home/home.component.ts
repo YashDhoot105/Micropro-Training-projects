@@ -11,6 +11,25 @@ import { RouterModule } from '@angular/router';
 })
 export class HomeComponent {
 
+   showsidebar() {
+    const element = document.querySelector(".sidebar");
+    if (element) {
+      (element as HTMLElement).style.display = 'flex';
+    } else {
+      console.error(`Element with selector not found.`);
+    }
+  }
+
+  hidesidebar() {
+    const element = document.querySelector(".sidebar");
+    if (element) {
+      (element as HTMLElement).style.display = 'none';
+    } else {
+      console.error(`Element with selector not found.`);
+    }
+  }
+  
+
   // sidebarVisible: boolean = false;
 
   // toggleSidebar() {

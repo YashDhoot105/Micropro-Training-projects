@@ -275,24 +275,27 @@ a {
         margin-inline: 10px;
     }
 
-    .laptop-navbar,
-    .register-btn,
-    .login-btn {
-        display: none;
-    }
-
+    
     .hamburger-btn {
         display: grid;
         padding: 15px 20px;
     }
-
+    
+    .laptop-navbar {
+        display: none;
+    }
+    .register-btn,
+    .login-btn {
+        display: none;
+    }
+    
     .main-content {
 
         gap: 30px;
     }
 
 
-    /* 
+/*     
     .sidebar li {
         position: fixed;
         top: 0;
@@ -308,24 +311,40 @@ a {
 
 
 @media screen and (max-width: 830px) {
-    .navbar ul {
+
+    /* .navbar ul {
         flex-direction: column;
-        /* inset: 0 0 0 10%; */
     }
 
     .navbar ul li {
         padding: 20px;
-    }
+    } */
 
     .main-content {
         grid-auto-flow: row;
         grid-auto-rows: 1fr;
         gap: 30px;
     }
+
+    .laptop-navbar {
+        display: none;
+    }
+    .register-btn,
+    .login-btn {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 530px) {
     .sidebar {
         width: 100%;
+    }
+
+    .laptop-navbar {
+        display: none;
+    }
+    .register-btn,
+    .login-btn {
+        display: none;
     }
 }
