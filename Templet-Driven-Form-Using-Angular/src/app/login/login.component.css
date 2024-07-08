@@ -1,0 +1,114 @@
+.login-container {
+    max-width: 500px;
+    margin-inline: auto;
+    margin-top: 10%;
+    box-shadow: rgba(205, 205, 205, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    font-family: 'Montserrat';
+    /* border-radius: 10px; */
+}
+
+.login-container-body {
+    padding: 20px;
+}
+
+.login-heading {
+    text-align: center;
+    font-family: 'Space Grotesk', sans-serif;
+    color: transparent;
+    background: linear-gradient(to right, #ff8a00, #e52e71);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 20px;
+}
+
+input {
+    font-size: 18px;
+    display: block;
+    margin: 10px;
+    margin-inline: auto;
+    border: none;
+    border-bottom: 1.5px solid #9b9b9b;
+    width: 80%;
+    padding-top: 25px;
+    padding-bottom: 10px;
+    font-family: 'Montserrat';
+}
+
+input:hover {
+    border-bottom: 2px solid #8d8b8b;
+}
+
+input:focus {
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #ff8e31;
+}
+
+input::placeholder {
+    color: #9b9b9b;
+    margin: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+input:focus::placeholder,
+input:not(:placeholder-shown)::placeholder  {
+    /* transform: translateY(-20px); */
+    /* font-size: 14px; */
+    color: #ff8e31;
+}
+
+.login-clear-button-container {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+}
+
+.login-button {
+    font-family: 'Space Grotesk';
+    color: #ff8e31;
+    background-color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 20px;
+    padding: 10px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.clear-button {
+    font-family: 'Space Grotesk';
+    color: #ff8e31;
+    background-color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 20px;
+    padding: 10px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.clear-button:hover {
+    background-color: #ff8e31;
+    color: white;
+    transition: .4s ease-in-out;
+}
+
+.login-button:hover {
+    background-color: #ff8e31;
+    color: white;
+    transition: .4s ease-in-out;
+}
+
+p {
+    text-align: center;
+    padding: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

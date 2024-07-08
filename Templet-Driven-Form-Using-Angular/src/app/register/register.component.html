@@ -1,0 +1,21 @@
+<!-- <p>register works!</p> -->
+
+<div class="register-container">
+    <div class="register-container-body">
+    <div class="register-heading-container">
+        <h1 class="register-heading">   Register</h1>
+    </div>
+    <form> 
+        <input type="email" class="email" id="email" placeholder="Email">
+        <input type="text" class="user-name" id="user-name" placeholder="Username">
+        <input type="password" class="password" id="password" placeholder=" Password">
+        <input type="password" class="password" id="confirm-password" placeholder=" Confirm Password">
+
+        <div class="register-clear-button-container">
+            <button class="register-button" [routerLink] = "['/login']" (click)="saveregistereddetails()">Register</button>
+            <button type="reset" class="clear-button">Clear</button>
+        </div>
+        <p class="register-link">Already have an account ? <a [routerLink] = "['/login']">Login</a></p>
+    </form>
+</div>
+</div>

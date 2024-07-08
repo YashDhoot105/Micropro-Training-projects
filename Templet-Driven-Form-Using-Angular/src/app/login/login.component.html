@@ -1,0 +1,18 @@
+<!-- <p>login works!</p> -->
+
+<div class="login-container">
+    <div class="login-container-body">
+    <div class="login-heading-container">
+        <h1 class="login-heading">Login</h1>
+    </div>
+    <form>
+        <input type="text" class="user-name" id="user-name" placeholder=" Username" >
+        <input type="password" class="password" id="password" placeholder=" Password" >
+        <div class="login-clear-button-container">
+            <button class="login-button" [routerLink] = "['/home']" (click)="savelogindetails()">Login</button>
+            <button type="reset" class="clear-button">Clear</button>
+        </div>
+        <p class="register-link">Don't have an account ? <a  [routerLink] = "['/register']">Register</a></p>
+    </form>
+</div>
+</div>
