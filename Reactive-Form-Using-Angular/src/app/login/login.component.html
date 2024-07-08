@@ -6,8 +6,8 @@
         <h1 class="login-heading">Login</h1>
     </div>
     <form [formGroup]="loginform">
-        <input type="text" class="user-name" id="user-name" placeholder=" Username" formControlName="username">
-        <input type="password" class="password" id="password" placeholder=" Password" formControlName="password">
+        <input type="text" class="user-name" id="user-name" placeholder=" Username" formControlName="login_username">
+        <input type="password" class="password" id="password" placeholder=" Password" formControlName="login_password">
         <div class="login-clear-button-container">
             <button class="login-button" [routerLink] = "['/home']" (click)="savelogindetails()">Login</button>
             <button type="reset" class="clear-button">Clear</button>

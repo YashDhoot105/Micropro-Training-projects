@@ -1,5 +1,4 @@
 * {
-
     font-family: "Montserrat", sans-serif;
 }
 
@@ -19,7 +18,6 @@ header {
     align-items: center;
     justify-content: space-between;
     margin-inline: 40px;
-    /* backdrop-filter: blur(20px); */
 }
 
 .header-photo {
@@ -40,16 +38,16 @@ header {
     text-align: center;
 }
 
-nav {
+.laptop-navbar {
     margin-left: -20px;
 }
 
-nav ul:not(.sidebar) {
+.laptop-navbar {
     list-style: none;
     display: flex;
 }
 
-nav ul li {
+.laptop-navbar li {
     margin-left: 20px;
 }
 
@@ -91,7 +89,6 @@ main {
 }
 
 span {
-    /* color: red; */
     background: linear-gradient(to right, #ff0000, #f54949, #ff8e31);
     /* background: linear-gradient(to right, #f32170, #ff6b08,#cf23cf, #eedd44); */
     -webkit-text-fill-color: transparent;
@@ -125,14 +122,16 @@ span {
     margin-top: 30px;
     margin-inline: auto;
     color: rgb(255, 255, 255);
-    background-color: red;
+    background: linear-gradient(to right, #f92727, #fd7506);
     padding: 20px;
     border-radius: 20px;
     font-weight: bold;
 }
 
 .explore-btn:hover {
-    color: red;
+    background: linear-gradient(to right, #ff0000, #f54949, #ff8e31);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
     background-color: white;
     cursor: pointer;
 }
@@ -160,7 +159,6 @@ button img {
     border-radius: 20px 0px 0px 20px;
 }
 
-
 .register-btn:hover {
     cursor: pointer;
     background-color: rgb(249, 216, 216);
@@ -169,7 +167,7 @@ button img {
 
 .login-btn:hover {
     cursor: pointer;
-    background-color: rgb(249, 216, 216);
+    background-color: rgb(250, 231, 231);
     border-radius: 0px 20px 20px 0px;
     color: red;
     text-decoration: none;
@@ -186,6 +184,7 @@ button img {
 a {
     text-decoration: none;
 }
+
 .laptop-navbar li {
     position: relative;
 }
@@ -204,10 +203,8 @@ a {
     left: 0;
     height: 4px;
     width: 0%;
-    background-color: red;
-    /* Change the color as desired */
+    background: linear-gradient(to right, #ff0000, #f54949, #ff8e31);
     transition: width .8s ease-in-out;
-    /* Adjust the duration and easing as needed */
 }
 
 .laptop-navbar a::before {
@@ -221,11 +218,6 @@ a {
 .hamburger-btn {
     display: none;
 }
-
-/* .sidebar li{
-    display: none;
-    background-color: #732e2e;
-} */
 
 .close-hamburger-btn {
     padding: 10px 20px;
@@ -257,6 +249,7 @@ a {
     /* margin-top: 50px; */
     padding: 80px 20px;
     animation: slideleft .8s ease-in-out;
+    list-style: none;
 }
 
 .sidebar li {
@@ -265,8 +258,9 @@ a {
 }
 
 .sidebar li:hover {
-    color: red;
-    /* background-color: white; */
+    background: linear-gradient(to right, #ff0000, #f54949, #ff8e31);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
     border-radius: 20px 0px 0px 20px;
 }
 
@@ -275,7 +269,6 @@ a {
         margin-inline: 10px;
     }
 
-    
     .hamburger-btn {
         display: grid;
         padding: 15px 20px;
@@ -284,42 +277,19 @@ a {
     .laptop-navbar {
         display: none;
     }
+
     .register-btn,
     .login-btn {
         display: none;
     }
     
     .main-content {
-
         gap: 30px;
     }
-
-
-/*     
-    .sidebar li {
-        position: fixed;
-        top: 0;
-        right: 0;
-        display: flex;
-        flex-direction: column;
-        z-index: 999;
-        background-color: blueviolet;
-        width: 250px;
-        height: 100vh;
-    } */
 }
 
 
 @media screen and (max-width: 830px) {
-
-    /* .navbar ul {
-        flex-direction: column;
-    }
-
-    .navbar ul li {
-        padding: 20px;
-    } */
-
     .main-content {
         grid-auto-flow: row;
         grid-auto-rows: 1fr;

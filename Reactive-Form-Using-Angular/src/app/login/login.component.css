@@ -1,4 +1,4 @@
-.register-container {
+.login-container {
     max-width: 500px;
     margin-inline: auto;
     margin-top: 10%;
@@ -7,11 +7,11 @@
     /* border-radius: 10px; */
 }
 
-.register-container-body {
+.login-container-body {
     padding: 20px;
 }
 
-.register-heading {
+.login-heading {
     text-align: center;
     font-family: 'Space Grotesk', sans-serif;
     color: transparent;
@@ -30,13 +30,13 @@ input {
     border: none;
     border-bottom: 1.5px solid #9b9b9b;
     width: 80%;
-    padding-top: 23px;
+    padding-top: 25px;
     padding-bottom: 10px;
     font-family: 'Montserrat';
 }
 
-input :hover {
-    border-bottom: 2px solid #313030;
+input:hover {
+    border-bottom: 2px solid #8d8b8b;
 }
 
 input:focus {
@@ -51,20 +51,20 @@ input::placeholder {
     transition: all 0.3s ease-in-out;
 }
 
-input:focus::placeholder {
-    transform: translateY(-20px);
-    font-size: 14px;
+input:focus::placeholder,
+input:not(:placeholder-shown)::placeholder  {
+    /* transform: translateY(-20px); */
+    /* font-size: 14px; */
     color: #ff8e31;
 }
 
-.register-clear-button-container {
+.login-clear-button-container {
     display: flex;
     gap: 50px;
     justify-content: center;
-    font-family: 'Montserrat';
 }
 
-.register-button {
+.login-button {
     font-family: 'Space Grotesk';
     color: #ff8e31;
     background-color: white;
@@ -94,7 +94,7 @@ input:focus::placeholder {
     transition: .4s ease-in-out;
 }
 
-.register-button:hover {
+.login-button:hover {
     background-color: #ff8e31;
     color: white;
     transition: .4s ease-in-out;

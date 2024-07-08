@@ -12,8 +12,8 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 export class LoginComponent {
   loginform: FormGroup = new FormGroup({
-    username: new FormControl(''),
-    password: new FormControl(''),
+    login_username: new FormControl(''),
+    login_password: new FormControl(''),
   });
 
   loginformValue: any;
@@ -23,3 +23,6 @@ export class LoginComponent {
     console.log(this.loginformValue)
   }
 }
+
+
+
