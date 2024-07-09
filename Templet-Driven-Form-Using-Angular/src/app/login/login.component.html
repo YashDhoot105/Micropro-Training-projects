@@ -5,11 +5,11 @@
     <div class="login-heading-container">
         <h1 class="login-heading">Login</h1>
     </div>
-    <form>
-        <input type="text" class="user-name" id="user-name" placeholder=" Username" >
-        <input type="password" class="password" id="password" placeholder=" Password" >
+    <form #userloginform="ngForm">
+        <input type="text" class="user-name" id="user-name" placeholder=" Username" name="login_username" ngModel>
+        <input type="password" class="password" id="password" placeholder=" Password" name="login_password" ngModel>
         <div class="login-clear-button-container">
-            <button class="login-button" [routerLink] = "['/home']" (click)="savelogindetails()">Login</button>
+            <button class="login-button" [routerLink] = "['/home']" (click)="savelogindetails(userloginform.value)">Login</button>
             <button type="reset" class="clear-button">Clear</button>
         </div>
         <p class="register-link">Don't have an account ? <a  [routerLink] = "['/register']">Register</a></p>

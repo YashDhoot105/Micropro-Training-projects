@@ -1,17 +1,18 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, FormsModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
 
-saveregistereddetails() {
-
+saveregistereddetails(userregisterationform: any) {
+  console.log(userregisterationform);
 }
 }
 

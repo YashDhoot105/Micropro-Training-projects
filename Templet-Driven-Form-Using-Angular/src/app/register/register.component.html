@@ -5,14 +5,14 @@
     <div class="register-heading-container">
         <h1 class="register-heading">   Register</h1>
     </div>
-    <form> 
-        <input type="email" class="email" id="email" placeholder="Email">
-        <input type="text" class="user-name" id="user-name" placeholder="Username">
-        <input type="password" class="password" id="password" placeholder=" Password">
-        <input type="password" class="password" id="confirm-password" placeholder=" Confirm Password">
+    <form #userregisterationform="ngForm"> 
+        <input type="email" class="email" id="email" placeholder="Email" name="registered_email" ngModel>
+        <input type="text" class="user-name" id="user-name" placeholder="Username" name="registered_username" ngModel>
+        <input type="password" class="password" id="password" placeholder=" Password" name="registered_password" ngModel>
+        <input type="password" class="password" id="confirm-password" placeholder=" Confirm Password" name="registered_confirmpassword" ngModel>
 
         <div class="register-clear-button-container">
-            <button class="register-button" [routerLink] = "['/login']" (click)="saveregistereddetails()">Register</button>
+            <button class="register-button" [routerLink] = "['/login']" (click)="saveregistereddetails(userregisterationform.value)">Register</button>
             <button type="reset" class="clear-button">Clear</button>
         </div>
         <p class="register-link">Already have an account ? <a [routerLink] = "['/login']">Login</a></p>
