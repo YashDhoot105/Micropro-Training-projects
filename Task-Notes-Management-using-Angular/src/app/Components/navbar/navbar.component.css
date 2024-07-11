@@ -1,0 +1,92 @@
+header {
+    box-shadow:#963eff 0px 10px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.navbar-container {
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.logo {
+    cursor: pointer;
+}
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Montserrat";
+    gap: 50px;
+    padding: 20px 0px;
+    font-size: 20px;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none ;
+}
+input {
+    border: none;
+    border-bottom: 2px solid #963eff;
+    font-size: 18px;
+    background-color: #dbc3f7;
+    padding: 5px ;
+    border-radius: 5px 5px 0px 0px;
+    width:30%;
+}
+
+input:focus {
+    outline: none;
+    width: 100%;
+    transition: .4s ease-in-out;
+}
+
+input::placeholder{
+    font-family: "Montserrat";
+    font-size: 16px;
+}
+
+.laptop-navbar li {
+    position: relative;
+}
+
+.laptop-navbar li a:hover::before,
+.laptop-navbar li a:hover::after {
+    width: 100%;
+    /* color: #3236fd; */
+}
+
+.laptop-navbar a::before,
+.laptop-navbar a::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    background: linear-gradient(to right, #963eff,#fe1158);
+    transition: width .8s ease-in-out;
+}
+
+.laptop-navbar a::before {
+    transform-origin: left;
+}
+
+.laptop-navbar a::after {
+    transform-origin: right;
+}
+
+li:hover{
+    color: #963eff;
+
+}
+
+.logout {
+    font-family: "Montserrat";
+    padding: 20px 0px;
+    font-size: 20px;
+}
