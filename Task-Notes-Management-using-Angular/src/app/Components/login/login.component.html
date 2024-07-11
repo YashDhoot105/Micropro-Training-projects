@@ -1,0 +1,65 @@
+<!-- <p>login works!</p> -->
+
+<div class="login-container">
+  <div class="login-container-body">
+    <div class="login-heading-container">
+      <h1 class="login-heading">Login</h1>
+    </div>
+    <form [formGroup]="loginform" (ngSubmit)="login()">
+      <input
+        type="text"
+        class="user-name"
+        id="user-name"
+        placeholder=" Username"
+        formControlName="login_username"
+      />
+      <div
+        class="error-messages-for-inputs"
+        *ngIf="
+          loginform.controls['login_username']?.invalid &&
+          (loginform.controls['login_username']?.touched ||
+            loginform.controls['login_username']?.dirty)
+        "
+      >
+        <div *ngIf="loginform.controls['login_username']?.errors?.['required']">
+          Username is required
+        </div>
+        <div *ngIf="loginform.controls['login_username']?.errors?.['minlength']">
+          Minimum length of username should be 2 characters
+        </div>
+        <div *ngIf="loginform.controls['login_username']?.errors?.['maxlength']">
+          Maximum length of username should be 25 characters
+        </div>
+      </div>
+      <input
+        type="password"
+        class="password"
+        id="password"
+        placeholder=" Password"
+        formControlName="login_password"
+      />
+      <div
+        class="error-messages-for-inputs"
+        *ngIf="
+          loginform.controls['login_password']?.invalid &&
+          (loginform.controls['login_password']?.touched ||
+            loginform.controls['login_password']?.dirty)
+        "
+      >
+        <div *ngIf="loginform.controls['login_password']?.errors?.['required']">
+          Password is required
+        </div>
+        <div *ngIf="loginform.controls['login_password']?.errors?.['minlength']">
+          Minimum length of password should be 10 characters
+        </div>
+      </div>
+      <div class="login-clear-button-container">
+        <button class="login-button">Login</button>
+        <button type="reset" class="clear-button">Clear</button>
+      </div>
+      <p class="register-link">
+        Don't have an account ? <a [routerLink]="['/register']">Register</a>
+      </p>
+    </form>
+  </div>
+</div>
