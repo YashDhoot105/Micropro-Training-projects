@@ -1,1 +1,64 @@
-<p>register works!</p>
+<!-- <p>register works!</p> -->
+
+<div class="register-container">
+    <div class="register-container-body">
+        <div class="register-heading-container">
+            <h1 class="register-heading">Register</h1>
+        </div>
+        <form [formGroup]="registerform" (ngSubmit)="register()">
+            <input type="email" class="email" id="email" placeholder="Email" formControlName="register_email" />
+            <div class="error-messages-for-inputs" *ngIf="
+          registerform.controls['register_username']?.invalid &&
+          (registerform.controls['register_username']?.touched ||
+            registerform.controls['register_username']?.dirty)
+        ">
+                <div class="error-message" *ngIf="registerform.controls['register_email']?.errors?.['required']">
+                    Email is required
+                </div>
+                <div class="error-message" *ngIf="registerform.controls['register_email']?.errors?.['email']">
+                    Enter valid email
+                </div>
+            </div>
+            <input type="text" class="user-name" id="user-name" placeholder=" Username"
+                formControlName="register_username" />
+            <div class="error-messages-for-inputs" *ngIf="
+          registerform.controls['register_username']?.invalid &&
+          (registerform.controls['register_username']?.touched ||
+            registerform.controls['register_username']?.dirty)
+        ">
+                <div class="error-message" *ngIf="registerform.controls['register_username']?.errors?.['required']">
+                    Username is required
+                </div>
+                <div class="error-message" *ngIf="registerform.controls['register_username']?.errors?.['minlength']">
+                    Minimum length of username should be 2 characters
+                </div>
+                <div class="error-message" *ngIf="registerform.controls['register_username']?.errors?.['maxlength']">
+                    Maximum length of username should be 25 characters
+                </div>
+            </div>
+            <input type="password" class="password" id="password" placeholder=" Password"
+                formControlName="register_password" />
+            <div class="error-messages-for-inputs" *ngIf="
+          registerform.controls['register_password']?.invalid &&
+          (registerform.controls['register_password']?.touched ||
+            registerform.controls['register_password']?.dirty)
+        ">
+                <div class="error-message" *ngIf="registerform.controls['register_password']?.errors?.['required']">
+                    Password is required
+                </div>
+                <div class="error-message" *ngIf="registerform.controls['register_password']?.errors?.['minlength']">
+                    Minimum length of password should be 10 characters
+                </div>
+            </div>
+            <input type="password" class="password" id="confirm-password" placeholder=" Confirm Password"
+                formControlName="register_confirmedpassword" />
+            <div class="register-clear-button-container">
+                <button class="register-button" [routerLink]="['/login']">Register</button>
+                <button type="reset" class="clear-button">Clear</button>
+            </div>
+            <p class="register-link">
+                Already have an account ? <a [routerLink]="['/login']">Login</a>
+            </p>
+        </form>
+    </div>
+</div>

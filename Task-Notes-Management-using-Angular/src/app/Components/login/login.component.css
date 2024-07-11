@@ -15,7 +15,7 @@
     text-align: center;
     font-family: 'Space Grotesk', sans-serif;
     color: transparent;
-    background: linear-gradient(to right, #ff8a00, #e52e71);
+    background: linear-gradient(to right, #963eff, #fe1158);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -42,7 +42,7 @@ input:hover {
 input:focus {
     outline: none;
     border: none;
-    border-bottom: 2px solid #ff8e31;
+    border-bottom: 2px solid #963eff;
 }
 
 input::placeholder {
@@ -55,7 +55,10 @@ input:focus::placeholder,
 input:not(:placeholder-shown)::placeholder  {
     /* transform: translateY(-20px); */
     /* font-size: 14px; */
-    color: #ff8e31;
+    background: linear-gradient(to right, #963eff, #fe1158);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .login-clear-button-container {
@@ -66,7 +69,7 @@ input:not(:placeholder-shown)::placeholder  {
 
 .login-button {
     font-family: 'Space Grotesk';
-    color: #ff8e31;
+    color: #963eff;
     background-color: white;
     border: none;
     border-radius: 15px;
@@ -78,7 +81,7 @@ input:not(:placeholder-shown)::placeholder  {
 
 .clear-button {
     font-family: 'Space Grotesk';
-    color: #ff8e31;
+    color: #963eff;
     background-color: white;
     border: none;
     border-radius: 15px;
@@ -89,13 +92,13 @@ input:not(:placeholder-shown)::placeholder  {
 }
 
 .clear-button:hover {
-    background-color: #ff8e31;
+    background-color: #963eff;
     color: white;
     transition: .4s ease-in-out;
 }
 
 .login-button:hover {
-    background-color: #ff8e31;
+    background-color: #963eff;
     color: white;
     transition: .4s ease-in-out;
 }
