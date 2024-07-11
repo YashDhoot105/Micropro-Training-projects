@@ -21,13 +21,17 @@
             loginform.controls['login_username']?.dirty)
         "
       >
-        <div *ngIf="loginform.controls['login_username']?.errors?.['required']">
+        <div class="error-message" *ngIf="loginform.controls['login_username']?.errors?.['required']">
           Username is required
         </div>
-        <div *ngIf="loginform.controls['login_username']?.errors?.['minlength']">
+        <div class="error-message"
+          *ngIf="loginform.controls['login_username']?.errors?.['minlength']"
+        >
           Minimum length of username should be 2 characters
         </div>
-        <div *ngIf="loginform.controls['login_username']?.errors?.['maxlength']">
+        <div class="error-message"
+          *ngIf="loginform.controls['login_username']?.errors?.['maxlength']"
+        >
           Maximum length of username should be 25 characters
         </div>
       </div>
@@ -46,10 +50,12 @@
             loginform.controls['login_password']?.dirty)
         "
       >
-        <div *ngIf="loginform.controls['login_password']?.errors?.['required']">
+        <div class="error-message" *ngIf="loginform.controls['login_password']?.errors?.['required']">
           Password is required
         </div>
-        <div *ngIf="loginform.controls['login_password']?.errors?.['minlength']">
+        <div class="error-message"
+          *ngIf="loginform.controls['login_password']?.errors?.['minlength']"
+        >
           Minimum length of password should be 10 characters
         </div>
       </div>
