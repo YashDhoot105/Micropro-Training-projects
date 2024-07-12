@@ -7,7 +7,7 @@ import { TasklistComponent } from './Components/tasklist/tasklist.component';
 import { TaskdetailsComponent } from './Components/taskdetails/taskdetails.component';
 import { TaskformComponent } from './Components/taskform/taskform.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
-import { NoteslistComponent } from './noteslist/noteslist.component';
+import { NoteslistComponent } from './Components/noteslist/noteslist.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/navbar', pathMatch: 'full' },

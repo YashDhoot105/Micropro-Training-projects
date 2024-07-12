@@ -5,7 +5,7 @@ import { RegisterComponent } from './Components/register/register.component';
 import { TaskdetailsComponent } from './Components/taskdetails/taskdetails.component';
 import { TaskformComponent } from './Components/taskform/taskform.component';
 import { TasklistComponent } from './Components/tasklist/tasklist.component';
-import { NoteslistComponent } from './noteslist/noteslist.component';
+import { NoteslistComponent } from './Components/noteslist/noteslist.component';
 
 @Component({
   selector: 'app-root',
