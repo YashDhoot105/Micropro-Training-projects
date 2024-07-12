@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../Interfaces/user';
 import { HttpClient } from '@angular/common/http';
 
@@ -27,5 +27,9 @@ export class AuthService {
   
   registercurrentuser(userdetails: User){
     return this.http.post(`${this.apiUrl}`, userdetails);
+  }
+
+  getuserbyusername(username: string) : Observable <User[]>{
+    return this.http.get<User[]>(`${this.apiUrl}?register_username=${username}`)
   }
 }

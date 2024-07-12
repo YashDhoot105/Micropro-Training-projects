@@ -53,7 +53,7 @@
             <input type="password" class="password" id="confirm-password" placeholder=" Confirm Password"
                 formControlName="register_confirmpassword" />
             <div class="register-clear-button-container">
-                <button class="register-button" [routerLink]="['/login']" (click)="register()">Register</button>
+                <button class="register-button" [disabled]=(registerform.invalid) (click)="register()">Register</button>
                 <button type="reset" class="clear-button">Clear</button>
             </div>
             <div class="error-messages-for-inputs enter-valid-details">

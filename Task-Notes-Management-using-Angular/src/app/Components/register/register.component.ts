@@ -1,25 +1,33 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { Route, Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../Services/auth.service';
 import { User } from '../../Interfaces/user';
-import { response } from 'express';
+
 
 @Component({
   selector: 'app-register',
   standalone: true,
   imports: [RouterModule, ReactiveFormsModule, CommonModule],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  styleUrl: './register.component.css',
 })
 export class RegisterComponent {
   registerform: FormGroup;
   // isloggingin: boolean = false;
 
-  constructor( private authservice: AuthService) {
+  constructor(private authservice: AuthService, private router: Router) {
     this.registerform = new FormGroup({
-      register_email: new FormControl('',[Validators.required, Validators.email]),
+      register_email: new FormControl('', [
+        Validators.required,
+        Validators.email,
+      ]),
       register_username: new FormControl('', [
         Validators.required,
         Validators.minLength(2),
@@ -29,19 +37,22 @@ export class RegisterComponent {
         Validators.required,
         Validators.minLength(10),
       ]),
-      register_confirmpassword: new FormControl('',[Validators.required])
+      register_confirmpassword: new FormControl('', [Validators.required]),
     });
   }
 
   register() {
-    console.log("yash")
+    console.log('yash');
     if (this.registerform.valid) {
       console.log('Form submitted:', this.registerform.value);
-      const postdata = {...this.registerform.value};
-      delete postdata.confrimpassword;
+      const postdata = { ...this.registerform.value };
+      delete postdata.register_confirmpassword;
       this.authservice.registercurrentuser(postdata as User).subscribe(
-        response => console.log(response),error => console.log(error)
-      )
+        (response) => console.log(response),
+        (error) => console.log(error)
+      );
+
+      this.router.navigate(['/login']); // Navigate to the 'navbar' route
       // Implement register logic here
     } else {
       console.error('Form is invalid');

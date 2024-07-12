@@ -1,6 +1,8 @@
 export interface User {
-    email:string;
-    username:string;
-    password:string;
-    confirmpassword:string;
-}
+    id: string;
+    register_email: string;
+    register_username: string;
+    register_password: string;
+    register_confirmpassword: string;
+  }
+  
