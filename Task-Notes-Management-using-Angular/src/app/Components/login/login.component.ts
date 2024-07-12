@@ -7,6 +7,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../Services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,9 +19,8 @@ import { CommonModule } from '@angular/common';
 })
 export class LoginComponent implements OnInit {
   loginform: FormGroup;
-  isloggingin: boolean = false;
 
-  constructor() {
+  constructor(private authService: AuthService, private router: Router) {
     this.loginform = new FormGroup({
       login_username: new FormControl('', [
         Validators.required,
@@ -36,10 +37,11 @@ export class LoginComponent implements OnInit {
   login() {
     if (this.loginform.valid) {
       console.log('Form submitted:', this.loginform.value);
-      // Implement login logic here
+      const username = this.loginform.get('login_username')?.value;
+      this.authService.setloginstatus(true, username);
+      this.router.navigate(['/navbar']); // Navigate to the 'navbar' route
     } else {
       console.error('Form is invalid');
-      // Optionally handle invalid form state
     }
   }
   ngOnInit(): void {}

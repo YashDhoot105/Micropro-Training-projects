@@ -7,16 +7,18 @@ import { TasklistComponent } from './Components/tasklist/tasklist.component';
 import { TaskdetailsComponent } from './Components/taskdetails/taskdetails.component';
 import { TaskformComponent } from './Components/taskform/taskform.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
+import { NoteslistComponent } from './noteslist/noteslist.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/navbar', pathMatch: 'full' },
   { path: 'register', component: RegisterComponent },
   { path: 'navbar', component: NavbarComponent },
   { path: 'login', component: LoginComponent },
   { path: 'tasklist', component: TasklistComponent },
   { path: 'taskdetails/:id', component: TaskdetailsComponent },
   { path: 'taskform', component: TaskformComponent },
-  { path: 'taskform/:id', component: TaskformComponent }  // For editing tasks
+  { path: 'taskform/:id', component: TaskformComponent },  // For editing tasks
+  { path: 'noteslist' , component:NoteslistComponent}
 ];
 
 @NgModule({
