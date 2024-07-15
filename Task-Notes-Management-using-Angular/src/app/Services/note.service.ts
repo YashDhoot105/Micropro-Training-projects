@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Note } from '../Interfaces/note';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +11,17 @@ export class NoteService {
 
   private notesUrl = "http://localhost:3000/notes";
 
-  addnoteheadingtonotelist(noteheading: string){
-  return this.http.post(`${this.notesUrl}`, noteheading);
+  addnoteheadingtonotelist(note: Note){
+  return this.http.post(`${this.notesUrl}`, note);
+  }
 
+  getnotestonotelist(): Observable<Note[]> {
+    return this.http.get<Note[]>(this.notesUrl);
+  }
+
+  deletenotefromnotelist(id: number): Observable<void> {
+    const url = `${this.notesUrl}/note_id=${id}`;
+    return this.http.delete<void>(url);
   }
 
 }
