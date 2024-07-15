@@ -20,7 +20,6 @@ import { User } from '../../Interfaces/user';
 })
 export class RegisterComponent {
   registerform: FormGroup;
-  // isloggingin: boolean = false;
 
   constructor(private authservice: AuthService, private router: Router) {
     this.registerform = new FormGroup({
@@ -52,7 +51,7 @@ export class RegisterComponent {
         (error) => console.log(error)
       );
 
-      this.router.navigate(['/login']); // Navigate to the 'navbar' route
+      this.router.navigate(['/login']); 
       // Implement register logic here
     } else {
       console.error('Form is invalid');

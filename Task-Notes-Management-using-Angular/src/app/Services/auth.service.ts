@@ -4,7 +4,7 @@ import { User } from '../Interfaces/user';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   private isLoggedIn = new BehaviorSubject<boolean>(false);
@@ -12,24 +12,25 @@ export class AuthService {
 
   private userName = new BehaviorSubject<string>('');
   userName$ = this.userName.asObservable();
-  setloginstatus(loginstatus: boolean, username?: string){
+  setloginstatus(loginstatus: boolean, username?: string) {
     this.isLoggedIn.next(loginstatus);
-    if(loginstatus){
-      this.userName.next(username || '')
-    }
-    else {
+    if (loginstatus) {
+      this.userName.next(username || '');
+    } else {
       this.userName.next('');
     }
   }
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  private apiUrl = "http://localhost:3000/users";
-  
-  registercurrentuser(userdetails: User){
+  private apiUrl = 'http://localhost:3000/users';
+
+  registercurrentuser(userdetails: User) {
     return this.http.post(`${this.apiUrl}`, userdetails);
   }
 
-  getuserbyusername(username: string) : Observable <User[]>{
-    return this.http.get<User[]>(`${this.apiUrl}?register_username=${username}`)
+  getuserbyusername(username: string): Observable<User[]> {
+    return this.http.get<User[]>(
+      `${this.apiUrl}?register_username=${username}`
+    );
   }
 }
