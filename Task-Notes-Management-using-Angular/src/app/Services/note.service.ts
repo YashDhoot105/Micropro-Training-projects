@@ -19,8 +19,8 @@ export class NoteService {
     return this.http.get<Note[]>(this.notesUrl);
   }
 
-  deletenotefromnotelist(id: number): Observable<void> {
-    const url = `${this.notesUrl}/note_id=${id}`;
+  deletenotefromnotelist(id: string | undefined): Observable<void> {
+    const url = `${this.notesUrl}/${id}`;
     return this.http.delete<void>(url);
   }
 

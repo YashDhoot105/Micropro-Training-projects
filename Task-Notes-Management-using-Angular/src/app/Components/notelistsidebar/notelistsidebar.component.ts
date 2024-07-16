@@ -19,6 +19,7 @@ export class NotelistsidebarComponent implements OnInit {
   newnoteheading: string = '';
   newsubnoteheading : string = '';
   newnote: Note = {
+    // id:'',                             //dont initialize, then json server auto generated id 
     note_id:0,
     note_heading:'',
     note_data:[]
@@ -68,12 +69,13 @@ export class NotelistsidebarComponent implements OnInit {
   }
 
   
-  deletenoteheading(note_id:number){
+  deletenoteheading(noteid:string | undefined){
     console.log(this.notes)
-    this.noteservice.deletenotefromnotelist(note_id).subscribe(
+    this.noteservice.deletenotefromnotelist(noteid).subscribe(
       (response) => {
-        this.notes = this.notes.filter(note => note.note_id !== note_id);
-        console.log(note_id);
+        this.notes = this.notes.filter(note => note.id !== noteid);
+        console.log(noteid);
+        console.log(this.notes)
       }
     )
   }
