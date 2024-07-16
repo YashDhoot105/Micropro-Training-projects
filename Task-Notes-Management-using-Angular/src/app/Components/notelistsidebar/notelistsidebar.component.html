@@ -77,16 +77,29 @@
   <div class="notes-list">
     <ul>
       <li *ngFor="let note of notes">
-        <div class="note-heading-with-icons-container">
+        <div class="note-heading-with-icons-container"  *ngIf="note.id !== activenote">
           <div class="note-heading">{{ note.note_heading }}</div>
           <div class="note-heading-icons">
             <!-- Icons or buttons for actions -->
             <i class="fa-solid fa-plus"></i>
-            <i class="fa-solid fa-pen-to-square"></i>
+            <i class="fa-solid fa-pen-to-square" (click)="displayinputbartoupdatenoteheading(note.id)"></i>
             <i class="fa-solid fa-trash" (click)="deletenoteheading(note.id)"></i>
           </div>
         </div>
+        <div class="updatenoteheadinginputbar" *ngIf="note.id === activenote">
+          <input type="text" [(ngModel)]="updatednoteheading"/><i
+            class="fa-solid fa-check"
+            (click)="updatenoteheading(note.id)"
+          ></i>
+        </div>
       </li>
+
+
+
+
+
+
+
       <!-- <li>
         <div class="note-heading-with-icons-container">
           <div class="note-heading">Note 2</div>

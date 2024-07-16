@@ -124,6 +124,44 @@ hr {
 }
 
 
+.updatenoteheadinginputbar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.updatenoteheadinginputbar input {
+  border: none;
+  border-bottom:2px solid rgb(196, 1, 255);
+  font-size: 20px;
+  font-family: "Montserrat";
+  padding: 8px  ;
+  border-radius: 10px 10px 0px 0px;
+  /* background-color: transparent; */
+} 
+
+.updatenoteheadinginputbar input:focus,
+.updatenoteheadinginputbar input::placeholder {
+  border: none;
+  outline: none;
+  border-bottom:2px solid rgb(196, 1, 255);
+}
+
+.updatenoteheadinginputbar i{
+  font-size: 30px;
+  margin-left: 15px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 10px;
+  transition: all .2s ease 0s;
+}
+
+.updatenoteheadinginputbar i:hover {
+  background-color: #963eff;
+  color: #fff6ff;
+}
+
+
 
 /* 
 input {

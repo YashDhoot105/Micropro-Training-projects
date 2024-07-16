@@ -12,18 +12,22 @@ import { response } from 'express';
   templateUrl: './notelistsidebar.component.html',
   styleUrls: ['./notelistsidebar.component.css'],
 })
+
 export class NotelistsidebarComponent implements OnInit {
   newnoteplus: boolean = true;
-  addsubheading :boolean = false;
+  addsubheading: boolean = false;
   notes: Note[] = [];
   newnoteheading: string = '';
-  newsubnoteheading : string = '';
+  updatednoteheading: string = '';
+  newsubnoteheading: string = '';
+  // updatenoteheading : boolean = false;
+  activenote: string | undefined = '';
   newnote: Note = {
-    // id:'',                             //dont initialize, then json server auto generated id 
-    note_id:0,
-    note_heading:'',
-    note_data:[]
-  }
+    // id:'',                             //dont initialize, then json server auto generated id
+    note_id: 0,
+    note_heading: '',
+    note_data: [],
+  };
   constructor(private noteservice: NoteService) {}
 
   displayinputbarfornoteheading() {
@@ -47,41 +51,67 @@ export class NotelistsidebarComponent implements OnInit {
     }
 
     // const newnote: Note = {
-      this.newnote.note_id= this.notes.length + 1,
-      this.newnote.note_heading= this.newnoteheading.trim(),
-      this.newnote.note_data= [],
-    // };
+    (this.newnote.note_id = this.notes.length + 1),
+      (this.newnote.note_heading = this.newnoteheading.trim()),
+      (this.newnote.note_data = []),
+      // };
 
-    this.noteservice.addnoteheadingtonotelist(this.newnote).subscribe(
-      (response) => {
-        console.log(response)
-        const addedNote = response as Note; // Ensure the response is treated as a Note instead of an object
-        this.notes.push(addedNote); // Add the new note to the local array
-        this.newnoteheading = '';
-        this.newnoteplus = true;
-      },
-      (error) => console.log(error)
-    );
+      this.noteservice.addnoteheadingtonotelist(this.newnote).subscribe(
+        (response) => {
+          console.log(response);
+          const addedNote = response as Note; // Ensure the response is treated as a Note instead of an object
+          this.notes.unshift(addedNote); // Add the new note to the local array
+          this.newnoteheading = '';
+          this.newnoteplus = true;
+        },
+        (error) => console.log(error)
+      );
   }
 
   addsubheadingtonote() {
     this.addsubheading = true;
   }
 
-  
-  deletenoteheading(noteid:string | undefined){
-    console.log(this.notes)
-    this.noteservice.deletenotefromnotelist(noteid).subscribe(
-      (response) => {
-        this.notes = this.notes.filter(note => note.id !== noteid);
+  deletenoteheading(noteid: string | undefined) {
+    console.log(this.notes);
+    this.noteservice.deletenotefromnotelist(noteid).subscribe((response) => {
+      this.notes = this.notes.filter((note) => note.id !== noteid);
+      console.log(noteid);
+      console.log(this.notes);
+    });
+  }
+
+  displayinputbartoupdatenoteheading(currentnoteid: string | undefined) {
+    this.activenote = currentnoteid;
+  }
+
+  updatenoteheading(noteid: string | undefined) {
+    this.activenote = '';
+    if (this.updatednoteheading.trim() === '') {
+      // return; // Prevent adding empty headings
+
+      this.noteservice.deletenotefromnotelist(noteid).subscribe((response) => {
+        this.notes = this.notes.filter((note) => note.id !== noteid);
         console.log(noteid);
-        console.log(this.notes)
-      }
-    )
+        console.log(this.notes);
+      });
+    }
+
+    const findnotetoupdatenote = this.notes.find((note) => (note.id = noteid));
+    if (findnotetoupdatenote) {
+      findnotetoupdatenote.note_heading = this.updatednoteheading;
+
+      this.noteservice
+        .editnoteheadingfromnotelist(noteid, findnotetoupdatenote)
+        .subscribe((response) => {
+          console.log(response);
+        });
+    }
+    // else{
+    //   return;
+    // }
   }
 }
-
-
 
 /////////////////// response error because of type object, not able to push in local array (line no. 117) //////////////////
 

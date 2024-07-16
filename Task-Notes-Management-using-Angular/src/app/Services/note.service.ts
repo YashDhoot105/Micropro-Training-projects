@@ -1,12 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Note } from '../Interfaces/note';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NoteService {
+
+  private activenote = new BehaviorSubject<string>('');
+  activenote$ = this.activenote.asObservable();
+
+  // currentactivenote(activenote:string){
+  //   this.activenote.next(activenote);
+  // }
+  
   constructor(private http:HttpClient) { }
 
   private notesUrl = "http://localhost:3000/notes";
@@ -24,4 +32,8 @@ export class NoteService {
     return this.http.delete<void>(url);
   }
 
+  editnoteheadingfromnotelist(id: string | undefined, updatednoteheading : object):Observable<string> {
+    const url = `${this.notesUrl}/${id}`;
+    return this.http.put<string>(url, updatednoteheading);
+  }
 }
