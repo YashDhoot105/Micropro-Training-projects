@@ -22,11 +22,17 @@ export class NotelistbodyComponent implements OnInit {
     note_data_subheading: '',
     note_data_content: '',
   };
+  activenote: string | undefined = '';
   // notes: Note[]=[]
 
   constructor(private noteservice: NoteService) {}
 
   ngOnInit(): void {
+
+    this.noteservice.activenoteid.subscribe(activenote => {this.activenote = activenote});
+
+
+
     console.log(this.addsubheadingcard);
     this.noteservice.addsubheading$.subscribe(
       (status) => (this.addsubheadingcard = status)

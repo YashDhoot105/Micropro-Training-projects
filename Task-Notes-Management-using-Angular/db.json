@@ -19,5 +19,18 @@
       "register_password": "sayu@12345"
     }
   ],
-  "notes": []
+  "notes": [
+    {
+      "id": "6591",
+      "note_id": 2,
+      "note_heading": "Note 2",
+      "note_data": []
+    },
+    {
+      "id": "e29d",
+      "note_id": 2,
+      "note_heading": "ffgh",
+      "note_data": []
+    }
+  ]
 }

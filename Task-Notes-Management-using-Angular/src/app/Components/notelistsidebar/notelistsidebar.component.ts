@@ -3,8 +3,6 @@ import { Note } from '../../Interfaces/note';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NoteService } from '../../Services/note.service';
-import { response } from 'express';
-import { stringify } from 'node:querystring';
 
 @Component({
   selector: 'app-notelistsidebar',
@@ -13,7 +11,6 @@ import { stringify } from 'node:querystring';
   templateUrl: './notelistsidebar.component.html',
   styleUrls: ['./notelistsidebar.component.css'],
 })
-
 export class NotelistsidebarComponent implements OnInit {
   newnoteplus: boolean = true;
   addsubheading: boolean = false;
@@ -23,6 +20,7 @@ export class NotelistsidebarComponent implements OnInit {
   newsubnoteheading: string = '';
   // updatenoteheading : boolean = false;
   activenote: string | undefined = '';
+  // currenactivetnote:string | undefined=''
   newnote: Note = {
     // id:'',                             //dont initialize, then json server auto generated id
     note_id: 0,
@@ -44,6 +42,11 @@ export class NotelistsidebarComponent implements OnInit {
       this.notes = notes;
       console.log(notes);
     });
+  }
+
+  selectednote(noteid:string | undefined) {
+    this.noteservice.activenoteid.next(noteid);
+    console.log(noteid);
   }
 
   addnoteheading() {
@@ -85,8 +88,6 @@ export class NotelistsidebarComponent implements OnInit {
   updatenoteheading(noteid: string | undefined) {
     this.activenote = '';
     if (this.updatednoteheading.trim() === '') {
-      // return; // Prevent adding empty headings
-
       this.noteservice.deletenotefromnotelist(noteid).subscribe((response) => {
         this.notes = this.notes.filter((note) => note.id !== noteid);
         console.log(noteid);
@@ -104,14 +105,11 @@ export class NotelistsidebarComponent implements OnInit {
           console.log(response);
         });
     }
-    // else{
-    //   return;
-    // }
   }
 
-  addsubheadingcard(noteid : string |undefined){
-    console.log("plus")
-    this.noteservice.addsubheadingcard(true, noteid as string | undefined)
+  addsubheadingcard(noteid: string | undefined) {
+    console.log('plus');
+    this.noteservice.addsubheadingcard(true, noteid as string | undefined);
   }
 }
 
