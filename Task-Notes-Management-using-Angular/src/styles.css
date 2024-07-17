@@ -277,3 +277,54 @@ h4 {
 }
 
 /* ///////////////////////////////// NOTELIST CSS  ENDS////////////////////////////////// */
+
+
+
+.newsubehadingcard input {
+  border: none;
+  font-size: 14px;
+  /* border-bottom: 1.5px solid #963eff; */
+}
+.newsubehadingcard input[type=text] {
+  font-size: 14px;
+  font-family: 'Montserrat';
+  padding: 2px;
+  font-weight: bold;
+}
+
+.newsubehadingcard input::placeholder {
+  font-weight: 400;
+}
+
+.newsubehadingcard input:focus {
+  /* border: none; */
+  outline: none;
+}
+
+.newsubehadingcard textarea {
+  border: none;
+  font-size: 14px;
+  padding: 0px 20px;
+  width: calc(100%);
+}
+
+.newsubehadingcard textarea:focus {
+  border: none;
+  outline: none;
+}
+
+.newsubehadingcard textarea::placeholder {
+  font-weight: 400;
+  font-family: 'Montserrat';
+}
+
+.newsubehadingcard textarea[type=text] {
+  font-size: 14px;
+  font-family: 'Montserrat';
+  padding: 2px;
+}
+
+/* .newsubehadingcard i {
+  padding: 5px 5px 0px 5px;
+  margin: 0;
+} */

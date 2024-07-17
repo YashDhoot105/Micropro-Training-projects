@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NoteService } from '../../Services/note.service';
 import { response } from 'express';
+import { stringify } from 'node:querystring';
 
 @Component({
   selector: 'app-notelistsidebar',
@@ -68,10 +69,6 @@ export class NotelistsidebarComponent implements OnInit {
       );
   }
 
-  addsubheadingtonote() {
-    this.addsubheading = true;
-  }
-
   deletenoteheading(noteid: string | undefined) {
     console.log(this.notes);
     this.noteservice.deletenotefromnotelist(noteid).subscribe((response) => {
@@ -110,6 +107,11 @@ export class NotelistsidebarComponent implements OnInit {
     // else{
     //   return;
     // }
+  }
+
+  addsubheadingcard(noteid : string |undefined){
+    console.log("plus")
+    this.noteservice.addsubheadingcard(true, noteid as string | undefined)
   }
 }
 

@@ -1,13 +1,20 @@
 <div class="tasklist-body">
-    <h1 class="current-note-heading">Note 1</h1>
-    <hr />
-    <div class="tasklist-body-cards">
-        <app-notelistsubheadingcards></app-notelistsubheadingcards>
-        <app-notelistsubheadingcards></app-notelistsubheadingcards>
-        <app-notelistsubheadingcards></app-notelistsubheadingcards>
-        <app-notelistsubheadingcards></app-notelistsubheadingcards>
-        <app-notelistsubheadingcards></app-notelistsubheadingcards>
-        <app-notelistsubheadingcards></app-notelistsubheadingcards>
-        <app-notelistsubheadingcards></app-notelistsubheadingcards>
+  <h1 class="current-note-heading">Note 1</h1>
+  <hr />
+  <div class="tasklist-body-cards">
+    <div class=" sub-heading-cards newsubehadingcard" *ngIf="addsubheadingcard">
+      <h4><input type="text" placeholder="Enter Subheading..." [(ngModel)]="newcardsubheading"></h4>
+      <hr />
+      <textarea type="text" name="subheadingcontent" id="subheadingcontent" placeholder="Enter data..." [(ngModel)]="newcardsubheadingcontent"></textarea>
+      <i class="fa-solid fa-trash"></i>
+      <i class="fa-solid fa-check" (click)="savesubheadingcarddetails()"></i>
     </div>
+    <app-notelistsubheadingcards></app-notelistsubheadingcards>
+    <app-notelistsubheadingcards></app-notelistsubheadingcards>
+    <app-notelistsubheadingcards></app-notelistsubheadingcards>
+    <app-notelistsubheadingcards></app-notelistsubheadingcards>
+    <app-notelistsubheadingcards></app-notelistsubheadingcards>
+    <app-notelistsubheadingcards></app-notelistsubheadingcards>
+    <app-notelistsubheadingcards></app-notelistsubheadingcards>
   </div>
+</div>

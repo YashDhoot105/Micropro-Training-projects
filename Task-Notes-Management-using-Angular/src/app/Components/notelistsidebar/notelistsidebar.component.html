@@ -81,7 +81,7 @@
           <div class="note-heading">{{ note.note_heading }}</div>
           <div class="note-heading-icons">
             <!-- Icons or buttons for actions -->
-            <i class="fa-solid fa-plus"></i>
+            <i class="fa-solid fa-plus" (click)="addsubheadingcard(note.id)"></i>
             <i class="fa-solid fa-pen-to-square" (click)="displayinputbartoupdatenoteheading(note.id)"></i>
             <i class="fa-solid fa-trash" (click)="deletenoteheading(note.id)"></i>
           </div>

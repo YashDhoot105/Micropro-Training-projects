@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Note } from '../Interfaces/note';
+import { Data, Note } from '../Interfaces/note';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 
@@ -8,12 +8,16 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class NoteService {
 
-  private activenote = new BehaviorSubject<string>('');
-  activenote$ = this.activenote.asObservable();
+  private addsubheading = new BehaviorSubject<boolean>(false);
+  addsubheading$ = this.addsubheading.asObservable();
 
-  // currentactivenote(activenote:string){
-  //   this.activenote.next(activenote);
-  // }
+  private activenoteid = new BehaviorSubject<string | undefined>('');
+  activenoteid$ = this.activenoteid.asObservable();
+
+  addsubheadingcard(addsubheadingcard:boolean, noteid:string | undefined){
+    this.addsubheading.next(addsubheadingcard);
+    this.activenoteid.next(noteid);
+  }
   
   constructor(private http:HttpClient) { }
 
@@ -36,4 +40,10 @@ export class NoteService {
     const url = `${this.notesUrl}/${id}`;
     return this.http.put<string>(url, updatednoteheading);
   }
+
+
+
+  addsubheadingcarddetailstonotes(subheadingdata: Data, noteid:string | undefined){
+    return this.http.put(`${this.notesUrl}/${noteid}`, subheadingdata);   //not working properly changing the object of the notes array instead of adding the data to note_data array inside the object
+    }
 }

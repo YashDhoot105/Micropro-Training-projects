@@ -1,13 +1,60 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NotelistsubheadingcardsComponent } from '../notelistsubheadingcards/notelistsubheadingcards.component';
+import { NoteService } from '../../Services/note.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Data, Note } from '../../Interfaces/note';
+import { response } from 'express';
 
 @Component({
   selector: 'app-notelistbody',
   standalone: true,
-  imports: [NotelistsubheadingcardsComponent],
+  imports: [NotelistsubheadingcardsComponent, CommonModule, FormsModule],
   templateUrl: './notelistbody.component.html',
-  styleUrl: './notelistbody.component.css'
+  styleUrl: './notelistbody.component.css',
 })
-export class NotelistbodyComponent {
+export class NotelistbodyComponent implements OnInit {
+  addsubheadingcard: boolean = false;
+  newcardsubheading: string = '';
+  newcardsubheadingcontent: string = '';
+  newsubheadingcarddata: Data = {
+    noteid: '',
+    note_data_subheading: '',
+    note_data_content: '',
+  };
+  // notes: Note[]=[]
 
+  constructor(private noteservice: NoteService) {}
+
+  ngOnInit(): void {
+    console.log(this.addsubheadingcard);
+    this.noteservice.addsubheading$.subscribe(
+      (status) => (this.addsubheadingcard = status)
+    );
+    this.noteservice.activenoteid$.subscribe(
+      (noteid) => (this.newsubheadingcarddata.noteid = noteid)
+    );
+    console.log(this.addsubheadingcard);
+    console.log(this.newsubheadingcarddata.noteid);
+  }
+
+  savesubheadingcarddetails() {
+    this.newsubheadingcarddata.note_data_subheading =
+      this.newcardsubheading.trim();
+    this.newsubheadingcarddata.note_data_content =
+      this.newcardsubheadingcontent.trim();
+
+      // const note = this.notes.find(note => note.id === this.newsubheadingcarddata.noteid);
+      // note?.note_data?.push(this.newsubheadingcarddata)
+
+    this.noteservice
+      .addsubheadingcarddetailstonotes(
+        this.newsubheadingcarddata,
+        this.newsubheadingcarddata.noteid
+      )
+      .subscribe((response) => {
+        console.log(response);
+      });
+    console.log(this.newsubheadingcarddata);
+  }
 }
