@@ -1,20 +1,48 @@
-<div class="tasklist-body">
-  <h1 class="current-note-heading">Note 1</h1>
+<div class="nothing-is-selected" *ngIf="activenote == undefined">
+  Nothing is selected
+</div>
+
+<div class="tasklist-body" *ngIf="activenote != undefined">
+  <h1 class="current-note-heading">{{ activenote.note_heading }}</h1>
   <hr />
   <div class="tasklist-body-cards">
-    <div class=" sub-heading-cards newsubehadingcard" *ngIf="addsubheadingcard">
-      <h4><input type="text" placeholder="Enter Subheading..." [(ngModel)]="newcardsubheading"></h4>
+    <div class="sub-heading-cards newsubehadingcard" *ngIf="addsubheadingcard">
+      <h4>
+        <input type="text" placeholder="Enter Subheading..." [(ngModel)]="newcardsubheading" />
+      </h4>
       <hr />
-      <textarea type="text" name="subheadingcontent" id="subheadingcontent" placeholder="Enter data..." [(ngModel)]="newcardsubheadingcontent"></textarea>
+      <div class="content">
+      <textarea type="text" name="subheadingcontent" id="subheadingcontent" placeholder="Enter data..."
+        [(ngModel)]="newcardsubheadingcontent"></textarea>
+        </div>
+        <div class="icons">
       <i class="fa-solid fa-trash"></i>
-      <i class="fa-solid fa-check" (click)="savesubheadingcarddetails()"></i>
+      <i class="fa-solid fa-check" (click)="savesubheadingcarddetails(activenote)"></i>
     </div>
+    </div>
+
+    <div *ngFor="let data of activenote?.note_data">
+      <div class="sub-heading-cards">
+        <h4>{{ data.note_data_subheading }}</h4>
+        <hr />
+        <div class="content">
+          {{ data.note_data_content }}
+        </div>
+        <div class="icons">
+          <i class="fa-solid fa-trash"></i>
+          <i class="fa-solid fa-pen-to-square"></i>
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- <app-notelistsubheadingcards *ngFor="let data of activenote?.note_data" [data]="data"></app-notelistsubheadingcards> -->
+    <!-- <app-notelistsubheadingcards></app-notelistsubheadingcards>
     <app-notelistsubheadingcards></app-notelistsubheadingcards>
     <app-notelistsubheadingcards></app-notelistsubheadingcards>
     <app-notelistsubheadingcards></app-notelistsubheadingcards>
     <app-notelistsubheadingcards></app-notelistsubheadingcards>
     <app-notelistsubheadingcards></app-notelistsubheadingcards>
-    <app-notelistsubheadingcards></app-notelistsubheadingcards>
-    <app-notelistsubheadingcards></app-notelistsubheadingcards>
+    <app-notelistsubheadingcards></app-notelistsubheadingcards> -->
   </div>
 </div>
