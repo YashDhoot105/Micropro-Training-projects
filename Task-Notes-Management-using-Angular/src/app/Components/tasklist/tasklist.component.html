@@ -1,1 +1,44 @@
-<p>tasklist works!</p>
+<div
+  class="new-todo-button"
+  (click)="displayinputbarfortodoitem()"
+  *ngIf="newtodoplus"
+>
+  New Todo +
+</div>
+
+<div class="todolistinputbar" *ngIf="!newtodoplus">
+  <!-- <div class="inputbarwithcalendericon"> -->
+  <input type="text" [(ngModel)]="newtask" placeholder="Add to do item..." />
+  <i class="fa fa-calendar calender-icon" aria-hidden="true"></i>
+  <!-- </div> -->
+  <i class="fa-solid fa-plus plus-icon" (click)="addtask()"></i>
+</div>
+
+<hr />
+<div class="featurescontainerwithtasklist">
+  <div class="todo-features-container">
+    <span>Total Tasks : 8</span>
+    <span>Completed Tasks : 8</span>
+    <span>Remaining Tasks : 8</span>
+    <span>
+      <select>
+        <option><i class="fa-solid fa-filter"></i>Filter</option>
+        <option value="all">All</option>
+        <option>Completed</option>
+        <option>Remaining</option>
+        <option>Due Date</option>
+      </select></span
+    >
+    <span>Sort</span>
+  </div>
+  <div class="task-list">
+    <span class="checked-task">
+        <i class="fa-solid fa-check"></i>
+        <span>Task</span>
+    </span>
+    <span>
+    <i class="fa-solid fa-pen-to-square"></i>
+    <i class="fa-solid fa-trash"></i>
+</span>
+  </div>
+</div>

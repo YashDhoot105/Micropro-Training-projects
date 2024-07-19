@@ -202,6 +202,7 @@ export class NotelistsidebarComponent implements OnInit {
   newsubnoteheading: string = '';
   // updatenoteheading : boolean = false;
   activenote: string | undefined = '';
+  currentclickednote: Note | undefined;
   // currenactivetnote:string | undefined=''
   newnote: Note = {
     // id:'',                             //dont initialize, then json server auto generated id
@@ -211,6 +212,12 @@ export class NotelistsidebarComponent implements OnInit {
   };
   constructor(private noteservice: NoteService) {
     this.noteservice.notes$.subscribe((notes) => (this.notes = notes));
+
+    this.noteservice.activenoteid$.subscribe(noteid => {
+      if (noteid) {
+        this.currentclickednote = this.notes.find(note => note.id === noteid);
+      }
+    });
   }
 
   displayinputbarfornoteheading() {
@@ -263,7 +270,7 @@ export class NotelistsidebarComponent implements OnInit {
       console.log(this.notes);
     }
 
-    const findnotetoupdatenote = this.notes.find((note) => (note.id = noteid));
+    const findnotetoupdatenote = this.notes.find((note) => (note.id === noteid));
     if (findnotetoupdatenote) {
       findnotetoupdatenote.note_heading = this.updatednoteheading;
 
@@ -272,12 +279,14 @@ export class NotelistsidebarComponent implements OnInit {
         .subscribe((response) => {
           console.log(response);
         });
+        this.updatednoteheading = '';
     }
   }
 
   addSubheadingCard(noteId: string | undefined) {
     this.noteservice.toggleAddSubheadingCard(true);
     this.noteservice.setActiveNoteId(noteId);
+    // this.bool = true;
   }
 }
 

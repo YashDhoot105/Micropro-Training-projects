@@ -1,0 +1,134 @@
+.new-todo-button {
+  width: 140px;
+  height: 45px;
+  font-family: "Montserrat";
+  padding: 10px 10px;
+  font-size: 18px;
+  color: #7300ff;
+  background-color: #fff;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  text-align: center;
+  margin-inline: auto;
+  margin-bottom: 20px;
+  margin-top: 5%;
+}
+
+.new-todo-button:hover {
+  background-color: #963eff;
+  box-shadow: 0px 10px 25px #963eff;
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+.todolistinputbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  margin-top: 5%;
+  gap: 20px;
+}
+
+.todolistinputbar input {
+  border: none;
+  border-bottom: 2px solid #d3d3d3;
+  font-size: 20px;
+  font-family: "Montserrat";
+  padding: 8px;
+  border-radius: 10px 10px 0px 0px;
+  width: 30%;
+}
+
+.todolistinputbar input:focus {
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #7300ff;
+  font-family: "Montserrat";
+}
+
+.todolistinputbar i {
+  font-size: 40px;
+  margin-left: 15px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 10px;
+  transition: all 0.2s ease 0s;
+}
+
+.todolistinputbar i:hover {
+  background-color: #963eff;
+  color: #fff6ff;
+}
+
+hr {
+  border: none;
+  /* height: 20px; */
+  width: 80%;
+  height: 50px;
+  margin-top: 0;
+  border-bottom: 2px solid #b981fe;
+  box-shadow: 0 20px 20px -20px #d3d3d3;
+  margin-inline: auto;
+}
+
+.todo-features-container {
+  margin-inline: auto;
+  border-radius: 10px 10px 0px 0px;
+  padding: 10px;
+  width: 80%;
+  background-color: #b981fe;
+  font-family: "Montserrat";
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap-reverse;
+  flex: 1;
+  gap: 10px;
+  margin-top: 5px;
+  align-items: center;
+}
+
+select{
+    padding: 2px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.task-list {
+  padding: 10px;
+  font-family: "Montserrat";
+  font-size: 20px;
+  width: 80%;
+  margin-inline: auto;
+  background-color: #f2e7ff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-inline: 40px;
+}
+
+.checked-task {
+    width: 60%;
+}
+
+.checked-task span{
+    margin: 10px 20px;
+
+}
+.task-list i {
+    border-radius: 10px;
+    padding: 10px;
+    transition: all 0.5s ease 0s;
+  }
+
+.task-list i:hover {
+    cursor: pointer;
+    border-radius: 15px;
+    background-color: #963eff;
+    color: #fff6ff;
+  }

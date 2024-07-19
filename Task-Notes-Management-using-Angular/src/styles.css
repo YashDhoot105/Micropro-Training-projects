@@ -194,6 +194,15 @@ i {
   color: #ffffff;
 }
 
+p {
+  background-color: #963eff;
+  color: white;
+  font-family: 'Montserrat';
+  border-radius: 10px;
+  margin: 10px;
+  padding: 15px;
+}
+
 h1 {
   margin-top: 50px;
   font-family: "Montserrat";
@@ -288,6 +297,15 @@ h1 {
 
   .notes-list ul li {
     margin-inline: 0;
+  }
+  .note-heading {
+    width: 50%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .noteheadinginputbar input {
+    width: 80%;
   }
 } 
 
