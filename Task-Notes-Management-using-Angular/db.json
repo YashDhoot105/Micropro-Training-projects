@@ -27,33 +27,6 @@
   ],
   "notes": [
     {
-      "id": "cc87",
-      "note_id": 1,
-      "note_heading": "Github token",
-      "note_data": [
-        {
-          "noteid": "cc87",
-          "note_data_subheading": "Token",
-          "note_data_content": "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"
-        },
-        {
-          "noteid": "cc87",
-          "note_data_subheading": "Toknen 2",
-          "note_data_content": "ghp_G9MWBJKnqbE5RIWuTmAmsEDPMGxtZeenfve"
-        },
-        {
-          "noteid": "1db0",
-          "note_data_subheading": "note",
-          "note_data_content": "note data"
-        },
-        {
-          "noteid": "cc87",
-          "note_data_subheading": "git",
-          "note_data_content": "data"
-        }
-      ]
-    },
-    {
       "id": "67c7",
       "note_id": 3,
       "note_heading": "Note 2",
