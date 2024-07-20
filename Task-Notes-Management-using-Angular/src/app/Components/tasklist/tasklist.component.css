@@ -78,7 +78,7 @@ hr {
 
 .todo-features-container {
   margin-inline: auto;
-  border-radius: 10px 10px 0px 0px;
+  border-radius: 20px 20px 0px 0px;
   padding: 10px;
   width: 80%;
   background-color: #b981fe;
@@ -99,7 +99,30 @@ select{
     border-radius: 5px;
 }
 
-.task-list {
+input {
+  border: none;
+  border-bottom: 2px solid #963eff;
+  font-size: 18px;
+  background-color: #dbc3f7;
+  padding: 5px;
+  border-radius: 5px 5px 0px 0px;
+  width: 60%;
+  transition: all 0.4s ease 0s;
+}
+
+input:focus {
+  outline: none;
+  width: 100%;
+}
+
+input::placeholder {
+  font-family: "Montserrat";
+  font-size: 16px;
+}
+
+
+.task-bar {
+  /* border-top: 40px solid #b981fe; */
   padding: 10px;
   font-family: "Montserrat";
   font-size: 20px;
@@ -112,6 +135,17 @@ select{
   padding-inline: 40px;
 }
 
+.task-bar:hover {
+  background-color: #963eff;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.task-bar:hover i {
+  background-color: #963eff;
+  color: #fff;
+}
+
 .checked-task {
     width: 60%;
 }
@@ -120,7 +154,7 @@ select{
     margin: 10px 20px;
 
 }
-.task-list i {
+/* .task-list i {
     border-radius: 10px;
     padding: 10px;
     transition: all 0.5s ease 0s;
@@ -131,4 +165,4 @@ select{
     border-radius: 15px;
     background-color: #963eff;
     color: #fff6ff;
-  }
+  } */

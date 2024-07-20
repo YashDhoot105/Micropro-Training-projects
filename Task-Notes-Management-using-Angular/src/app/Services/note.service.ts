@@ -125,6 +125,7 @@ export class NoteService {
 
   addsubheading(note_id: number, newSubheading: Data) {
     const noteIndex = this.notesarray.findIndex(note => note.note_id === note_id);
+    console.log(noteIndex + "index")
     if (noteIndex !== -1) {
       if (!this.notesarray[noteIndex].note_data) {
         this.notesarray[noteIndex].note_data = [];

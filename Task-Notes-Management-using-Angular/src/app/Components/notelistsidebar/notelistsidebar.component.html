@@ -76,31 +76,31 @@
 
   <div class="notes-list">
     <ul>
-      <li *ngFor="let note of notes" (click)="selectednote(note.id)">
-        <div
-          class="note-heading-with-icons-container"
-          *ngIf="note.id !== activenote"
-        >
-          <div class="note-heading">{{ note.note_heading }}</div>
-          <div class="note-heading-icons">
-            <!-- Icons or buttons for actions -->
-            <i
-              class="fa-solid fa-plus"
-              (click)="addSubheadingCard(note.id)"
-            ></i>
-            <i
-              class="fa-solid fa-pen-to-square"
-              (click)="displayinputbartoupdatenoteheading(note.id)"
-            ></i>
-            <i
-              class="fa-solid fa-trash"
-              (click)="deletenoteheading(note.id)"
-            ></i>
+      <div class="conatiner" *ngFor="let note of notes">
+        <li (click)="selectednote(note.id)" class="note-heading-with-icons-container-and-inputbar">
+          <div
+            class="note-heading-with-icons-container"
+            *ngIf="!(note.id === activenote && updatecurrentnoteheading)"
+          >
+            <div class="note-heading">{{ note.note_heading }}</div>
+            <div class="note-heading-icons">
+              <!-- Icons or buttons for actions -->
+              <i
+                class="fa-solid fa-plus"
+                (click)="addSubheadingCard(note.id)"
+              ></i>
+              <i
+                class="fa-solid fa-pen-to-square"
+                (click)="displayinputbartoupdatenoteheading(note.id)"
+              ></i>
+              <i
+                class="fa-solid fa-trash"
+                (click)="deletenoteheading(note.id)"
+              ></i>
+            </div>
           </div>
-        </div>
 
-
-        <!-- <div *ngIf="activenote == note.id">
+          <!-- <div *ngIf="activenote == note.id">
           <hr>
           <p>Subheadings of selected note</p>
           <div *ngFor="let data of currentclickednote?.note_data">
@@ -110,23 +110,26 @@
           </div>
           </div> -->
 
-
-
-
-        <div class="updatenoteheadinginputbar" *ngIf="note.id === activenote">
-          <input type="text" [(ngModel)]="updatednoteheading" /><i
-            class="fa-solid fa-check"
-            (click)="updatenoteheading(note.id)"
-          ></i>
-        </div>
-      </li>
-      <div *ngIf="currentclickednote != undefined">
-        <hr />
-        <p>Subheadings of {{currentclickednote.note_heading}}</p>
-        <div *ngFor="let data of currentclickednote?.note_data">
-          <ul>
-            <li class="subheading-list">{{ data.note_data_subheading }}</li>
-          </ul>
+          <div
+            class="updatenoteheadinginputbar"
+            *ngIf="note.id === activenote && updatecurrentnoteheading"
+          >
+            <input type="text" [(ngModel)]="updatednoteheading" /><i
+              class="fa-solid fa-check"
+              (click)="updatenoteheading(note.id)"
+            ></i>
+          </div>
+        </li>
+        <div *ngIf="note.id === activenote" class="subheading-container">
+          <hr />
+          <p>Subheadings of {{ note.note_heading }}</p>
+          <div *ngFor="let data of currentclickednote?.note_data">
+            <ul class="subheading-list">
+              <li class="subheading-list-item">
+                {{ data.note_data_subheading }}
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 

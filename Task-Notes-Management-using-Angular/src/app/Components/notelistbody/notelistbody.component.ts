@@ -134,8 +134,10 @@ export class NotelistbodyComponent implements OnInit {
 
     // const note = this.notes.find(note => note.id === this.newsubheadingcarddata.noteid);
     // note?.note_data?.push(this.newsubheadingcarddata)
+    console.log(this.activenote)
 
     if (this.activenote) {
+      console.log(this.activenote)
       this.newsubheadingcarddata.note_data_subheading = this.newcardsubheading.trim();
       this.newsubheadingcarddata.note_data_content = this.newcardsubheadingcontent.trim();
 
