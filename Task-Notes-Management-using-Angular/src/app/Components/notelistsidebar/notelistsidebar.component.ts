@@ -185,7 +185,6 @@ import { Note } from '../../Interfaces/note';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NoteService } from '../../Services/note.service';
-import { HtmlParser } from '@angular/compiler';
 
 @Component({
   selector: 'app-notelistsidebar',
@@ -206,6 +205,7 @@ export class NotelistsidebarComponent implements OnInit {
   currentclickednote: Note | undefined;
   updatecurrentnoteheading: boolean = false;
   // currenactivetnote:string | undefined=''
+  displaysubheading: boolean = false;
   newnote: Note = {
     // id:'',                             //dont initialize, then json server auto generated id
     note_id: 0,
@@ -239,6 +239,7 @@ export class NotelistsidebarComponent implements OnInit {
     this.noteservice.activenoteid.next(noteid);
     console.log(noteid);
     this.activenote = noteid;
+    this.displaysubheading = !this.displaysubheading;
     // const lielement = document.querySelector(".note-heading-with-icons-container-and-inputbar");
     // (lielement as HTMLElement).classList.toggle("activelielement");
   }
@@ -287,7 +288,8 @@ export class NotelistsidebarComponent implements OnInit {
         .subscribe((response) => {
           console.log(response);
         });
-        this.updatednoteheading = '';
+      this.updatednoteheading = '';
+      this.updatecurrentnoteheading = false;
     }
   }
 

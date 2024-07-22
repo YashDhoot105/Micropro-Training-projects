@@ -86,13 +86,13 @@ hr {
   justify-content: space-between;
 }
 
-.activelielement{
+.activelielement {
   background-color: #c8a4f5;
   color: white;
   border-left: 5px solid rgb(196, 1, 255);
 }
 
-.activelielement i{
+.activelielement i {
   color: white;
 }
 
@@ -105,27 +105,27 @@ hr {
 
 .noteheadinginputbar input {
   border: none;
-  border-bottom:2px solid #7300ff;
+  border-bottom: 2px solid #7300ff;
   font-size: 20px;
   font-family: "Montserrat";
-  padding: 8px  ;
+  padding: 8px;
   border-radius: 10px 10px 0px 0px;
-} 
+}
 
 .noteheadinginputbar input:focus,
 .noteheadinginputbar input::placeholder {
   border: none;
   outline: none;
-  border-bottom:2px solid #7300ff;
+  border-bottom: 2px solid #7300ff;
 }
 
-.noteheadinginputbar i{
+.noteheadinginputbar i {
   font-size: 30px;
   margin-left: 15px;
   cursor: pointer;
   padding: 4px 8px;
   border-radius: 10px;
-  transition: all .2s ease 0s;
+  transition: all 0.2s ease 0s;
 }
 
 .noteheadinginputbar i:hover {
@@ -133,8 +133,7 @@ hr {
   color: #fff6ff;
 }
 
-
-.updatenoteheadinginputbar{
+.updatenoteheadinginputbar {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -142,28 +141,28 @@ hr {
 
 .updatenoteheadinginputbar input {
   border: none;
-  border-bottom:2px solid rgb(196, 1, 255);
+  border-bottom: 2px solid rgb(196, 1, 255);
   font-size: 20px;
   font-family: "Montserrat";
-  padding: 8px  ;
+  padding: 8px;
   border-radius: 10px 10px 0px 0px;
   /* background-color: transparent; */
-} 
+}
 
 .updatenoteheadinginputbar input:focus,
 .updatenoteheadinginputbar input::placeholder {
   border: none;
   outline: none;
-  border-bottom:2px solid rgb(196, 1, 255);
+  border-bottom: 2px solid rgb(196, 1, 255);
 }
 
-.updatenoteheadinginputbar i{
+.updatenoteheadinginputbar i {
   font-size: 30px;
   margin-left: 15px;
   cursor: pointer;
   padding: 4px 8px;
   border-radius: 10px;
-  transition: all .2s ease 0s;
+  transition: all 0.2s ease 0s;
 }
 
 .updatenoteheadinginputbar i:hover {
@@ -173,14 +172,45 @@ hr {
 
 .subheading-container {
   background-color: #f3f3f3;
+  /* width: 380px; ////////////////////////////////////////////////////////////////////////////////// */
   border-radius: 10px;
   margin: 5px;
+  animation-duration: 0.8s;
+  animation-name: fadeInDown;
 }
-.subheading-list{
+
+@keyframes slidein {
+  from {
+    translate: 5vw 0;
+    scale: 125% 1;
+    opacity: 0;
+  }
+
+  to {
+    translate: 0 0;
+    scale: 100% 1;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.subheading-list {
   border-left: 1px solid rgb(195, 195, 195);
   margin: 0;
   margin-left: 30px;
   list-style: none;
+  animation-duration: 0.7s;
+  animation-name: fadeInDown;
 }
 
 .subheading-list .subheading-list-item::after {
@@ -194,7 +224,6 @@ hr {
   background-color: #963eff;
   transform: translatey(50%);
   outline: 5px solid #e4cdff;
-  
 }
 
 .subheading-list .subheading-list-item {
@@ -203,7 +232,6 @@ hr {
   padding: 10px 30px;
   font-size: 15px;
   overflow-wrap: break-word; /* Break words that are too long */
-  
 }
 
 .subheading-list li:hover {
@@ -211,7 +239,6 @@ hr {
   color: #7300ff;
   border: none;
 }
-
 
 /* 
 input {
@@ -238,16 +265,21 @@ i {
   margin-right: 5px;
   color: #963eff;
   padding: 3px;
+  transition: all 0.3s ease 0s;
 }
 
 .notes-list li:hover i {
   color: #ffffff;
 }
+.notes-list i:hover {
+  transform: translateY(-4px);
+  scale: 1.2;
+}
 
 p {
   background-color: #c8a4f5;
   color: white;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   border-radius: 10px;
   margin: 10px;
   padding: 15px;
@@ -282,6 +314,8 @@ h1 {
   flex-direction: column;
   justify-content: space-between;
   min-width: 250px; /* Minimum width for the cards */
+  animation-duration: 0.8s;
+  animation-name: slidein;
 }
 
 .sub-heading-cards:hover {
@@ -336,12 +370,14 @@ h1 {
 
 @media (max-width: 450px) {
   .tasklist-sidebar-container {
-    width: 100%; 
+    width: 100%;
     height: auto;
   }
+
   .tasklist-container {
     grid-template-rows: auto 1fr;
   }
+
   .tasklist-body {
     width: auto;
   }
@@ -358,9 +394,7 @@ h1 {
   .noteheadinginputbar input {
     width: 80%;
   }
-} 
-
-
+}
 
 /* /////////////////////////////////////////// */
 
@@ -443,7 +477,6 @@ h4 {
 
 /* ///////////////////////////////// NOTELIST CSS  ENDS////////////////////////////////// */
 
-
 .newsubheadingcard {
   overflow: visible; /* Ensure new subheading card can grow */
 }
@@ -488,7 +521,7 @@ h4 {
 }
 
 .sub-heading-cards textarea {
-outline: none;
+  outline: none;
 }
 
 .sub-heading-cards:hover h4 {
@@ -500,11 +533,17 @@ outline: none;
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
+  font-size: 18px;
 }
 
 .sub-heading-cards .icons i {
   padding: 5px;
   cursor: pointer;
+}
+
+.sub-heading-cards .icons i:hover {
+  transform: translateY(-4px);
+  scale: 1.2;
 }
 
 /* ///////////////////////////////////////////////// */
@@ -551,7 +590,6 @@ outline: none;
   padding: 2px;
 } */
 
-
 /* ////////////////////////////////////////////// */
 
 /* .newsubehadingcard i {
@@ -559,12 +597,11 @@ outline: none;
   margin: 0;
 } */
 
-
 .nothing-is-selected {
   font-size: 40px;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   text-align: center;
   color: #c8a4f5;
-  font-weight:600;
+  font-weight: 600;
   margin: 30%;
 }

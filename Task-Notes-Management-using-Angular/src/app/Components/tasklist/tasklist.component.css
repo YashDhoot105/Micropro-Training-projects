@@ -135,16 +135,16 @@ input::placeholder {
   padding-inline: 40px;
 }
 
-.task-bar:hover {
+/* .task-bar:hover {
   background-color: #963eff;
   color: #fff;
   border-radius: 10px;
-}
-
+} */
+/* 
 .task-bar:hover i {
   background-color: #963eff;
   color: #fff;
-}
+} */
 
 .checked-task {
     width: 60%;
@@ -154,7 +154,7 @@ input::placeholder {
     margin: 10px 20px;
 
 }
-/* .task-list i {
+.task-list i {
     border-radius: 10px;
     padding: 10px;
     transition: all 0.5s ease 0s;
@@ -165,4 +165,4 @@ input::placeholder {
     border-radius: 15px;
     background-color: #963eff;
     color: #fff6ff;
-  } */
+  }

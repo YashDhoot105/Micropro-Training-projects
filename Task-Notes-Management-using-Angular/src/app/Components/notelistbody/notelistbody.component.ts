@@ -141,7 +141,7 @@ export class NotelistbodyComponent implements OnInit {
       this.newsubheadingcarddata.note_data_subheading = this.newcardsubheading.trim();
       this.newsubheadingcarddata.note_data_content = this.newcardsubheadingcontent.trim();
 
-      this.noteservice.addsubheading(this.activenote.note_id, this.newsubheadingcarddata);
+      this.noteservice.addsubheading(this.activenote.id, this.newsubheadingcarddata);
     }
     this.addsubheadingcard = false;
     const hidenewcard = document.querySelector(".newsubehadingcard");

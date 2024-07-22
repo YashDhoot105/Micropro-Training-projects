@@ -120,7 +120,7 @@
             ></i>
           </div>
         </li>
-        <div *ngIf="note.id === activenote" class="subheading-container">
+        <div *ngIf="note.id === activenote && displaysubheading" class="subheading-container">
           <hr />
           <p>Subheadings of {{ note.note_heading }}</p>
           <div *ngFor="let data of currentclickednote?.note_data">

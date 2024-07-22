@@ -123,8 +123,8 @@ export class NoteService {
     return this.http.put<string>(url, updatednoteheading);
   }
 
-  addsubheading(note_id: number, newSubheading: Data) {
-    const noteIndex = this.notesarray.findIndex(note => note.note_id === note_id);
+  addsubheading(note_id: string | undefined, newSubheading: Data) {
+    const noteIndex = this.notesarray.findIndex(note => note.id === note_id);
     console.log(noteIndex + "index")
     if (noteIndex !== -1) {
       if (!this.notesarray[noteIndex].note_data) {

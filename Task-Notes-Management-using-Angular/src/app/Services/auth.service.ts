@@ -12,6 +12,7 @@ export class AuthService {
 
   private userName = new BehaviorSubject<string>('');
   userName$ = this.userName.asObservable();
+  
   setloginstatus(loginstatus: boolean, username?: string) {
     this.isLoggedIn.next(loginstatus);
     if (loginstatus) {

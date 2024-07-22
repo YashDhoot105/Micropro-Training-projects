@@ -1,3 +1,5 @@
+// 'Droid Sans Mono', 'monospace', monospace
+
 const requestOptions = {
     method: "GET",
     redirect: "follow"
@@ -10,6 +12,7 @@ let fun = () => {
     // console.log(input_data_id);
 
     // http://localhost:3000/posts/1, http://localhost:3000/posts?title=ab
+    
     fetch(`http://localhost:3000/posts${(input_data_id) ? "/" + input_data_id : (input_data_title) ? "?title=" + input_data_title : (input_data_view) ? "?views=" + input_data_view : ""}`, requestOptions)
         .then((response) => response.json())
         .then((result) => filter(result))
