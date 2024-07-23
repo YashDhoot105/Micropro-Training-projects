@@ -237,7 +237,7 @@ export class NotelistsidebarComponent implements OnInit {
 
   selectednote(noteid: string | undefined) {
     this.noteservice.activenoteid.next(noteid);
-    console.log(noteid);
+    console.log(noteid + "  kwheb");
     this.activenote = noteid;
     this.displaysubheading = !this.displaysubheading;
     // const lielement = document.querySelector(".note-heading-with-icons-container-and-inputbar");

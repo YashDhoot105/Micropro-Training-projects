@@ -77,12 +77,12 @@
   <div class="notes-list">
     <ul>
       <div class="conatiner" *ngFor="let note of notes">
-        <li (click)="selectednote(note.id)" class="note-heading-with-icons-container-and-inputbar">
+        <li  class="note-heading-with-icons-container-and-inputbar">
           <div
             class="note-heading-with-icons-container"
             *ngIf="!(note.id === activenote && updatecurrentnoteheading)"
           >
-            <div class="note-heading">{{ note.note_heading }}</div>
+            <div class="note-heading" (click)="selectednote(note.id)">{{ note.note_heading }}</div>
             <div class="note-heading-icons">
               <!-- Icons or buttons for actions -->
               <i

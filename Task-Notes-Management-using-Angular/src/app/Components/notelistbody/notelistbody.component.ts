@@ -97,7 +97,7 @@ export class NotelistbodyComponent implements OnInit {
     note_data_content: '',
   };
   activenote: Note | undefined;
-  notes: Note[] = []
+  notes: Note[] = [];
 
   constructor(private noteservice: NoteService) {
   }

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Data } from '@angular/router';
 
 @Component({
   selector: 'app-notelistsubheadingcards',
@@ -7,6 +8,10 @@ import { Component } from '@angular/core';
   templateUrl: './notelistsubheadingcards.component.html',
   styleUrl: './notelistsubheadingcards.component.css'
 })
-export class NotelistsubheadingcardsComponent {
-
+export class NotelistsubheadingcardsComponent implements OnInit{
+  @Input() data: Data = [];
+  
+  ngOnInit() {
+    console.log(this.data);
+  }
 }

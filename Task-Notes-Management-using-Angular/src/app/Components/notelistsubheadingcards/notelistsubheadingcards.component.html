@@ -1,9 +1,13 @@
+<!-- Property 'note_data_subheading' comes from an index signature, so it must be accessed with ['note_data_subheading']. -->
+
 <div class="sub-heading-cards">
-    <h4>Note Subheading</h4>
-    <hr />
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
-    voluptatem architecto, nobis ex est hic iure, fugiat consequatur earum
-    alias at quibusdam mollitia in ut, quisquam repellat qui natus ullam.
+  <h4>{{ data['note_data_subheading'] }}</h4>
+  <hr />
+  <div class="content">
+    {{ data['note_data_content'] }}
+  </div>
+  <div class="icons">
     <i class="fa-solid fa-trash"></i>
     <i class="fa-solid fa-pen-to-square"></i>
   </div>
+</div>
