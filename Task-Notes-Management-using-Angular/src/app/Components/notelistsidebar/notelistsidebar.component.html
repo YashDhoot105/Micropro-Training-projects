@@ -76,7 +76,9 @@
 
   <div class="notes-list">
     <ul>
-      <div class="conatiner" *ngFor="let note of notes">
+      <!-- <div class="conatiner" *ngFor="let note of notes; trackBy:trackByNoteId"> -->
+        <div class="conatiner" *ngFor="let note of notes">
+
         <li  class="note-heading-with-icons-container-and-inputbar">
           <div
             class="note-heading-with-icons-container"

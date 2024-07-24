@@ -78,7 +78,6 @@ import { NoteService } from '../../Services/note.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Data, Note } from '../../Interfaces/note';
-import { elementAt } from 'rxjs';
 
 @Component({
   selector: 'app-notelistbody',
@@ -124,6 +123,9 @@ export class NotelistbodyComponent implements OnInit {
     console.log(this.newsubheadingcarddata.noteid);
   }
 
+  // trackByNoteId(index: number, data: Data) {
+  //   return data.id;
+  // }
   savesubheadingcarddetails(note: Note) {
     this.newsubheadingcarddata.noteid = `${note.id}`,
 

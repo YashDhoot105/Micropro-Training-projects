@@ -8,6 +8,8 @@ import { TaskdetailsComponent } from './Components/taskdetails/taskdetails.compo
 import { TaskformComponent } from './Components/taskform/taskform.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { NoteslistComponent } from './Components/noteslist/noteslist.component';
+import { NotelistsidebarComponent } from './Components/notelistsidebar/notelistsidebar.component';
+import { NotelistbodyComponent } from './Components/notelistbody/notelistbody.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/navbar', pathMatch: 'full' },
@@ -18,7 +20,10 @@ export const routes: Routes = [
   { path: 'taskdetails/:id', component: TaskdetailsComponent },
   { path: 'taskform', component: TaskformComponent },
   { path: 'taskform/:id', component: TaskformComponent },  // For editing tasks
-  { path: 'noteslist' , component:NoteslistComponent}
+  { path: 'noteslist', component: NoteslistComponent },
+  // { path: 'noteslistbody', component: NotelistbodyComponent },
+
+  // { path: 'noteslistsidebar/:id' , component:NotelistsidebarComponent}
 ];
 
 @NgModule({

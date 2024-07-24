@@ -185,11 +185,13 @@ import { Note } from '../../Interfaces/note';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NoteService } from '../../Services/note.service';
+import { NotelistbodyComponent } from "../notelistbody/notelistbody.component";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-notelistsidebar',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, NotelistbodyComponent],
   templateUrl: './notelistsidebar.component.html',
   styleUrls: ['./notelistsidebar.component.css'],
 })
@@ -212,7 +214,7 @@ export class NotelistsidebarComponent implements OnInit {
     note_heading: '',
     note_data: [],
   };
-  constructor(private noteservice: NoteService) {
+  constructor(private noteservice: NoteService, private router:Router) {
     this.noteservice.notes$.subscribe((notes) => (this.notes = notes));
 
     this.noteservice.activenoteid$.subscribe(noteid => {
@@ -221,6 +223,10 @@ export class NotelistsidebarComponent implements OnInit {
       }
     });
   }
+
+  // trackByNoteId(index: number, note: Note): string | undefined {
+  //   return note.id;
+  // }
 
   displayinputbarfornoteheading() {
     this.newnoteplus = false;
@@ -240,6 +246,7 @@ export class NotelistsidebarComponent implements OnInit {
     console.log(noteid + "  kwheb");
     this.activenote = noteid;
     this.displaysubheading = !this.displaysubheading;
+    // this.router.navigate(['/noteslistsidebar', noteid]);
     // const lielement = document.querySelector(".note-heading-with-icons-container-and-inputbar");
     // (lielement as HTMLElement).classList.toggle("activelielement");
   }
@@ -290,6 +297,7 @@ export class NotelistsidebarComponent implements OnInit {
         });
       this.updatednoteheading = '';
       this.updatecurrentnoteheading = false;
+      console.log(this.notes);
     }
   }
 
