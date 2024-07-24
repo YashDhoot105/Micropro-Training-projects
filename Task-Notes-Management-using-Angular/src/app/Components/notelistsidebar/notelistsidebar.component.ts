@@ -214,6 +214,7 @@ export class NotelistsidebarComponent implements OnInit {
     note_heading: '',
     note_data: [],
   };
+  displaysidebar:boolean=true;
   constructor(private noteservice: NoteService, private router:Router) {
     this.noteservice.notes$.subscribe((notes) => (this.notes = notes));
 
@@ -229,6 +230,7 @@ export class NotelistsidebarComponent implements OnInit {
   // }
 
   displayinputbarfornoteheading() {
+    this.displaysidebar=true;
     this.newnoteplus = false;
   }
 
@@ -239,6 +241,10 @@ export class NotelistsidebarComponent implements OnInit {
   loadnotesheadingtonotelist() {
     this.noteservice.getnotestonotelist();
     console.log(this.notes);
+  }
+
+  togglesidebar(){
+    this.displaysidebar=!this.displaysidebar;
   }
 
   selectednote(noteid: string | undefined) {
