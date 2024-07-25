@@ -1,0 +1,27 @@
+.data-table {
+    width: 100%;
+    margin-top: 40px; 
+    border-collapse: collapse;
+    border-radius: 20px;
+    font-family: "Space Grotesk";
+    box-shadow: rgb(211, 201, 244) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    border-radius: 15px; 
+    overflow: hidden;
+    font-family: 'Montserrat';
+}
+
+.data-table thead {
+    background-color: rgb(196, 1, 255);
+    color: white;
+}
+
+.data-table th, .data-table td {
+    padding: 12px;
+    text-align: left;
+}
+
+.data-table tbody tr:hover {
+    background-color: #f7f4ff;
+    color: rgb(196, 1, 255);
+    cursor: pointer;
+}

@@ -14,4 +14,14 @@ export class NotelistsubheadingcardsComponent implements OnInit{
   ngOnInit() {
     console.log(this.data);
   }
+
+  deletesubheadingcard(id: string) {
+    console.log(this.data);
+    // this.data = {};
+    console.log(this.data);
+
+    // const subnoteIndex = this.data.findIndex(note => note.id === id);
+
+    console.log(id);
+  }
 }

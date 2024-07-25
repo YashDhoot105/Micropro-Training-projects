@@ -10,7 +10,7 @@
 .tasklist-container {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: 1fr 10fr;
+  grid-auto-columns: 1fr 5fr;
   gap: 50px;
 }
 

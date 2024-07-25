@@ -127,6 +127,7 @@ export class NotelistbodyComponent implements OnInit {
   //   return data.id;
   // }
   savesubheadingcarddetails(note: Note) {
+    this.newsubheadingcarddata.id = new Date;
     this.newsubheadingcarddata.noteid = `${note.id}`,
 
     this.newsubheadingcarddata.note_data_subheading =

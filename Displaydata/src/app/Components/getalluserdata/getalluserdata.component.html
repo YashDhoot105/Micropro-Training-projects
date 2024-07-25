@@ -1,0 +1,31 @@
+<div *ngIf="users.length > 0; else noData">
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Date of Birth</th>
+        <th>Email</th>
+        <th>City</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>AccountDetails</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.customer_id }}</td>
+        <td>{{ user.fname }}</td>
+        <td>{{ user.lname }}</td>
+        <td>{{ user.dob }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.address }}</td>
+        <td>{{ user.phone_no }}</td>
+        <td>{{ user.accountDetails }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #noData>
+  <p>No user data available.</p>
+</ng-template>
