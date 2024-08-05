@@ -257,6 +257,13 @@ export class NotelistsidebarComponent implements OnInit {
     // (lielement as HTMLElement).classList.toggle("activelielement");
   }
 
+  viewsubheadingcard(noteid: string | undefined , subheadingnoteid: string | null | undefined) {
+    if (noteid && subheadingnoteid) {
+      this.router.navigate(['/subheadingcarddetails', noteid, subheadingnoteid]);
+    } else {
+      console.error('Invalid parameters provided for navigation.');
+    }  }
+
   addnoteheading() {
     if (this.newnoteheading.trim() === '') {
       return; // Prevent adding empty headings
@@ -274,7 +281,7 @@ export class NotelistsidebarComponent implements OnInit {
     console.log(this.notes);
     this.noteservice.deletenotefromnotelist(noteid);
     console.log(noteid);
-    console.log(this.notes);
+    console.log(this.notes); 
   }
 
   displayinputbartoupdatenoteheading(currentnoteid: string | undefined) {

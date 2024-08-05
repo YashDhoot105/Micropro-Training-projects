@@ -1,68 +1,146 @@
-<div
-  class="new-todo-button"
-  (click)="displayinputbarfortodoitem()"
-  *ngIf="newtodoplus"
->
+<div class="new-todo-button" (click)="openNoteModal()" *ngIf="newtodoplus">
   New Todo +
 </div>
+<app-taskform (save)="handleSave($event)"></app-taskform>
 
 <div class="todolistinputbar" *ngIf="!newtodoplus">
-  <!-- <div class="inputbarwithcalendericon"> -->
   <input type="text" [(ngModel)]="newtask" placeholder="Add to do item..." />
   <i class="fa fa-calendar calender-icon" aria-hidden="true"></i>
-  <!-- </div> -->
   <i class="fa-solid fa-plus plus-icon" (click)="addtask()"></i>
 </div>
+<!-- <div class="todolistinputbar" *ngIf="!newtodoplus">
+  <input type="text" [(ngModel)]="newtask" placeholder="Add to do item..." />
+  <i class="fa fa-calendar calender-icon" aria-hidden="true" (click)="openDatePicker()"></i>
+  <input type="date" #datePicker class="hidden-date-picker" (change)="updateTaskDate($event)" />
+  <div class="circle red"></div>
+  <div class="circle yellow"></div>
+  <div class="circle orange"></div>
+  <i class="fa-solid fa-plus plus-icon" (click)="addtask()"></i>
+</div> -->
 
 <hr />
+
 <div class="featurescontainerwithtasklist">
   <div class="todo-features-container">
-    <span>Total Tasks : 8</span>
-    <span>Completed Tasks : 8</span>
-    <span>Remaining Tasks : 8</span>
     <span>
-      <select>
-        <option><i class="fa-solid fa-filter"></i>Filter</option>
+      <span class="task-count"> Total </span>{{ filteredtasks.length }}</span
+    >
+    <span>
+      <span class="task-count"> Completed </span>{{ totalcompletedtasks }}</span
+    >
+    <span>
+      <span class="task-count"> Remaining </span
+      >{{ totalincompletetasks }}</span
+    >
+    <span>
+      <select
+        #filtervalue
+        class="filter-dropdown"
+        (change)="setfilter(filtervalue.value)"
+      >
+        <!-- <option value="" disabled selected>Filter</option> -->
         <option value="all">All</option>
-        <option>Completed</option>
-        <option>Remaining</option>
-        <option>Due Date</option>
+        <option value="completed">Completed</option>
+        <option value="remaining">Remaining</option>
+        <option value="due-date">Due Date</option>
       </select></span
     >
-    <span> <input type="text" placeholder="Search" /> </span>
+    <span>
+      <input
+        type="text"
+        placeholder="Search"
+        [(ngModel)]="searchedtask"
+        (input)="searchtasks()"
+      />
+      <!-- <span class="suggestions"><div *ngIf="suggestions.length > 0" class="suggestions-container">
+        <ul>
+          <li *ngFor="let suggestion of suggestions">
+            {{ suggestion }}
+          </li>
+        </ul>
+      </div></span> -->
+    </span>
   </div>
   <div class="task-list">
-    <div class="task-bar">
-    <span class="checked-task">
-      <i class="fa-solid fa-check"></i>
-      <span>Task</span>
-    </span>
-    <span>
-      <i class="fa-solid fa-pen-to-square"></i>
-      <i class="fa-solid fa-trash"></i>
-    </span>
-  </div>
+    @if(filteredtasks.length>0){
+    <div
+      class="task-bar"
+      *ngFor="let task of filteredtasks; taskfilter: searchedtask"
+      (click)="selectedtask(task.id)"
+    >
+      <div class="task-bar-without-date">
+        <!-- <div class="border-left-hover"></div> -->
+        <div class="task-heading-checked-icon">
+          @if(task.task_completion_status){
+          <div class="task-summary-completed">
+            <i
+              class="fa-solid fa-check completedicon"
+              (click)="taskincompletetoggle(task.id)"
+            ></i>
+            <!-- @if (task.task_priority_status) { -->
+            <!-- <span class="priority-status" ></span> -->
 
-  <div class="task-bar">
-    <span class="checked-task">
-      <i class="fa-solid fa-check"></i>
-      <span>Task</span>
-    </span>
-    <span>
-      <i class="fa-solid fa-pen-to-square"></i>
-      <i class="fa-solid fa-trash"></i>
-    </span>
-  </div>
+            <!-- } -->
+            <span class="task-title">{{ task.task_heading }}</span>
+          </div>
+          } @else {
+          <div class="task-summary">
+            <i
+              class="fa-solid fa-check incompleteicon"
+              (click)="taskcompletetoggle(task.id)"
+            ></i>
+            @if (task.task_priority_status) {
 
-  <div class="task-bar">
-    <span class="checked-task">
-      <i class="fa-solid fa-check"></i>
-      <span>Task</span>
-    </span>
-    <span>
-      <i class="fa-solid fa-pen-to-square"></i>
-      <i class="fa-solid fa-trash"></i>
-    </span>
+            <span
+              [ngClass]="{
+                'priority-low': task.task_priority_status === 'low',
+                'priority-medium': task.task_priority_status === 'medium',
+                'priority-high': task.task_priority_status === 'high'
+              }"
+              class="priority-status"
+            ></span>
+            }
+            <span class="task-title"
+              >{{ task.task_heading }}</span
+            >
+          </div>
+          }
+        </div>
+        <div class="icons">
+          <i
+            class="fa-solid fa-eye"
+            [ngClass]="{ 'fa-bounce': eyeisHovered }"
+            (mouseover)="eyeisHovered = true"
+            (mouseout)="eyeisHovered = false"
+            (click)="viewtask(task.id)"
+          ></i>
+          <i
+            class="fa-solid fa-plus plus-icon"
+            [ngClass]="{ 'fa-bounce': plusisHovered }"
+            (mouseover)="plusisHovered = true"
+            (mouseout)="plusisHovered = false"
+          ></i>
+          <i
+            class="fa-solid fa-pen-to-square"
+            [ngClass]="{ 'fa-bounce': updateisHovered }"
+            (mouseover)="updateisHovered = true"
+            (mouseout)="updateisHovered = false"
+          ></i>
+          <i
+            class="fa-solid fa-trash"
+            [ngClass]="{ 'fa-bounce': deleteisHovered }"
+            (mouseover)="deleteisHovered = true"
+            (mouseout)="deleteisHovered = false"
+            (click)="deletetask(task.id)"
+          ></i>
+        </div>
+      </div>
+      <span class="taskbar-date"> <i class="fa-duotone fa-solid fa-diagram-subtask"></i
+        > <i class="fa-solid fa-calendar"></i
+          >{{task.task_due_date}}</span>
+    </div>
+    } @else {
+    <div class="nodatafound">No data found</div>
+    }
   </div>
-</div>
 </div>

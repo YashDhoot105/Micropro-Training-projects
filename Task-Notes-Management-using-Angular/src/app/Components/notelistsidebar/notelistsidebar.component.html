@@ -208,7 +208,7 @@
           <p>Subheadings of {{ note.note_heading }}</p>
           <div *ngFor="let data of currentclickednote?.note_data">
             <ul class="subheading-list">
-              <li class="subheading-list-item">
+              <li class="subheading-list-item" (click)="viewsubheadingcard(note.id, data.id)">
                 {{ data.note_data_subheading }}
               </li>
             </ul>

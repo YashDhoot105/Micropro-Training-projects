@@ -1,1 +1,26 @@
-<p>taskdetails works!</p>
+<div class="task-details-container">
+    <div class="task-detail-heading-container">
+        <div class="task-heading">
+        <h1 class="task-title">{{activetask?.task_heading}}</h1></div>
+        <div class="priority-duedate">
+        <h4 class="task-detail-duedate"><strong>Due Date :  </strong> <span class="duedate-variable">{{activetask?.task_due_date}}</span></h4>
+        <h4 class="task-detail-priority"><strong>Priority :  </strong> <span class="priority-variable" [ngClass]="{
+            'priority-low-details': activetask?.task_priority_status === 'low',
+            'priority-medium-details': activetask?.task_priority_status === 'medium',
+            'priority-high-details': activetask?.task_priority_status === 'high'
+          }" >{{activetask?.task_priority_status}}</span></h4></div>
+    </div>
+    <hr>
+    <div class="task-detail-body">
+        <div class="task-detail-descriptionheading"> <i class="fa-solid fa-file-lines"></i>Description </div>
+        <div class="task-detail-description">{{activetask?.task_description}}</div>
+        <div class="task-detail-subtaskheading"><i class="fa-duotone fa-solid fa-diagram-subtask"></i>SubTasks </div>
+        <ul class="task-detail-subtask">
+            <li>subtask 1</li>
+            <li>subtask 2</li>
+            <li>subtask 3</li>
+            <li>subtask 4</li>
+        </ul>
+        <p class="task-detail-created-date">{{activetask?.task_created_date}}</p>
+    </div>
+</div>

@@ -1,0 +1,141 @@
+.task-details-container {
+  max-width: 80%;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
+  transition: all 0.5s ease;
+  font-family: "Montserrat";
+  border-radius: 20px;
+  padding: 0px 20px;
+  transition: all 0.5s ease-in-out;
+}
+
+.task-details-container h1 {
+  transition: all 0.5s ease-in-out;
+}
+
+.task-details-container h4 {
+  font-weight: 500;
+  color: gray;
+  margin-top: 30px;
+}
+
+.task-details-container div {
+  transition: all 0.5s ease-in-out;
+}
+
+.task-details-container p {
+  transition: all 0.5s ease-in-out;
+}
+
+.task-details-container:hover {
+  transform: translateY(-5px);
+}
+
+.task-details-container:hover h1 {
+  transition: all 0.5s ease-in-out;
+  transform: translateY(-5px);
+}
+
+.task-details-container:hover div {
+  transition: all 0.5s ease-in-out;
+  transform: translateY(-5px);
+}
+
+.task-details-container:hover p {
+  transition: all 0.5s ease-in-out;
+  transform: translateY(-5px);
+}
+
+.task-detail-heading-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0px 40px;
+  align-items: center;
+}
+
+.task-detail-description {
+  margin-inline: 20px;
+  padding-inline: 30px;
+  margin-top: 10px;
+}
+
+.task-title {
+  /* justify-content: flex-start; */
+}
+.task-detail-priority .task-detail-duedate {
+  /* justify-content: flex-end; */
+}
+
+.task-detail-subtaskheading {
+  color: #adadad;
+  margin-left: 2%;
+  margin-top: 30px;
+  font-weight: light;
+  font-family: 'Space Grotesk';
+}
+
+.task-detail-descriptionheading {
+  color: #adadad;
+  margin-left: 2%;
+  font-weight: light;
+  font-family: 'Space Grotesk';
+}
+
+.task-detail-subtask {
+  margin-inline: 20px;
+  padding-inline: 30px;
+  list-style: none;
+}
+.task-detail-subtask li {
+  padding: 10px;
+}
+
+strong {
+  font-family: 'Space Grotesk';
+}
+
+.priority-medium-details{
+  padding: 6px 10px;
+  background-color: #ffd900;;
+  border-radius: 10px;
+  color: white;
+  font-weight: 500;
+    box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.1);
+
+
+}
+
+.priority-low-details{
+  padding: 6px 10px;
+  background-color: rgb(54, 255, 151);
+  border-radius: 10px;
+  color: white;
+  font-weight: 500;
+    box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.1);
+
+
+}
+
+.priority-high-details{
+  padding: 6px 10px;
+  background-color: #fe1158;
+  border-radius: 10px;
+  color: white;
+  font-weight: 400;
+    box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.1);
+
+
+}
+
+.duedate-variable {
+  padding: 6px 10px;
+  background-color: #e6e6e6;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  box-shadow: 0px 15px 15px rgba(58, 58, 58, 0.1);
+}

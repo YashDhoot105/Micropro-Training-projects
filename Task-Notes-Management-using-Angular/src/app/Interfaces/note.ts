@@ -6,7 +6,7 @@ export interface Note {
 }
 
 export interface Data {
-    id? :Date;
+    id? :string | null | undefined;
     noteid :string | undefined;
     note_data_subheading? : string;
     note_data_content? : string;

@@ -107,6 +107,11 @@ export class NoteService {
     })
   }
 
+  getsinglesubheadingnote(noteid: string | null, subheadingnoteid :string | null) {
+    const url = `${this.notesUrl}/${noteid}`;
+    return this.http.get<Note>(url)
+  }
+
   deletenotefromnotelist(id: string | undefined) {
     const url = `${this.notesUrl}/${id}`
     this.http.delete<void>(url).subscribe((response) => {

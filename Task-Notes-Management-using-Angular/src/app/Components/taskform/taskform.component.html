@@ -1,1 +1,53 @@
-<p>taskform works!</p>
+<div class="modal" *ngIf="isVisible">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    @if(addnewtaskbool){
+    <div class="add-newtask-container">
+      <h2 class="add-new-task-modal-heading">Add New Task</h2>
+      <form class="new-task-modal-form" (ngSubmit)="onSubmit()">
+        <label for="taskTitle">Task Title</label>
+        <input
+          type="text"
+          id="taskTitle"
+          [(ngModel)]="taskheading"
+          name="taskTitle"
+          required
+        />
+
+        <label for="taskDescription">Task Description</label>
+        <textarea
+          id="taskDescription"
+          [(ngModel)]="taskdescription"
+          name="taskDescription"
+          rows="1"
+        ></textarea>
+
+        <label for="duedate">Due Date</label>
+        <input
+          type="date"
+          [(ngModel)]="taskduedate"
+          name="duedate"
+          #datePicker
+          class="hidden-date-picker"
+        />
+
+        <select
+          [(ngModel)]="taskpriority"
+          class="priority-dropdown"
+          name="taskPriority"
+        >
+          <option value="" disabled selected>Priority</option>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+
+        <div class="modal-button-container">
+          <button type="submit" class="save-new-task-button">Save</button>
+          <button type="reset" class="clear-new-task-button">Clear</button>
+        </div>
+      </form>
+    </div>
+    }
+  </div>
+</div>
