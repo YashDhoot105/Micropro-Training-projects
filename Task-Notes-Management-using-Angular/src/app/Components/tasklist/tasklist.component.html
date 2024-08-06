@@ -65,7 +65,7 @@
     @if(filteredtasks.length>0){
     <div
       class="task-bar"
-      *ngFor="let task of filteredtasks; taskfilter: searchedtask"
+      *ngFor="let task of filteredtasks"
       (click)="selectedtask(task.id)"
     >
       <div class="task-bar-without-date">
@@ -100,9 +100,7 @@
               class="priority-status"
             ></span>
             }
-            <span class="task-title"
-              >{{ task.task_heading }}</span
-            >
+            <span class="task-title">{{ task.task_heading }}</span>
           </div>
           }
         </div>
@@ -119,6 +117,7 @@
             [ngClass]="{ 'fa-bounce': plusisHovered }"
             (mouseover)="plusisHovered = true"
             (mouseout)="plusisHovered = false"
+            (click)="addsubtask(task.id)"
           ></i>
           <i
             class="fa-solid fa-pen-to-square"
@@ -135,9 +134,37 @@
           ></i>
         </div>
       </div>
-      <span class="taskbar-date"> <i class="fa-duotone fa-solid fa-diagram-subtask"></i
-        > <i class="fa-solid fa-calendar"></i
-          >{{task.task_due_date}}</span>
+      <span class="taskbar-date">
+        <i
+          class="fa-solid fa-file-lines"
+          *ngIf="task.task_description"
+          (click)="viewtaskdescription(task.id)"
+        ></i>
+        <i
+        class="fa-duotone fa-solid fa-diagram-subtask"
+        *ngIf="task.task_data && task.task_data.length > 0"
+        (click)="viewtasksubtask(task.id)"
+        ></i>
+        <i class="fa-solid fa-calendar" *ngIf="task.task_due_date"></i
+        >{{ task.task_due_date }}</span
+      >
+      <div
+        class="task-description-container"
+        *ngIf="viewtaskdescriptionid === task.id"
+      >
+        <span class="description-heading"
+          ><span>Description</span>
+          <hr class="description" /></span
+        ><div class="task-description">{{ task.task_description }}</div>
+      </div>
+      <div class="task-subtasks-container" *ngIf="viewtasksubtaskid === task.id"><span class="description-heading"
+        ><span>Sub Tasks</span>
+        <hr class="description" /></span>
+        <ul *ngFor="let subtask of task.task_data">
+          <li>{{ subtask.task_data_subtask }}</li>
+        </ul>
+        
+      </div>
     </div>
     } @else {
     <div class="nodatafound">No data found</div>

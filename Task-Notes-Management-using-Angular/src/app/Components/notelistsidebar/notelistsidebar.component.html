@@ -203,9 +203,10 @@
             ></i>
           </div>
         </li>
-        <div *ngIf="note.id === activenote && displaysubheading" class="subheading-container">
+        <div *ngIf="activenoteheadingid === note.id">
           <hr />
-          <p>Subheadings of {{ note.note_heading }}</p>
+          <p> <i class="fa-duotone fa-solid fa-diagram-subtask"></i
+            >Subheadings of {{ note.note_heading }}</p>
           <div *ngFor="let data of currentclickednote?.note_data">
             <ul class="subheading-list">
               <li class="subheading-list-item" (click)="viewsubheadingcard(note.id, data.id)">

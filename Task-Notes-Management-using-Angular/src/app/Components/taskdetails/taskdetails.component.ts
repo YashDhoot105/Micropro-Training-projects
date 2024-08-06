@@ -13,8 +13,11 @@ import { CommonModule } from '@angular/common';
 })
 export class TaskdetailsComponent implements OnInit {
   activetask: Task | undefined;
+  activetaskid: string | undefined;
 
-  constructor(private activatedroute: ActivatedRoute, private taskservice: TaskService) { }
+  constructor(private activatedroute: ActivatedRoute, private taskservice: TaskService) {
+    this.taskservice.activetaskid$.subscribe(activetaskid => this.activetaskid = activetaskid);
+   }
   ngOnInit(): void {
     this.activatedroute.paramMap.subscribe(param => {
       console.log(param.get('id'));

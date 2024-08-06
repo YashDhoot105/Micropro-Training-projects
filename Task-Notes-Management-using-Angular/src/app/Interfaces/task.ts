@@ -1,6 +1,6 @@
 export interface Task {
     id? : string;
-    task_created_date: Date | null;
+    task_created_date: string | null;
     task_id : number;
     task_heading : string;
     task_description?: string;
@@ -11,10 +11,10 @@ export interface Task {
 }
 
 export interface Data {
-    id?: Date;
+    id?: string|undefined|null;
     taskid: string | undefined;
     task_data_subtask?: string;
-    task_data_subtask_created_date?: Date | null;
+    task_data_subtask_created_date?: string | null;
     task_data_subtask_due_date?: Date | null;
 
 }

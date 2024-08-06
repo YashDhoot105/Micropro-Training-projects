@@ -137,3 +137,7 @@
   transform: translateY(-8px);
 }
   
+.new-sub-task-modal-form {
+  display: flex;
+  flex-direction: column;
+}

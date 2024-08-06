@@ -208,6 +208,7 @@ export class NotelistsidebarComponent implements OnInit {
   updatecurrentnoteheading: boolean = false;
   // currenactivetnote:string | undefined=''
   displaysubheading: boolean = false;
+  activenoteheadingid: string | undefined= '';
   newnote: Note = {
     // id:'',                             //dont initialize, then json server auto generated id
     note_id: 0,
@@ -251,7 +252,13 @@ export class NotelistsidebarComponent implements OnInit {
     this.noteservice.activenoteid.next(noteid);
     console.log(noteid + "  kwheb");
     this.activenote = noteid;
-    this.displaysubheading = !this.displaysubheading;
+    if (this.activenoteheadingid === noteid) {
+      this.activenoteheadingid = undefined;
+    }
+    else {
+      this.activenoteheadingid = noteid;
+    }
+    // this.displaysubheading = !this.displaysubheading;
     // this.router.navigate(['/noteslistsidebar', noteid]);
     // const lielement = document.querySelector(".note-heading-with-icons-container-and-inputbar");
     // (lielement as HTMLElement).classList.toggle("activelielement");

@@ -3,7 +3,7 @@ import { ChangeDetectorRef, Component, DoCheck, Input, OnInit, ViewChild } from 
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TaskformComponent } from '../taskform/taskform.component';
-import { Task } from '../../Interfaces/task';
+import { Data, Task } from '../../Interfaces/task';
 import { TaskService } from '../../Services/task.service';
 import { Router } from '@angular/router';
 import { TaskfilterPipe } from "../../Pipes/taskfilter.pipe";
@@ -30,7 +30,9 @@ export class TasklistComponent implements OnInit{
   totalcompletedtasks: number = 0;
   totalincompletetasks: number = 0;
   searchedtask: string = '';
-  filter: string ='';
+  filter: string = '';
+  viewtasksubtaskid: string | undefined = '';
+  viewtaskdescriptionid: string | undefined = '';
 
   
   @ViewChild(TaskformComponent) noteModal!: TaskformComponent;
@@ -38,6 +40,9 @@ export class TasklistComponent implements OnInit{
   constructor(private taskservice: TaskService, private router: Router, private cdr: ChangeDetectorRef) {
     this.taskservice.tasks$.subscribe((task) => {
       this.tasks = task;
+      // this.filteredtasks = this.tasks
+      this.applyfilter(this.filter);
+      this.updateTaskCounts();  
       console.log(this.tasks)
      });
     
@@ -49,11 +54,14 @@ export class TasklistComponent implements OnInit{
     this.taskservice.gettask();
     this.filter = 'all';
     console.log(this.tasks);
-    this.totalcompletedtasks = this.tasks.filter(task => task.task_completion_status === true).length;
-    this.totalincompletetasks = this.tasks.filter(task => task.task_completion_status === false).length;
     this.applyfilter(this.filter);
     console.log("oninit")
     
+  }
+
+  updateTaskCounts() {
+    this.totalcompletedtasks = this.tasks.filter(task => task.task_completion_status === true).length;
+    this.totalincompletetasks = this.tasks.filter(task => task.task_completion_status === false).length;
   }
 
   searchtasks() {
@@ -71,10 +79,10 @@ export class TasklistComponent implements OnInit{
 
   openNoteModal() {
     this.noteModal.openModal();
-    this.taskservice.addnewtask.next(true);
+    this.taskservice.addnewtask.next(true);                      // can open subtask modal from here .....
   }
 
-  handleSave(event: Task) {
+  handleSave(event: Task | Data) {
     console.log('Note saved:', event);
   }
 
@@ -116,20 +124,32 @@ export class TasklistComponent implements OnInit{
   }
 
 
-  taskcompletetoggle(currentclickedtaskid:string|undefined) {
-    this.taskservice.taskcompletetoggle(currentclickedtaskid);
-    this.taskcompleted = true;
-    // this.taskservice.gettask();
+  // taskcompletetoggle(currentclickedtaskid:string|undefined) {
+  //   this.taskservice.taskcompletetoggle(currentclickedtaskid);
+  //   this.taskcompleted = true;
+  //   // this.taskservice.gettask();
 
-    // this.cdr.detectChanges();
+  //   // this.cdr.detectChanges();
+  // }
+
+  // taskincompletetoggle(currentclickedtaskid: string | undefined) {
+  //   this.taskservice.taskincompletetoggle(currentclickedtaskid);
+  //   console.log(this.taskcompleted)
+  //   this.taskcompleted = false;
+  //   // this.taskservice.gettask();
+
+  // }
+
+  taskcompletetoggle(taskid: string | undefined) {
+    this.taskservice.taskcompletetoggle(taskid).add(() => {
+      this.updateTaskCounts();
+    });
   }
-
-  taskincompletetoggle(currentclickedtaskid: string | undefined) {
-    this.taskservice.taskincompletetoggle(currentclickedtaskid);
-    console.log(this.taskcompleted)
-    this.taskcompleted = false;
-    // this.taskservice.gettask();
-
+  
+  taskincompletetoggle(taskid: string | undefined) {
+    this.taskservice.taskincompletetoggle(taskid).add(() => {
+      this.updateTaskCounts();
+    });
   }
 
   viewtask(id :string | undefined) {
@@ -138,5 +158,37 @@ export class TasklistComponent implements OnInit{
 
   deletetask(taskid: string | undefined) {
     this.taskservice.deletetask(taskid);
+    // this.updateTaskCounts();
+  }
+
+  addsubtask(taskid: string | undefined) {
+    this.noteModal.openModal();
+    this.taskservice.addnewsubtask.next(true);
+    console.log("taskkkkkk")
+  }
+
+  // toggle opening of the subtasks of the particular task 
+  viewtasksubtask(taskid: string | undefined) {
+    if (this.viewtasksubtaskid === taskid) {
+      this.viewtasksubtaskid = undefined
+    }
+    else {
+      this.viewtasksubtaskid = taskid;
+    }
+
+    // this.tasksubtask = !this.tasksubtask;
+    // this.taskdescription = false;
+  }
+
+    // toggle opening of the description of the particular task 
+  viewtaskdescription(taskid : string | undefined) {
+    if (this.viewtaskdescriptionid === taskid) {
+      this.viewtaskdescriptionid = undefined
+    }
+    else {
+      this.viewtaskdescriptionid = taskid;
+    }
+    // this.tasksubtask = false;
+    // this.taskdescription = !this.taskdescription;
   }
 }
