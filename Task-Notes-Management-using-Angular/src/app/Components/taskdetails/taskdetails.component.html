@@ -1,3 +1,10 @@
+<div
+      class="go-to-tasklist"
+      [routerLink]="['/tasklist']"
+        >
+      <- go to tasklist
+    </div>
+
 <div class="task-details-container">
     <div class="task-detail-heading-container">
         <div class="task-heading">
@@ -19,7 +26,7 @@
         <div class="task-detail-subtaskheading"><i class="fa-duotone fa-solid fa-diagram-subtask"></i>SubTasks </div>
         <ul class="task-detail-subtask" *ngFor="let subtask of activetask?.task_data">
             <li><span>{{subtask.task_data_subtask}}</span> <span class="subtask-duedate"><i class="fa-solid fa-calendar"></i
-                >{{subtask.task_data_subtask_due_date}}</span></li>
+                >{{subtask.task_data_subtask_created_date}} - {{subtask.task_data_subtask_due_date}}</span></li>
         </ul>
         <p class="task-detail-created-date">{{activetask?.task_created_date}}</p>
     </div>

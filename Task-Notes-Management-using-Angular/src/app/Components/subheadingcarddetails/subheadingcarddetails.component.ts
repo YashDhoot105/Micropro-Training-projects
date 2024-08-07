@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { NoteService } from '../../Services/note.service';
 import { Data, Note } from '../../Interfaces/note';
 
 @Component({
   selector: 'app-subheadingcarddetails',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './subheadingcarddetails.component.html',
   styleUrls: ['./subheadingcarddetails.component.css']
 })

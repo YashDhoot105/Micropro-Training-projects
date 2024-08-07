@@ -83,7 +83,7 @@ export class NoteService {
 
   private notesUrl = 'http://localhost:3000/notes';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   setActiveNoteId(noteId: string | undefined) {
     this.activenoteid.next(noteId);
@@ -107,7 +107,7 @@ export class NoteService {
     })
   }
 
-  getsinglesubheadingnote(noteid: string | null, subheadingnoteid :string | null) {
+  getsinglesubheadingnote(noteid: string | null, subheadingnoteid: string | null) {
     const url = `${this.notesUrl}/${noteid}`;
     return this.http.get<Note>(url)
   }
@@ -116,7 +116,7 @@ export class NoteService {
     const url = `${this.notesUrl}/${id}`
     this.http.delete<void>(url).subscribe((response) => {
       this.notesarray = this.notesarray.filter((note) => note.id !== id);
-      this.notes.next(this.notesarray);
+      this.notes.next([...this.notesarray]);
     })
   }
 
@@ -142,5 +142,42 @@ export class NoteService {
       });
     }
   }
-}
 
+  deletesubnote(noteid: string | undefined, subnoteid: string | undefined) {
+    if (noteid && subnoteid) {
+      const noteindex = this.notesarray.findIndex(note => note.id === noteid);
+      if (noteindex !== -1) {
+        const note = this.notesarray[noteindex];
+        if (note.note_data) {
+          note.note_data = note.note_data.filter(subnote => subnote.id !== subnoteid);
+
+          this.http.put<Note>(`${this.notesUrl}/${noteid}`, note).subscribe((updatednote) => {
+            this.notesarray[noteindex] = updatednote;
+            this.notes.next(this.notesarray);
+          })
+        }
+      }
+    }
+  }
+
+  updatesubnote(noteid: string | undefined, subnoteid: string | undefined, subheading: string, subcontent: string) {
+    if (noteid && subnoteid) {
+      const noteindex = this.notesarray.findIndex(note => note.id === noteid);
+      if (noteindex !== -1) {
+        const note = this.notesarray[noteindex];
+        const subnoteindex = note.note_data?.findIndex(subnote => subnote.id === subnoteid);
+        if (subnoteindex !== undefined && subnoteindex !== -1) {
+          const subnote = note.note_data![subnoteindex];
+          subnote.note_data_subheading = subheading;
+          subnote.note_data_content = subcontent;
+        }
+        this.http.put<Note>(`${this.notesUrl}/${noteid}`, note).subscribe((updatednote) => {
+          this.notesarray[noteindex] = updatednote;
+          this.notes.next(this.notesarray);
+
+        })
+      }
+
+    }
+  }
+}

@@ -383,6 +383,10 @@ h1 {
   cursor: pointer;
 }
 
+.newsubehadingcard input::placeholder, .newsubehadingcard textarea::placeholder {
+  font-family: 'Montserrat';
+}
+
 @media (max-width: 768px) {
   .tasklist-container {
     grid-template-column: 1fr 1fr;

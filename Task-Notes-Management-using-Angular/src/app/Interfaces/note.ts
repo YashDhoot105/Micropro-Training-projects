@@ -1,6 +1,6 @@
 export interface Note {
     id? : string;
-    note_id : number | number;
+    note_id : number;
     note_heading : string;
     note_data? : Data[];
 }

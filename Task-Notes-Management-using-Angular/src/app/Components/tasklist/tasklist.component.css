@@ -228,19 +228,27 @@ transform: scaleY(8);
   width: 10px;
   height: 10px;
   border-radius: 50%;
+  /* outline: 5px solid #f4eaff; */
+
   /* background-color: #7300ff; */
 }
 
 .priority-low {
   background-color: rgb(54, 255, 151);
+  outline: 5px solid #ddffef;
+
 }
 
 .priority-medium {
   background-color: #ffd900;
+  outline: 5px solid #fff9dc;
+
 }
 
 .priority-high {
   background-color: #fe1158;
+  outline: 5px solid #ffe0e0;
+
 }
 
 .task-bar .icons {

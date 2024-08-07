@@ -1,13 +1,18 @@
 <!-- Property 'note_data_subheading' comes from an index signature, so it must be accessed with ['note_data_subheading']. -->
 
 <div class="sub-heading-cards">
-  <h4>{{ data['note_data_subheading'] }}</h4>
+  <h4 *ngIf="!updatecard">{{ data['note_data_subheading'] }}</h4>
+  <h4><input type="text" name="updatedsubnoteheading" *ngIf="updatecard" [(ngModel)]="updatedsubnoteheading"></h4>
   <hr />
-  <div class="content">
+  <div class="content" *ngIf="!updatecard">
     {{ data['note_data_content'] }}
   </div>
+  <div class="content" *ngIf="updatecard">
+    <textarea name="updatedsubnotecontent" [(ngModel)]="updatedsubnotecontent"></textarea>
+  </div>
   <div class="icons">
-    <i class="fa-solid fa-trash" (click)="deletesubheadingcard(data['id'])"></i>
-    <i class="fa-solid fa-pen-to-square"></i>
+    <i class="fa-solid fa-trash" (click)="deletesubheadingcard(data['noteid'], data['id'])"></i>
+    <i class="fa-solid fa-pen-to-square" *ngIf=" !updatecard" (click)="updatesubheadingcardbool(data['noteid'], data['id'])"></i>
+    <i class="fa-solid fa-check" *ngIf="updatecard" (click)="updatesubheadingcard(data['noteid'], data['id'])"></i>
   </div>
 </div>
