@@ -5,22 +5,52 @@
   box-sizing: border-box;
 }
 
+:root {
+  --background-color: #ffffff;
+  --text-color: #000000;
+
+  /* --light-background-color: #f9f9f9; */
+}
+
+[data-theme="dark"] {
+  --background-color: #212121;
+  --text-color: #ffffff;
+  --light-background-color: #353535;
+}
+
+/* .task-bar {
+  background-color: var(--light-background-color);
+} */
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
 /* ///////////////////////////////// NOTELIST CSS  STARTS////////////////////////////////// */
 
 .tasklist-container {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: 1fr 5fr;
-  gap: 50px;
+  grid-auto-columns: 1fr 50fr; /*///////////////////////5fr*/
+  gap: 30px;
+  /* position: relative; */
 }
 
 .tasklist-sidebar-container {
+  /* position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10000; */
   width: 400px;
-  min-height: 100vh;
-  background-color: #ffffff;
+  height: 100vh;
+  background-color: var(--background-color);
   box-shadow: #963eff 0px 10px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-  overflow-y: hidden;
+  box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.1);
+
+  overflow-y: scroll;
+  transition: all 0.2s ease;
 }
 
 .logo {
@@ -44,7 +74,7 @@ hr {
   padding: 10px 10px;
   font-size: 18px;
   color: #7300ff;
-  background-color: #fff;
+  background-color: var(--light-background-color);
   border: none;
   border-radius: 15px;
   box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.1);
@@ -56,7 +86,7 @@ hr {
   margin-bottom: 30px;
 }
 
-.new-note-button-short{
+.new-note-button-short {
   width: 50px;
   height: 45px;
   font-family: "Montserrat";
@@ -92,24 +122,32 @@ hr {
 .notes-list ul li {
   text-align: start;
   margin: 10px;
-  padding: 10px 10px;
+  padding: 15px 10px;
   font-family: "Montserrat";
   font-size: 20px;
-  border-radius: 0px 10px 10px 0px;
+  border-radius: 5px 15px 15px 5px;
   cursor: pointer;
   animation-duration: 0.8s;
   animation-name: slidein;
-list-style-type: none;
+  list-style-type: none;
   transition: all 0.2s ease 0s;
 }
 
 .notes-list li:hover {
-  background-color: #c8a4f5;
+  background-color: rgb(196, 1, 255);
   color: white;
-  border-left: 5px solid rgb(196, 1, 255);
+  border-left: 6px solid rgb(38, 0, 49);
   transform: translateY(-5px);
 }
 
+/* .note-heading-icons{
+  opacity: 0;
+}
+
+.notes-list li:hover .note-heading-icons{
+  opacity: 1;
+
+} */
 .note-heading-with-icons-container {
   display: flex;
   justify-content: space-between;
@@ -233,6 +271,18 @@ list-style-type: none;
   }
 }
 
+.activenotecss {
+  background-color: rgb(196, 1, 255);
+  color: white;
+  border-left: 6px solid rgb(38, 0, 49);
+}
+
+.activenotecss i {
+  /* background-color: rgb(196, 1, 255); */
+  color: white;
+  /* border-left: 6px solid rgb(38, 0, 49); */
+}
+
 .subheading-list {
   border-left: 1px solid rgb(195, 195, 195);
   margin: 0;
@@ -240,6 +290,13 @@ list-style-type: none;
   list-style: none;
   animation-duration: 0.7s;
   animation-name: fadeInDown;
+}
+
+.subheading-list-container {
+  background-color: var(--light-background-color);
+  border-radius: 10px;
+  margin: 10px;
+  
 }
 
 .subheading-list .subheading-list-item::after {
@@ -318,6 +375,26 @@ h1 {
   margin-top: 50px;
   font-family: "Montserrat";
   color: #7300ff;
+  background: linear-gradient(to right, #f54949, #c955ff);
+  /* background: linear-gradient(to right, #f32170, #ff6b08,#cf23cf, #eedd44); */
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+/* .notelistbody-heading-filter-search {
+  background: rgba(38, 38, 38, 0.25);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 10rem );
+  -webkit-backdrop-filter: blur( 10rem );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+} */
+
+.tasklist-body {
+  /* position: absolute;
+  z-index: 10; */
+  height: 100vh;
+  overflow-y: scroll;
 }
 
 .tasklist-body-cards {
@@ -328,8 +405,90 @@ h1 {
 }
 
 .sub-heading-cards {
+  position: relative;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 1;
   font-family: "Montserrat";
-  background-color: #ffffff;
+  background-color: var(--background-color);
+  border: none;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  border-top: 4px solid rgb(196, 1, 255);
+  transition: all 0.2s ease 0s;
+  font-size: 14px;
+  overflow: hidden; /* Hide overflowing content */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 250px; /* Minimum width for the cards */
+  animation-duration: 0.8s;
+  /* animation-name: slidein; */
+}
+
+/* .dot {
+  width: 20px;
+  height: 5px;
+  background: linear-gradient(to right, #7b00ff, #f3f3f3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: moveAround 10s linear infinite;
+}
+
+@keyframes moveAround {
+  0% {
+    top: 0;
+    left: 0;
+  }
+  25% {
+    top: 0;
+    left: 100%;
+    transform: translateX(-100%);
+  }
+  50% {
+    top: 100%;
+    left: 100%;
+    transform: translate(-100%, -100%);
+  }
+  75% {
+    top: 100%;
+    left: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    top: 0;
+    left: 0;
+  }
+} */
+
+/* Hover animation for card from top to bottom */
+
+/* .sub-heading-cards::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to bottom, #d940ff, #9c40ff);
+  transition: transform 0.5s ease;
+  transform: scaleY(0.0);
+  transform-origin: top;
+}
+
+.sub-heading-cards:hover::after {
+  transform: scaleY(1);
+  z-index: -1;
+  color: #f3f3f3;
+} */
+
+.sub-heading-cards-loading {
+  font-family: "Montserrat";
+  background-color: var(--background-color);
   border: none;
   border-radius: 5px;
   padding: 20px;
@@ -347,15 +506,47 @@ h1 {
   animation-name: slidein;
 }
 
+.sub-heading-cards-loading h4 {
+  background-color: #f8f8f8;
+  width: 100%;
+  height: 20px;
+  border-radius: 10px;
+}
+
+.subheading-with-bookmark-icon {
+  display: flex;
+  /* flex-direction: row; */
+  justify-content: space-between;
+}
+
+.bookmark-pin-icon {
+  font-size: 16px;
+}
+
+.sub-heading-cards-loading .content {
+  background-color: #f8f8f8;
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+}
+
 .sub-heading-cards:hover {
   transform: translateY(-8px);
-  background-color: #ffffff;
+  background-color: var(--light-background-color);
   box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.1);
+  /* mask-image: linear-gradient(to bottom, rgb(0, 0, 0) 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%); */
+}
+
+.sub-heading-cards:hover .icons {
+  opacity: 1;
+  transform: translateY(-3px);
 }
 
 .sub-heading-cards h4 {
   transition: all 0.5s ease 0s;
   margin: 0;
+  width: 70%;
   padding-bottom: 10px;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -370,6 +561,9 @@ h1 {
 .sub-heading-cards:hover h4 {
   transform: translateY(-4px);
   color: #7300ff;
+  /* background: linear-gradient(to right, #f54949, #c955ff);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text; */
 }
 
 .sub-heading-cards .icons {
@@ -383,8 +577,9 @@ h1 {
   cursor: pointer;
 }
 
-.newsubehadingcard input::placeholder, .newsubehadingcard textarea::placeholder {
-  font-family: 'Montserrat';
+.newsubehadingcard input::placeholder,
+.newsubehadingcard textarea::placeholder {
+  font-family: "Montserrat";
 }
 
 @media (max-width: 768px) {
@@ -517,18 +712,26 @@ h4 {
 .sub-heading-cards h4 {
   transition: all 0.5s ease 0s;
   margin: 0;
-  padding-bottom: 10px;
+  /* padding-bottom: 10px; */
+  padding-bottom: 0;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
 
-.sub-heading-cards h4 input {
+.sub-heading-cards h4 input:not(.updatedsubhedinginput) {
   width: 100%;
   border: none;
   /* border-bottom: 1px solid #ccc; */
   padding: 10px 5px 0px 5px;
   font-size: 14px;
+  background-color: transparent;
+  color: var(--color);
+}
+
+.updatedsubhedinginput {
+  width: 100%;
+  /* background-color: transparent; */
 }
 
 .sub-heading-cards h4 input:focus {
@@ -541,7 +744,7 @@ h4 {
   margin-bottom: 10px;
 }
 
-.sub-heading-cards textarea {
+.sub-heading-cards textarea:not(.updatesubnotecontenttextarea) {
   width: 100%;
   /* border: 1px solid #ccc; */
   border: none;
@@ -553,8 +756,38 @@ h4 {
   box-sizing: border-box; /* Ensure padding doesn't affect width */
 }
 
+.updatesubnotecontenttextarea {
+  width: 100%;
+  font-family: "montserrat";
+  /* border: 1px solid #ccc; */
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px 10px 10px;
+  font-size: 14px;
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+.list-type-selection {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.list-type-selection i {
+  background-color: rgb(247, 235, 255);
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 12px;
+  margin: 8px 8px;
+}
+
+.sub-heading-cards hr {
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
 .sub-heading-cards textarea {
   outline: none;
+  background-color: transparent;
+  color: var(--color);
 }
 
 .sub-heading-cards:hover h4 {
@@ -564,9 +797,11 @@ h4 {
 
 .sub-heading-cards .icons {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   margin-top: 10px;
   font-size: 18px;
+  opacity: 0;
+  transition: all 0.3s ease-in;
 }
 
 .sub-heading-cards .icons i {
@@ -639,5 +874,5 @@ h4 {
   margin: 30%;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */

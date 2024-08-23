@@ -28,6 +28,17 @@ export class TaskService {
 
   private tasksUrl = 'http://localhost:3000/tasks';
 
+  private theme: 'light' | 'dark' = 'light';
+
+  setTheme(theme: 'light' | 'dark'): void {
+    this.theme = theme;
+    document.documentElement.setAttribute('data-theme', theme);
+  }
+
+getTheme(): 'light' | 'dark' {
+    return this.theme;
+  }
+
 
   constructor(private http: HttpClient) { }
 

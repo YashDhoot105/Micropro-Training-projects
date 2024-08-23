@@ -7,7 +7,13 @@
 
 <div class="subheadingcarddetailscontainer">
 <div class="sub-heading-cards">
+  <div class="subheading-with-bookmark-pin">
     <h4>{{ activenote?.note_data_subheading }}</h4>
+    <div class="bookmark-pin-icon">
+    <span *ngIf="activenote?.note_bookmarked">Bookmarked</span>
+    <span *ngIf="activenote?.note_pinned">Pinned</span>
+  </div>
+  </div>
     <hr />
     <div class="content">
       {{ activenote?.note_data_subheading }}

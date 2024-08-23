@@ -23,3 +23,18 @@
     color: white;
     transform: translateY(-8px);
 }
+
+.subheading-with-bookmark-pin {
+    display: flex;
+    justify-content: space-between;
+}
+
+span {
+    color: #69009e;
+    padding: 10px;
+    background-color: rgb(252, 248, 255);
+    border-radius: 10px;
+    margin-inline: 5px;
+    font-size: 12px;
+    font-weight: 500;
+}

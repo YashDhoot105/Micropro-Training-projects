@@ -1,18 +1,110 @@
 <!-- Property 'note_data_subheading' comes from an index signature, so it must be accessed with ['note_data_subheading']. -->
-
+@defer () {
 <div class="sub-heading-cards">
-  <h4 *ngIf="!updatecard">{{ data['note_data_subheading'] }}</h4>
-  <h4><input type="text" name="updatedsubnoteheading" *ngIf="updatecard" [(ngModel)]="updatedsubnoteheading"></h4>
+  <!-- <div class="dot"></div> -->
+  <div class="subheading-with-bookmark-icon"  *ngIf="!updatecard">
+    <h4>{{ data["note_data_subheading"] }}</h4>
+    <div class="bookmark-pin-icon">
+      <i
+        class="fa-regular fa-bookmark"
+        (click)="bookmarkcard(data['noteid'], data['id'])"
+        *ngIf="!data['note_bookmarked']"
+      ></i>
+      <i
+        class="fa-solid fa-bookmark"
+        (click)="bookmarkcard(data['noteid'], data['id'])"
+        *ngIf="data['note_bookmarked']"
+      ></i>
+      <i
+        class="fa-regular fa-thumbtack"
+        (click)="pincard(data['noteid'], data['id'])"
+        *ngIf="!data['note_pinned']"
+      ></i>
+      <i
+        class="fa-solid fa-thumbtack"
+        (click)="pincard(data['noteid'], data['id'])"
+        *ngIf="data['note_pinned']"
+      ></i>
+    </div>
+  </div>
+  <h4 *ngIf="updatecard" class="updatedsubhedinginput">
+    <input
+      type="text"
+      name="updatedsubnoteheading"
+      *ngIf="updatecard"
+      [(ngModel)]="updatedsubnoteheading"
+    />
+  </h4>
   <hr />
+  <span class="list-type-selection">
+    <i class="fa-solid fa-list-ul" [ngStyle]="{ 'color': updatecard ? '#963eff' : 'gray' }"></i>
+    <i class="fa-solid fa-list-ol" [ngStyle]="{ 'color': updatecard ? '#963eff' : 'gray' }"></i>
+  </span>
   <div class="content" *ngIf="!updatecard">
-    {{ data['note_data_content'] }}
+    {{ data["note_data_content"] }} 
   </div>
   <div class="content" *ngIf="updatecard">
-    <textarea name="updatedsubnotecontent" [(ngModel)]="updatedsubnotecontent"></textarea>
+    <textarea class="updatesubnotecontenttextarea"
+      name="updatedsubnotecontent"
+      [(ngModel)]="updatedsubnotecontent"
+    ></textarea>
   </div>
   <div class="icons">
-    <i class="fa-solid fa-trash" (click)="deletesubheadingcard(data['noteid'], data['id'])"></i>
-    <i class="fa-solid fa-pen-to-square" *ngIf=" !updatecard" (click)="updatesubheadingcardbool(data['noteid'], data['id'])"></i>
-    <i class="fa-solid fa-check" *ngIf="updatecard" (click)="updatesubheadingcard(data['noteid'], data['id'])"></i>
+    <i
+      class="fa-solid fa-trash"
+      (click)="deletesubheadingcard(data['noteid'], data['id'])"
+    ></i>
+    <i
+      class="fa-solid fa-pen-to-square"
+      *ngIf="!updatecard"
+      (click)="updatesubheadingcardbool(data['noteid'], data['id'])"
+    ></i>
+    <i
+      class="fa-solid fa-check"
+      *ngIf="updatecard"
+      (click)="updatesubheadingcard(data['noteid'], data['id'])"
+    ></i>
+    <i class="fa-regular fa-copy" (click)="copyToClipboard(data['note_data_content'])" ></i>
   </div>
 </div>
+}
+<!-- @placeholder {
+  <div class="sub">fmanvbiu whjwvEIB</div>
+} -->
+@loading(minimum 1s) {
+<div class="sub-heading-cards-loading">
+  <h4 *ngIf="!updatecard"></h4>
+  <h4 *ngIf="updatecard">
+    <input
+      type="text"
+      name="updatedsubnoteheading"
+      *ngIf="updatecard"
+      [(ngModel)]="updatedsubnoteheading"
+    />
+  </h4>
+  <hr />
+  <div class="content" *ngIf="!updatecard"></div>
+  <div class="content" *ngIf="updatecard">
+    <textarea
+      name="updatedsubnotecontent"
+      [(ngModel)]="updatedsubnotecontent"
+    ></textarea>
+  </div>
+  <div class="icons">
+    <i
+      class="fa-solid fa-trash"
+      (click)="deletesubheadingcard(data['noteid'], data['id'])"
+    ></i>
+    <i
+      class="fa-solid fa-pen-to-square"
+      *ngIf="!updatecard"
+      (click)="updatesubheadingcardbool(data['noteid'], data['id'])"
+    ></i>
+    <i
+      class="fa-solid fa-check"
+      *ngIf="updatecard"
+      (click)="updatesubheadingcard(data['noteid'], data['id'])"
+    ></i>
+  </div>
+</div>
+}

@@ -149,16 +149,20 @@ export class NoteService {
       if (noteindex !== -1) {
         const note = this.notesarray[noteindex];
         if (note.note_data) {
+          // Remove the specific subnote
           note.note_data = note.note_data.filter(subnote => subnote.id !== subnoteid);
-
+  
+          // Update the note on the server
           this.http.put<Note>(`${this.notesUrl}/${noteid}`, note).subscribe((updatednote) => {
+            // Update the local array and notify subscribers
             this.notesarray[noteindex] = updatednote;
-            this.notes.next(this.notesarray);
-          })
+            this.notes.next([...this.notesarray]);
+          }); 
         }
       }
     }
   }
+  
 
   updatesubnote(noteid: string | undefined, subnoteid: string | undefined, subheading: string, subcontent: string) {
     if (noteid && subnoteid) {
@@ -180,4 +184,59 @@ export class NoteService {
 
     }
   }
+
+  pintask(noteid: string | undefined, subnoteid: string | undefined) {
+    const noteindex = this.notesarray.findIndex(note => note.id === noteid);
+    const note = this.notesarray[noteindex];
+    const subnoteindex = note.note_data?.findIndex(subnote => subnote.id === subnoteid);
+    if (subnoteindex !== undefined && subnoteindex !== -1) {
+
+      const subnote = note.note_data![subnoteindex];
+      console.log(subnote);
+      console.log(subnote);
+      console.log(subnote + " after true");
+      
+      if (!subnote.note_pinned) {
+        subnote.note_originalindex = subnoteindex;
+      }
+
+      subnote.note_pinned = !subnote.note_pinned;
+
+      if (subnote.note_pinned) {
+        // If pinned, move the subnote to the start of the array
+        note.note_data?.splice(subnoteindex, 1); // Remove from the current position
+        note.note_data?.unshift(subnote); // Add to the start
+      } else {
+        // If unpinned, move the subnote back to its original position
+        note.note_data?.splice(subnoteindex, 1); // Remove from the current position
+        note.note_data?.splice(subnote.note_originalindex!, 0, subnote); // Insert at the original position
+        delete subnote.note_originalindex; // Remove the originalIndex property as it's no longer needed
+      }
+
+    }
+    return this.http.put(`${this.notesUrl}/${noteid}`, note).subscribe(updatednote => {
+      console.log(JSON.stringify(updatednote) + " updated note")
+    })
+  }
+
+  // not implemented further functionality for bookmark 
+  bookmarkcard(noteid: string | undefined, subnoteid: string | undefined) {
+    const noteindex = this.notesarray.findIndex(note => note.id === noteid);
+    const note = this.notesarray[noteindex];
+    const subnoteindex = note.note_data?.findIndex(subnote => subnote.id === subnoteid);
+    if (subnoteindex !== undefined && subnoteindex !== -1) {
+
+      const subnote = note.note_data![subnoteindex];
+      console.log(subnote);
+      console.log(subnote);
+      subnote.note_bookmarked = !subnote.note_bookmarked;
+      console.log(subnote +" after true");
+
+    }
+    return this.http.put(`${this.notesUrl}/${noteid}`, note).subscribe(updatednote => {
+      console.log(JSON.stringify(updatednote) + " updated note");
+    })
+  }
+
 }
+

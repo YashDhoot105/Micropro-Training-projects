@@ -23,6 +23,7 @@ export const routes: Routes = [
   { path: 'taskform', component: TaskformComponent },
   { path: 'taskform/:id', component: TaskformComponent },  // For editing tasks
   { path: 'noteslist', component: NoteslistComponent },
+  { path: 'noteslist/:id', component: NoteslistComponent },
   { path: 'subheadingcarddetails', component: SubheadingcarddetailsComponent },
   {path:'subheadingcarddetails/:id/:subheadingnoteid', component:SubheadingcarddetailsComponent}
   

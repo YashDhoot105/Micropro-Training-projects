@@ -94,9 +94,12 @@ export class NotelistbodyComponent implements OnInit {
     noteid:'',
     note_data_subheading: '',
     note_data_content: '',
+    note_bookmarked: false,
+    note_pinned:false
   };
   activenote: Note | undefined;
   notes: Note[] = [];
+  listType: 'ordered' | 'unordered' | null = null; // Default to unordered list
 
   constructor(private noteservice: NoteService) {
   }
@@ -152,4 +155,6 @@ export class NotelistbodyComponent implements OnInit {
     // this.newsubheadingcarddata.note_data_subheading =''
     // this.newsubheadingcarddata.note_data_content =''
   }
+
+  setListType(listType: 'ordered' | 'unordered' ){}
 }

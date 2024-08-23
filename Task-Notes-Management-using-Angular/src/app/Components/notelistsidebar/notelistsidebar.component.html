@@ -1,4 +1,4 @@
-<div class="tasklist-sidebar-container" [ngStyle]="{maxWidth:displaysidebar? '400px': '100px'}">
+<div class="tasklist-sidebar-container" [ngClass]="{'sidebar': displaysidebar}" [ngStyle]="{maxWidth:displaysidebar? '400px': '100px'}">
 
   @if(displaysidebar){
      <div class="looka-1u8s3kb logo" data-testid="editor-canvas-artboard" (click)="togglesidebar()">
@@ -160,7 +160,7 @@
       <!-- <div class="conatiner" *ngFor="let note of notes; trackBy:trackByNoteId"> -->
         <div class="conatiner" *ngFor="let note of notes">
 
-        <li  class="note-heading-with-icons-container-and-inputbar">
+        <li  class="note-heading-with-icons-container-and-inputbar" [ngClass]="{'activenotecss' : (activenote && note.id === activenoteheadingid)}">
           <div
             class="note-heading-with-icons-container"
             *ngIf="!(note.id === activenote && updatecurrentnoteheading)"
@@ -203,10 +203,10 @@
             ></i>
           </div>
         </li>
-        <div *ngIf="activenoteheadingid === note.id">
+        <div *ngIf="activenoteheadingid === note.id" class="subheading-list-container">
           <hr />
-          <p> <i class="fa-duotone fa-solid fa-diagram-subtask"></i
-            >Subheadings of {{ note.note_heading }}</p>
+          <div class="subheading-list-heading"> <i class="fa-duotone fa-solid fa-diagram-subtask"></i
+            >Subheadings of {{ note.note_heading }}</div>
           <div *ngFor="let data of currentclickednote?.note_data">
             <ul class="subheading-list">
               <li class="subheading-list-item" (click)="viewsubheadingcard(note.id, data.id)">

@@ -5,12 +5,12 @@
   margin-inline: auto;
   color: #963eff;
   background-color: rgb(255, 255, 255);
-  font-family: 'Space Grotesk';
+  font-family: "Space Grotesk";
   font-size: 20px;
   cursor: pointer;
   box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
-  transition: all .6s ease;
+  transition: all 0.6s ease;
 }
 
 .go-to-tasklist:hover {
@@ -96,14 +96,14 @@
   margin-left: 2%;
   margin-top: 30px;
   font-weight: light;
-  font-family: 'Space Grotesk';
+  font-family: "Space Grotesk";
 }
 
 .task-detail-descriptionheading {
   color: #adadad;
   margin-left: 2%;
   font-weight: light;
-  font-family: 'Space Grotesk';
+  font-family: "Space Grotesk";
 }
 
 .task-detail-subtask {
@@ -116,40 +116,38 @@
 }
 
 strong {
-  font-family: 'Space Grotesk';
+  font-family: "Space Grotesk";
 }
 
-.priority-medium-details{
+.priority-medium-details {
   padding: 6px 10px;
   background-color: #ffd900;
   /* outline: 10px solid #fff9dc; */
   border-radius: 10px;
   color: white;
   font-weight: 500;
-    box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.1);
-
-
+  box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.1);
 }
 
-.priority-low-details{
+.priority-low-details {
   padding: 6px 10px;
   background-color: rgb(54, 255, 151);
   border-radius: 10px;
   color: white;
   font-weight: 500;
-    box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.1);
 }
 
-.priority-high-details{
+.priority-high-details {
   padding: 6px 10px;
   background-color: #fe1158;
   border-radius: 10px;
   color: white;
   font-weight: 400;
-    box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.1);
 }
 
-.priority-null-details::before{
+.priority-null-details::before {
   content: "Not defined";
   background-color: #f7f7f7;
   padding: 6px 10px;
@@ -167,7 +165,7 @@ strong {
   box-shadow: 0px 15px 15px rgba(58, 58, 58, 0.1);
 }
 
-.duedate-null-details::before{
+.duedate-null-details::before {
   content: "Not defined";
   background-color: #f7f7f7;
   padding: 6px 10px;
@@ -184,5 +182,5 @@ strong {
   color: #adadad;
   margin-left: 2%;
   font-weight: light;
-  font-family: 'Space Grotesk';
+  font-family: "Space Grotesk";
 }

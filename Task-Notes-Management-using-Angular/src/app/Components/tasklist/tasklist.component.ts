@@ -56,8 +56,12 @@ export class TasklistComponent implements OnInit{
     console.log(this.tasks);
     this.applyfilter(this.filter);
     console.log("oninit")
-    
   }
+
+  // toggleTheme(): void {
+  //   const currentTheme = this.taskservice.getTheme();
+  //   this.taskservice.setTheme(currentTheme === 'light' ? 'dark' : 'light');
+  // }
 
   updateTaskCounts() {
     this.totalcompletedtasks = this.tasks.filter(task => task.task_completion_status === true).length;

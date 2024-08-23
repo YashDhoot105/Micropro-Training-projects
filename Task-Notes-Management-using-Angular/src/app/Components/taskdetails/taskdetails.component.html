@@ -1,33 +1,62 @@
-<div
-      class="go-to-tasklist"
-      [routerLink]="['/tasklist']"
-        >
-      <- go to tasklist
-    </div>
+<div class="go-to-tasklist" [routerLink]="['/tasklist']"><- go to tasklist</div>
 
 <div class="task-details-container">
-    <div class="task-detail-heading-container">
-        <div class="task-heading">
-        <h1 class="task-title">{{activetask?.task_heading}}</h1></div>
-        <div class="priority-duedate">
-        <h4 class="task-detail-duedate"><strong>Due Date :  </strong> <span class="duedate-variable" [ngClass]="{
-            'duedate-null-details': activetask?.task_due_date === null}">{{activetask?.task_due_date}}</span></h4>
-        <h4 class="task-detail-priority"><strong>Priority :  </strong> <span class="priority-variable" [ngClass]="{
+  <div class="task-detail-heading-container">
+    <div class="task-heading">
+      <h1 class="task-title">{{ activetask?.task_heading }}</h1>
+    </div>
+    <div class="priority-duedate">
+      <h4 class="task-detail-duedate">
+        <strong>Due Date : </strong>
+        <span
+          class="duedate-variable"
+          [ngClass]="{
+            'duedate-null-details': activetask?.task_due_date === null
+          }"
+          >{{ activetask?.task_due_date }}</span
+        >
+      </h4>
+      <h4 class="task-detail-priority">
+        <strong>Priority : </strong>
+        <span
+          class="priority-variable"
+          [ngClass]="{
             'priority-low-details': activetask?.task_priority_status === 'low',
-            'priority-medium-details': activetask?.task_priority_status === 'medium',
-            'priority-high-details': activetask?.task_priority_status === 'high',
-            'priority-null-details' : activetask?.task_priority_status === ''
-          }" >{{activetask?.task_priority_status}}</span></h4></div>
+            'priority-medium-details':
+              activetask?.task_priority_status === 'medium',
+            'priority-high-details':
+              activetask?.task_priority_status === 'high',
+            'priority-null-details': activetask?.task_priority_status === ''
+          }"
+          >{{ activetask?.task_priority_status }}</span
+        >
+      </h4>
     </div>
-    <hr>
-    <div class="task-detail-body">
-        <div class="task-detail-descriptionheading"> <i class="fa-solid fa-file-lines"></i>Description </div>
-        <div class="task-detail-description">{{activetask?.task_description}}</div>
-        <div class="task-detail-subtaskheading"><i class="fa-duotone fa-solid fa-diagram-subtask"></i>SubTasks </div>
-        <ul class="task-detail-subtask" *ngFor="let subtask of activetask?.task_data">
-            <li><span>{{subtask.task_data_subtask}}</span> <span class="subtask-duedate"><i class="fa-solid fa-calendar"></i
-                >{{subtask.task_data_subtask_created_date}} - {{subtask.task_data_subtask_due_date}}</span></li>
-        </ul>
-        <p class="task-detail-created-date">{{activetask?.task_created_date}}</p>
+  </div>
+  <hr />
+  <div class="task-detail-body">
+    <div class="task-detail-descriptionheading">
+      <i class="fa-solid fa-file-lines"></i>Description
     </div>
+    <div class="task-detail-description">
+      {{ activetask?.task_description }}
+    </div>
+    <div class="task-detail-subtaskheading">
+      <i class="fa-duotone fa-solid fa-diagram-subtask"></i>SubTasks
+    </div>
+    <ul
+      class="task-detail-subtask"
+      *ngFor="let subtask of activetask?.task_data"
+    >
+      <li>
+        <span>{{ subtask.task_data_subtask }}</span>
+        <span class="subtask-duedate"
+          ><i class="fa-solid fa-calendar"></i
+          >{{ subtask.task_data_subtask_created_date }} -
+          {{ subtask.task_data_subtask_due_date }}</span
+        >
+      </li>
+    </ul>
+    <p class="task-detail-created-date">{{ activetask?.task_created_date }}</p>
+  </div>
 </div>

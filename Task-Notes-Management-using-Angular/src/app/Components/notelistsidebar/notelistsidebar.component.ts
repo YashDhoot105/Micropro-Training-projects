@@ -181,7 +181,7 @@
 ///////////////////////////////////////////////////////////////////////
 
 import { Component, OnInit } from '@angular/core';
-import { Note } from '../../Interfaces/note';
+import { Data, Note } from '../../Interfaces/note';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NoteService } from '../../Services/note.service';
@@ -239,6 +239,10 @@ export class NotelistsidebarComponent implements OnInit {
     this.loadnotesheadingtonotelist();
   }
 
+  // subheadingcardid(id: string, data:Data) {
+  //   return data.id
+  // }
+
   loadnotesheadingtonotelist() {
     this.noteservice.getnotestonotelist();
     console.log(this.notes);
@@ -249,6 +253,8 @@ export class NotelistsidebarComponent implements OnInit {
   }
 
   selectednote(noteid: string | undefined) {
+    this.router.navigate(['/noteslist', noteid]);
+
     this.noteservice.activenoteid.next(noteid);
     console.log(noteid + "  kwheb");
     this.activenote = noteid;
@@ -282,6 +288,7 @@ export class NotelistsidebarComponent implements OnInit {
     this.noteservice.addnoteheadingtonotelist(this.newnote);
     this.newnoteheading = '';
     this.newnoteplus = true;
+    // window.location.href="http://localhost:4200/"
   }
 
   deletenoteheading(noteid: string | undefined) {

@@ -3,8 +3,20 @@
 </div>
 
 <div class="tasklist-body" *ngIf="activenote != undefined">
+  <div class="notelistbody-heading-filter-search">
   <h1 class="current-note-heading">{{ activenote.note_heading }}</h1>
-  <hr />
+  <!-- <input type="text" placeholder="Search...">
+  <div class="bookmarked-pin-filter">
+    <span class="bookmarked-filter">Bookmarked</span>
+    <span class="pinned-filter">Pinned</span>
+
+  </div> -->
+</div>
+<div class="container">
+      <div class="one"></div>
+      <div class="two"></div>
+  </div>
+  <!-- <hr /> -->
   <div class="tasklist-body-cards">
     <div class="sub-heading-cards newsubehadingcard" *ngIf="addsubheadingcard">
       <h4>
@@ -15,6 +27,11 @@
         />
       </h4>
       <hr />
+      <span class="list-type-selection">
+        <i class="fa-solid fa-list-ul" (click)="setListType('ordered')"></i>
+        <i class="fa-solid fa-list-ol" (click)="setListType('unordered')"></i>
+      </span>
+      
       <div class="content">
         <textarea
           type="text"
@@ -50,9 +67,18 @@
     </div> -->
 
     <!-- using input decorator  -->
+     <!-- @defer (on viewport) { -->
     <app-notelistsubheadingcards
       *ngFor="let data of activenote?.note_data"
       [data]="data"
+      class="sub-heading-cardss"
     ></app-notelistsubheadingcards>
+     <!-- } -->
+     <!-- @placeholder { -->
+      <!-- <div>no subheading cards</div> -->
+     <!-- } -->
+     <!-- @loading (minimum 5s) { -->
+      <!-- <p>Loading comments...</p> -->
+      <!-- } -->
   </div>
 </div>
