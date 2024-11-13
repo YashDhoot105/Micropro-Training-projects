@@ -78,7 +78,6 @@
 @media screen and (max-width: 768px) {
   .container {
     margin: 5% 5% 5% 5%;
-    /* background-color: blue; */
   }
   .form-group {
     margin: 10px 2% 10px 2%;
@@ -87,7 +86,6 @@
 @media screen and (max-width: 480px) {
   .container {
     margin: 5% 2% 5% 2%;
-    /* background-color: black; */
   }
   .form-group {
     margin: 10px 1% 10px 1%;

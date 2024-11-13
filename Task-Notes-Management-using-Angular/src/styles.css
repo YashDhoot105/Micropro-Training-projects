@@ -429,6 +429,23 @@ h1 {
   /* animation-name: slidein; */
 }
 
+/* .sub-heading-cards::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at var(--cursor-x, 50%) var(--cursor-y, 50%), rgba(200, 0, 255, 0.5), rgba(0, 0, 0, 0));
+  pointer-events: none; 
+  transition: background 0.2s ease; 
+  opacity: 0; 
+}
+
+.sub-heading-cards:hover::before {
+  opacity: 1; 
+} */
+
 /* .dot {
   width: 20px;
   height: 5px;
@@ -578,7 +595,7 @@ h1 {
 }
 
 .newsubehadingcard input::placeholder,
-.newsubehadingcard textarea::placeholder {
+.newsubehadingcard textarea::placeholder,.newsubehadingcard textarea {  
   font-family: "Montserrat";
 }
 

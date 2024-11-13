@@ -272,7 +272,7 @@
       "task_id": 2,
       "task_heading": "subtask 2 for task 12",
       "task_description": "des",
-      "task_completion_status": false,
+      "task_completion_status": true,
       "task_priority_status": "medium",
       "task_due_date": "2024-08-14",
       "task_data": []

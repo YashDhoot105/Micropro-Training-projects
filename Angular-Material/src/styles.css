@@ -1,0 +1,50 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+} */
+
+
+
+/* styles.css */
+* {
+  background-color: rgb(255, 255, 255);
+}
+
+.sidenav-container{
+  /* background-color: aliceblue !important; */
+  color: blueviolet;
+}
+a {
+  text-decoration: none ;
+}
+.sidenav-container {
+  height: 100vh;
+}
+
+mat-sidenav {
+  width: 250px;
+}
+
+mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.content {
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  mat-sidenav {
+    width: 200px;
+  }
+}
+
+

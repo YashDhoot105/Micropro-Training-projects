@@ -1,0 +1,198 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    // background-color: rgb(28, 28, 28);
+}
+
+///////////////////////// login ////////////////////////////////
+// Variables
+$primary-color-100: #f0fff4;
+$primary-color-200: #e0ffea;
+$primary-color-300: #b2f7ca;
+$primary-color-400: #83ebab;
+$primary-color-500: #59de90;
+$primary-color-600: #33d17a;
+$primary-color-700: #20ab63;
+$primary-color-800: #13854d;
+$primary-color-900: #085e38;
+$primary-color-1000: #043823;
+
+
+
+$secondary-color: #085e38;
+$font-family-primary: "Montserrat";
+$font-family-secondary: "Space Grotesk", sans-serif;
+$box-shadow-color: rgba(205, 205, 205, 0.48);
+$button-box-shadow: rgba(0, 0, 0, 0.1);
+$input-border-color: #9b9b9b;
+$hover-border-color: #8d8b8b;
+$focus-border-color: $primary-color-100;
+
+// Mixins
+@mixin gradient-text {
+  color: transparent;
+  background: linear-gradient(to right, $primary-color-100, $primary-color-1000);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin box-shadow($x: 0px, $y: 8px, $blur: 15px, $color: $button-box-shadow) {
+  box-shadow: $x $y $blur $color;
+}
+
+@mixin transition($property: all, $duration: 0.4s, $timing: ease-in-out) {
+  transition: $property $duration $timing;
+}
+
+.login-container {
+    max-width: 500px;
+    margin-inline: auto;
+    margin-top: 5%;
+    background-color: $primary-color-100;
+    // @include box-shadow(6px, 2px, 16px, $box-shadow-color);
+    font-family: $font-family-primary;
+    border: 1px solid $primary-color-300;
+    border-radius: 20px;
+  
+    &-body {
+      padding: 20px;
+    }
+  
+    .login-heading {
+      text-align: center;
+      font-family: $font-family-secondary;
+      @include gradient-text;
+      margin: 20px;
+    }
+  
+    .login-clear-button-container {
+      margin-top: 30px;
+      display: flex;
+      gap: 80px;
+      justify-content: center;
+    }
+  
+    .login-button,
+    .clear-button {
+      font-family: $font-family-secondary;
+      color: $secondary-color;
+      background-color: white;
+      border: none;
+      border-radius: 15px;
+      font-size: 20px;
+      padding: 15px;
+      cursor: pointer;
+      margin: 10px;
+      @include box-shadow;
+      transition: all .6s ease 0s;
+  
+      &:hover {
+        background-color: $primary-color-100;
+        color: $primary-color-800;
+        @include transition;
+        transform: translateY(-8px);
+      }
+    }
+  
+    input {
+        background-color: transparent;
+      font-size: 18px;
+      display: block;
+      margin: 10px auto;
+      border: none;
+      border-bottom: 1.5px solid $input-border-color;
+      width: 80%;
+      padding-top: 25px;
+      padding-bottom: 10px;
+      font-family: $font-family-primary;
+  
+      &:hover {
+        border-bottom: 2px solid $hover-border-color;
+      }
+  
+      &:focus {
+        outline: none;
+        border-bottom: 2px solid $focus-border-color;
+      }
+  
+      &::placeholder {
+        color: $input-border-color;
+        margin: 20px;
+        @include transition;
+      }
+  
+      &:focus::placeholder,
+      &:not(:placeholder-shown)::placeholder {
+        // @include gradient-text;
+        color: $primary-color-700;
+      }
+    }
+  
+    .error-message {
+      color: red;
+      margin-left: 50px;
+    }
+  
+    p {
+      text-align: center;
+      padding: 20px;
+    }
+  
+    hr {
+      margin: 20px 0;
+      height: 1px;
+      color: #f8f8f8;
+    }
+  
+    .enter-valid-details {
+      text-align: center;
+    }
+  
+    a {
+      text-decoration: none;
+  
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+}
+
+
+// .login-container {
+//     position: relative;
+//     z-index: 2;
+//     backdrop-filter: blur(10rem);
+//     background-color: #fbfbfb;
+//     // width: 100%;
+//     // margin-block: 20px;
+//   }
+  
+//   .effect {
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     max-width: 500px;
+//     width: 500px;
+//     height: 300px;
+//     background-color: rgb(174, 229, 255);
+//     /* background: linear-gradient(to right, #f54949, #c955ff 50%); */
+//     filter: blur(10rem);
+//     z-index: 1; /* Lower z-index to place it behind */
+//     transform: translate(-50%, -50%); /* Centering */
+//     animation-name: scale;
+//     animation-duration: .5s;
+//     transition: scale 1s ease-in-out;
+//   }
+  
+//   .login-container-body {
+//     position: relative;
+//     // background: linear-gradient(to right, transparent, #f54949, #c955ff 50%);
+//     z-index: 2; /* Higher z-index to place it above .one */
+//     animation-name: scale;
+//     animation-duration: .5s;
+//     transition: scale 1s ease-in-out;
+//     /* animation-timeline: scroll(); */
+//   }

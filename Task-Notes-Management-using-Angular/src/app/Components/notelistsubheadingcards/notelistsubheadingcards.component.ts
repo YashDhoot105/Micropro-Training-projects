@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { Data } from '@angular/router';
 import { NoteService } from '../../Services/note.service';
 import { CommonModule } from '@angular/common';
@@ -84,5 +84,18 @@ export class NotelistsubheadingcardsComponent implements OnInit{
         alert('Could not copy text: '+ err);
       }
     );
+  }
+
+  @HostListener('mousemove', ['$event'])
+  onMouseMove(event: MouseEvent): void {
+    const container = document.querySelector('.sub-heading-cards') as HTMLElement;
+    if (container) {
+      const rect = container.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+
+      container.style.setProperty('--cursor-x', `${x}px`);
+      container.style.setProperty('--cursor-y', `${y}px`);
+    }
   }
 }

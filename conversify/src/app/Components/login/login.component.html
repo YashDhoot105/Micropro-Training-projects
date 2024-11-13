@@ -1,0 +1,78 @@
+<!-- <p>login works!</p> -->
+<div class="login">
+<div class="login-container">
+  <div class="effect"></div>
+  <div class="login-container-body">
+    <div class="login-heading-container">
+      <h1 class="login-heading">Login</h1>
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <input
+        type="email"
+        class="user-name"
+        id="user-name"
+        placeholder=" Username"
+        formControlName="login_email"
+      />
+      <div
+        class="error-messages-for-inputs"
+        *ngIf="
+          loginForm.controls['login_email']?.invalid &&
+          (loginForm.controls['login_email']?.touched ||
+            loginForm.controls['login_email']?.dirty)
+        "
+      >
+        <div class="error-message" *ngIf="loginForm.controls['login_email']?.errors?.['required']">
+          Username is required
+        </div>
+        <div class="error-message"
+          *ngIf="loginForm.controls['login_email']?.errors?.['minlength']"
+        >
+          Minimum length of username should be 2 characters
+        </div>
+        <div class="error-message"
+          *ngIf="loginForm.controls['login_email']?.errors?.['maxlength']"
+        >
+          Maximum length of username should be 25 characters
+        </div>
+      </div>
+      <input
+        type="password"
+        class="password"
+        id="password"
+        placeholder=" Password"
+        formControlName="login_password"
+      />
+      <div
+        class="error-messages-for-inputs"
+        *ngIf="
+          loginForm.controls['login_password']?.invalid &&
+          (loginForm.controls['login_password']?.touched ||
+            loginForm.controls['login_password']?.dirty)
+        "
+      >
+        <div class="error-message" *ngIf="loginForm.controls['login_password']?.errors?.['required']">
+          Password is required
+        </div>
+        <div class="error-message"
+          *ngIf="loginForm.controls['login_password']?.errors?.['minlength']"
+        >
+          Minimum length of password should be 10 characters
+        </div>
+      </div>
+      <div class="login-clear-button-container">
+        <button class="login-button" [disabled]=(loginForm.invalid)>Login</button>
+        <button type="reset" class="clear-button">Clear</button>
+      </div>
+      <div class="error-messages-for-inputs enter-valid-details">
+        <div *ngIf="loginForm.invalid && (loginForm.touched || loginForm.dirty)" class="error-message">
+          Enter valid details
+      </div>
+      </div>
+      <p class="register-link">
+        Don't have an account ? <a [routerLink]="['/register']">Register</a>
+      </p>
+    </form>
+  </div>
+</div>
+</div>

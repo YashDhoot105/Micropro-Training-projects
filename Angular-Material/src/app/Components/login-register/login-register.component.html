@@ -1,0 +1,186 @@
+<div class="login-register-container">
+  <mat-tab-group>
+    <mat-tab label="Admin" class="label-admin label">
+      <h1>Admin</h1>
+      <form [formGroup]="loginform" (ngSubmit)="login()">
+        <mat-form-field class="example-full-width">
+          <mat-label>Username</mat-label>
+          <input
+            matInput
+            type="text"
+            class="user-name"
+            id="user-name"
+            formControlName="login_username"
+          />
+        </mat-form-field>
+        <div
+          class="error-messages-for-inputs"
+          *ngIf="
+            loginform.controls['login_username']?.invalid &&
+            (loginform.controls['login_username']?.touched ||
+              loginform.controls['login_username']?.dirty)
+          "
+        >
+          <div
+            class="error-message"
+            *ngIf="loginform.controls['login_username']?.errors?.['required']"
+          >
+            Username is required
+          </div>
+          <div
+            class="error-message"
+            *ngIf="loginform.controls['login_username']?.errors?.['minlength']"
+          >
+            Minimum length of username should be 2 characters
+          </div>
+          <div
+            class="error-message"
+            *ngIf="loginform.controls['login_username']?.errors?.['maxlength']"
+          >
+            Maximum length of username should be 25 characters
+          </div>
+        </div>
+        <mat-form-field class="example-full-width">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            type="password"
+            class="password"
+            id="password"
+            formControlName="login_password"
+          />
+        </mat-form-field>
+
+        <div
+          class="error-messages-for-inputs"
+          *ngIf="
+            loginform.controls['login_password']?.invalid &&
+            (loginform.controls['login_password']?.touched ||
+              loginform.controls['login_password']?.dirty)
+          "
+        >
+          <div
+            class="error-message"
+            *ngIf="loginform.controls['login_password']?.errors?.['required']"
+          >
+            Password is required
+          </div>
+          <div
+            class="error-message"
+            *ngIf="loginform.controls['login_password']?.errors?.['minlength']"
+          >
+            Minimum length of password should be 10 characters
+          </div>
+        </div>
+        <div class="login-clear-button-container">
+          <button mat-raised-button class="login-button" [disabled]="loginform.invalid">
+            Login
+          </button>
+          <button mat-raised-button type="reset" class="clear-button">Clear</button>
+        </div>
+        <div class="error-messages-for-inputs enter-valid-details">
+          <div
+            *ngIf="loginform.invalid && (loginform.touched || loginform.dirty)"
+            class="error-message"
+          >
+            Enter valid details
+          </div>
+        </div>
+        <p class="register-link">
+          Don't have an account ? <a [routerLink]="['/login']">Register</a>
+        </p>
+      </form>
+    </mat-tab>
+    <mat-tab label="User">
+      <h1>User</h1>
+      <form [formGroup]="loginform" (ngSubmit)="login()">
+        <mat-form-field class="example-full-width">
+          <mat-label>Username</mat-label>
+          <input
+            matInput
+            type="text"
+            class="user-name"
+            id="user-name"
+            formControlName="login_username"
+          />
+        </mat-form-field>
+        <div
+          class="error-messages-for-inputs"
+          *ngIf="
+            loginform.controls['login_username']?.invalid &&
+            (loginform.controls['login_username']?.touched ||
+              loginform.controls['login_username']?.dirty)
+          "
+        >
+          <div
+            class="error-message"
+            *ngIf="loginform.controls['login_username']?.errors?.['required']"
+          >
+            Username is required
+          </div>
+          <div
+            class="error-message"
+            *ngIf="loginform.controls['login_username']?.errors?.['minlength']"
+          >
+            Minimum length of username should be 2 characters
+          </div>
+          <div
+            class="error-message"
+            *ngIf="loginform.controls['login_username']?.errors?.['maxlength']"
+          >
+            Maximum length of username should be 25 characters
+          </div>
+        </div>
+        <mat-form-field class="example-full-width">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            type="password"
+            class="password"
+            id="password"
+            formControlName="login_password"
+          />
+        </mat-form-field>
+
+        <div
+          class="error-messages-for-inputs"
+          *ngIf="
+            loginform.controls['login_password']?.invalid &&
+            (loginform.controls['login_password']?.touched ||
+              loginform.controls['login_password']?.dirty)
+          "
+        >
+          <div
+            class="error-message"
+            *ngIf="loginform.controls['login_password']?.errors?.['required']"
+          >
+            Password is required
+          </div>
+          <div
+            class="error-message"
+            *ngIf="loginform.controls['login_password']?.errors?.['minlength']"
+          >
+            Minimum length of password should be 10 characters
+          </div>
+        </div>
+        <div class="login-clear-button-container">
+          <button mat-raised-button class="login-button" [disabled]="loginform.invalid">
+            Login
+          </button>
+          <button mat-raised-button type="reset" class="clear-button">Clear</button>
+        </div>
+        <div class="error-messages-for-inputs enter-valid-details">
+          <div
+            *ngIf="loginform.invalid && (loginform.touched || loginform.dirty)"
+            class="error-message"
+          >
+            Enter valid details
+          </div>
+        </div>
+        <p class="register-link">
+          Don't have an account ? <a [routerLink]="['/login']">Register</a>
+        </p>
+      </form>
+    </mat-tab>
+  </mat-tab-group>
+</div>

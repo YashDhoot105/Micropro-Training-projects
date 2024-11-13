@@ -1,0 +1,92 @@
+
+
+.gradient-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden; /* Ensure the gradient does not overflow */
+}
+
+.gradient-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at var(--cursor-x, 50%) var(--cursor-y, 50%), rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0));
+    pointer-events: none; /* Ensure the gradient does not interfere with user interactions */
+    transition: background 0.2s ease; /* Smooth transition */
+}
+
+.container {
+    margin-top: 10%;
+    max-width: 1000px;
+    margin-inline: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 100px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    position: relative; /* Add position relative to the container */
+    
+
+}
+
+.one{
+    width: 10px;
+    height: 500px;
+    /* aspect-ratio: 1; */
+    /* background-color: rgb(204, 52, 255); */
+    background-color: rgb(52, 255, 177);
+
+    filter: blur(10rem);
+    position: absolute; /* Position it absolutely within the container */
+    top: 50%; /* Center it vertically */
+    left: 50%; /* Center it horizontally */
+    transform: translate(-50%, -50%); /* Adjust position to the center */
+    z-index: 1; /* Set a lower z-index */
+    /* box-shadow: inset 0 1px 1px rgba(255,255,255,.1); */
+}
+
+.two {
+
+    width: 3px;
+    height: 450px;
+    /* aspect-ratio: 1; */
+    background-color: black;
+    color: rgb(0, 0, 0);
+    /* padding-inline: 20px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid gray; */
+    /* border-radius: 10px; */
+    position: relative; /* Position relative within the container */
+    z-index: 2; /* Higher z-index to place it above .one */
+    /* background: linear-gradient(transparent, rgb(4, 176, 255), rgb(0, 255, 187) 50%); */
+    background: linear-gradient(transparent, rgb(0, 229, 255),rgb(4, 255, 188), rgb(0, 255, 119) 50%);
+
+    animation-name: scale;
+    animation-duration: .5s;
+    /* animation-iteration-count: infinite; */
+    transition: scale 1s ease-in-out;
+    /* animation-timeline:scroll ; */
+}
+
+@keyframes scale {
+    0% {
+        /* transform: scaleY(.05); */
+        height: 10px;
+    }
+    
+    100% {
+        /* transform: scaleY(1); */
+        height: 450px;
+
+    }
+}
